@@ -1,0 +1,824 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>  图神经网络 |    white.</title>
+  <meta name="description" content="A minimalist theme for hexo.">
+  <!-- 标签页图标 -->
+  
+
+  <!-- 图标库 -->
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@2.2.0/fonts/remixicon.css" rel="stylesheet">
+  <!-- 动画库 -->
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fushaolei/cdn-white@1.0/css/animate.css"/>
+  
+  <!-- css文件 -->
+  
+<link rel="stylesheet" href="/css/white.css">
+
+  <!-- 代码高亮 -->
+  
+    
+      
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.1.1/styles/github.css">
+
+    
+  
+<meta name="generator" content="Hexo 6.2.0"><link rel="alternate" href="/atom.xml" title="体素储洁" type="application/atom+xml">
+</head>
+
+
+<body>
+
+<div class="menu-outer">
+    <div class="menu-inner">
+      <div class="menu-site-name  animate__animated  animate__fadeInUp">
+        <a href="/">
+          white.
+        </a>
+        
+      </div>
+      <div class="menu-group">
+        <ul class="menu-ul">
+        
+          <a href="/" class="nav-link">
+            <li class="menu-li  animate__animated  animate__fadeInUp">
+              Home
+            </li>
+          </a>
+        
+          <a href="/categories/blog" class="nav-link">
+            <li class="menu-li  animate__animated  animate__fadeInUp">
+              Blog
+            </li>
+          </a>
+        
+          <a href="/categories/gallery" class="nav-link">
+            <li class="menu-li  animate__animated  animate__fadeInUp">
+              Gallery
+            </li>
+          </a>
+        
+          <a href="/categories/tool" class="nav-link">
+            <li class="menu-li  animate__animated  animate__fadeInUp">
+              Tool
+            </li>
+          </a>
+        
+          <a href="/about" class="nav-link">
+            <li class="menu-li  animate__animated  animate__fadeInUp">
+              About
+            </li>
+          </a>
+        
+          <a href="/archives" class="nav-link">
+            <li class="menu-li  animate__animated  animate__fadeInUp">
+              Archive
+            </li>
+          </a>
+        
+        
+        
+       
+        
+        <a href="/search">
+          <li class="menu-li  animate__animated  animate__fadeInUp">
+            <i class="ri-search-line"></i>
+          </li>
+        </a>
+        
+          <li class="menu-li animate__animated  animate__fadeInUp" id="mobile-menu">
+            <i class="ri-menu-line"></i>
+          </li>
+        
+        </ul>
+
+      </div>
+
+    </div>
+</div>
+<div id="mobile-main" class="animate__animated  animate__fadeIn">
+  <div class="mobile-menu-inner">
+    <div class="mobile-menu-site-name animate__animated  animate__fadeInUp">
+      <a href="/">
+        white.
+      </a>
+    </div>
+    <div class="mobile-menu-group" id="mobile-close">
+      <i class="ri-close-line"></i>
+    </div>
+
+  </div>
+
+  <div class="mobile-menu-div">
+  
+    <a href="/" class="mobile-nav-link">
+      <div class="mobile-menu-child animate__animated  animate__fadeInUp">
+        <span>Home</span>
+      </div>
+    </a>
+  
+    <a href="/categories/blog" class="mobile-nav-link">
+      <div class="mobile-menu-child animate__animated  animate__fadeInUp">
+        <span>Blog</span>
+      </div>
+    </a>
+  
+    <a href="/categories/gallery" class="mobile-nav-link">
+      <div class="mobile-menu-child animate__animated  animate__fadeInUp">
+        <span>Gallery</span>
+      </div>
+    </a>
+  
+    <a href="/categories/tool" class="mobile-nav-link">
+      <div class="mobile-menu-child animate__animated  animate__fadeInUp">
+        <span>Tool</span>
+      </div>
+    </a>
+  
+    <a href="/about" class="mobile-nav-link">
+      <div class="mobile-menu-child animate__animated  animate__fadeInUp">
+        <span>About</span>
+      </div>
+    </a>
+  
+    <a href="/archives" class="mobile-nav-link">
+      <div class="mobile-menu-child animate__animated  animate__fadeInUp">
+        <span>Archive</span>
+      </div>
+    </a>
+  
+  
+    <a href="/search">  
+      <div class="mobile-menu-child  animate__animated  animate__fadeInUp">
+        <i class="ri-search-line"></i>
+      </div>
+    </a>
+    
+  </div>
+
+
+</div>
+
+<div class="body-outer">
+  <div class="body-inner">
+    
+<article class="post-inner">
+  <div class="post-content-outer">
+    <div class="post-intro">
+      <div class="post-title animate__animated  animate__fadeInUp">图神经网络</div>
+      <div class="meta-intro animate__animated  animate__fadeInUp">11月 30 2022</div>
+      
+        <div class="post-cover"><span class="lazyload-img-span"><img data-src="https://hexo-img-meurice.oss-cn-beijing.aliyuncs.com/cover/gnn.png" class="post-cover-img"></span></div>
+      
+    </div>
+    <div class="post-content-inner">
+      <div class="post-content-inner-space">
+
+      </div>
+      <div class="post-content-main animate__animated  animate__fadeInUp">
+        <!-- top型目录 -->
+        
+        <h1 id="Graph-Neural-Network"><a href="#Graph-Neural-Network" class="headerlink" title="Graph Neural Network"></a>Graph Neural Network</h1><h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><h3 id="Graph"><a href="#Graph" class="headerlink" title="Graph"></a>Graph</h3><p>图$G$=点集$N$+边集$E$</p>
+<p><img src="https://hexo-img-meurice.oss-cn-beijing.aliyuncs.com/GNN/graph_sample.png" style="zoom:50%;" /></p>
+<h3 id="Why"><a href="#Why" class="headerlink" title="Why?"></a>Why?</h3><h4 id="Classification"><a href="#Classification" class="headerlink" title="Classification"></a>Classification</h4><ul>
+<li>根据分子结构预测其性质</li>
+</ul>
+<p>原子用节点表示，化学键用边表示。</p>
+<p><img src="https://hexo-img-meurice.oss-cn-beijing.aliyuncs.com/GNN/classfication.png" style="zoom:35%;" /></p>
+<ul>
+<li>考虑角色之间的关系来预测一个人是不是凶手</li>
+</ul>
+<p><img src="https://hexo-img-meurice.oss-cn-beijing.aliyuncs.com/GNN/classification2.png" style="zoom:35%;" /></p>
+<h4 id="Generation"><a href="#Generation" class="headerlink" title="Generation"></a>Generation</h4><ul>
+<li>Generator生成出想要的分子结构</li>
+</ul>
+<p><img src="https://hexo-img-meurice.oss-cn-beijing.aliyuncs.com/GNN/generation.png" style="zoom:40%;" /></p>
+<h3 id="How"><a href="#How" class="headerlink" title="How?"></a>How?</h3><p>对于一个无标签的数据，如何利用仅有的有标签数据和它与其他节点的关系？</p>
+<ul>
+<li>Solution1：类似CNN的方法，CNN利用卷积来获取一张图片的特征图，在卷积的乘法、加法过程中，利用了<em>邻近</em>像素点的信息。&gt;&gt; <strong>Spatial-based convolution</strong></li>
+<li>Solution2：将信号转到Fourier domain，在<em>频域</em>上对信号和滤波器做相乘，再做傅立叶反变换。 &gt;&gt; <strong>Spectral-based convolution</strong></li>
+</ul>
+<h2 id="GNN-Roadmap"><a href="#GNN-Roadmap" class="headerlink" title="GNN Roadmap"></a>GNN Roadmap</h2><p><img src="https://hexo-img-meurice.oss-cn-beijing.aliyuncs.com/GNN/roadmap.png" style="zoom:40%;" /></p>
+<h2 id="Tasks-Dataset-and-Benchmark"><a href="#Tasks-Dataset-and-Benchmark" class="headerlink" title="Tasks, Dataset, and Benchmark"></a>Tasks, Dataset, and Benchmark</h2><h2 id="Spatial-based-GNN"><a href="#Spatial-based-GNN" class="headerlink" title="Spatial-based GNN"></a>Spatial-based GNN</h2><ul>
+<li>Aggregate：用邻居的feature更新下一层的hidden state</li>
+<li>Readout：所有节点的feature集合起来代表整个图</li>
+</ul>
+<p><img src="https://hexo-img-meurice.oss-cn-beijing.aliyuncs.com/GNN/spatial-based%20convolution.png" style="zoom:33%;" /></p>
+<h3 id="NN4G-Neural-Networks-for-Graph"><a href="#NN4G-Neural-Networks-for-Graph" class="headerlink" title="NN4G (Neural Networks for Graph)"></a>NN4G (Neural Networks for Graph)</h3><ul>
+<li><a target="_blank" rel="noopener" href="https://ieeexplore.ieee.org/document/4773279">Neural Network for Graphs: A Contextual Constructive Approach | IEEE Journals &amp; Magazine | IEEE Xplore</a></li>
+</ul>
+<p>例如输入的图有5个节点$v_{0\dots5}$，5条边，每个节点都有自己的feature，例如对于某种化学物质，将每个节点（原子）的性质作为这个节点的feature，。</p>
+<p><img src="https://hexo-img-meurice.oss-cn-beijing.aliyuncs.com/GNN/input_layer.png" style="zoom:33%;" /></p>
+<p>首先需要对每个节点的feature做embeding，得到$h_{0\dots 5}^0$，得到Hidden layer 0。</p>
+<p><img src="https://hexo-img-meurice.oss-cn-beijing.aliyuncs.com/GNN/hidden0.png" style="zoom:33%;" /></p>
+<p>接下来利用三个相邻的节点做<strong>Aggregation</strong>，将三个节点加起来做transform后，再加上原本的输入feature。</p>
+<script type="math/tex; mode=display">
+h_3^1=\hat{w}_{1,0}(h_0^0+h_2^0+h_4^0)+h_3^0</script><p><img src="https://hexo-img-meurice.oss-cn-beijing.aliyuncs.com/GNN/hidden1.png" style="zoom:33%;" /></p>
+<p>在做Readout时，将各层的节点feature加起来取平均，各自做一个transform后加起来代表整个图的feature。</p>
+<p><img src="https://hexo-img-meurice.oss-cn-beijing.aliyuncs.com/GNN/readout.png" style="zoom:33%;" /></p>
+<h3 id="DCNN-Diffusion-Convolution-Neural-Network"><a href="#DCNN-Diffusion-Convolution-Neural-Network" class="headerlink" title="DCNN (Diffusion Convolution Neural Network)"></a>DCNN (Diffusion Convolution Neural Network)</h3><ul>
+<li><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1511.02136">[1511.02136] Diffusion-Convolutional Neural Networks (arxiv.org)</a></li>
+</ul>
+<p>DCNN与NN4G类似，在更新feature时，Hidden layer 0将与当前节点距离为1的节点feature加起来取平均后再做一个transform，下一层将与当前节点距离为2的节点feature加起来做transform。</p>
+<script type="math/tex; mode=display">
+h_3^1=w_3^1MEAN(d(3,\cdot)=2)</script><p><img src="https://hexo-img-meurice.oss-cn-beijing.aliyuncs.com/GNN/DCNN.png" style="zoom:33%;" /></p>
+<p>这样就会得到各层节点的feature，某一个节点的feature就是各层叠起来后再做一个transform。</p>
+<script type="math/tex; mode=display">
+\begin{bmatrix}
+h_1^k \\
+\vdots \\
+h_1^1 \\
+h_1^0
+\end{bmatrix}
+\times
+W=y_1</script><p><img src="https://hexo-img-meurice.oss-cn-beijing.aliyuncs.com/GNN/DCNN1.png" style="zoom:33%;" /></p>
+<h3 id="DGC-Diffusion-Graph-Convolution"><a href="#DGC-Diffusion-Graph-Convolution" class="headerlink" title="DGC (Diffusion Graph Convolution)"></a>DGC (Diffusion Graph Convolution)</h3><ul>
+<li><a target="_blank" rel="noopener" href="https://arxiv.org/pdf/1707.01926.pdf">1707.01926.pdf (arxiv.org)</a></li>
+</ul>
+<p>与DCNN类似，把各层加起来。</p>
+<p><img src="https://hexo-img-meurice.oss-cn-beijing.aliyuncs.com/GNN/DGC.png" style="zoom:30%;" /></p>
+<h3 id="MoNET-Mixture-Model-Networks"><a href="#MoNET-Mixture-Model-Networks" class="headerlink" title="MoNET (Mixture Model Networks)"></a>MoNET (Mixture Model Networks)</h3><ul>
+<li><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1611.08402">[1611.08402] Geometric deep learning on graphs and manifolds using mixture model CNNs (arxiv.org)</a></li>
+</ul>
+<script type="math/tex; mode=display">
+\mathbf{u}(x,y)=(\frac{1}{\sqrt{\deg(x)}},\frac{1}{\sqrt{\deg{y}}})^T</script><p>将距离$\mathbf{u}$（与节点的度有关）做一个transform后，再做加权求和。</p>
+<p><img src="https://hexo-img-meurice.oss-cn-beijing.aliyuncs.com/GNN/MoNET.png" style="zoom:33%;" /></p>
+<h3 id="GraphSAGE"><a href="#GraphSAGE" class="headerlink" title="GraphSAGE"></a>GraphSAGE</h3><ul>
+<li><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1706.02216">[1706.02216] Inductive Representation Learning on Large Graphs (arxiv.org)</a></li>
+</ul>
+<p>在做Aggregation时，使用mean、max-pooling或LSTM。</p>
+<p>对一个节点来说，邻居是无序的，用LSTM来做时，每次update时都随便sample出一个顺序，来忽略顺序的影响，学到比较好表示。</p>
+<p><img src="https://hexo-img-meurice.oss-cn-beijing.aliyuncs.com/GNN/GraphSAGE.png" style="zoom:40%;" /></p>
+<h3 id="GAT-Graph-Attention-Networks"><a href="#GAT-Graph-Attention-Networks" class="headerlink" title="GAT (Graph Attention Networks)"></a>GAT (Graph Attention Networks)</h3><ul>
+<li><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1710.10903">[1710.10903] Graph Attention Networks (arxiv.org)</a></li>
+</ul>
+<p>不只要做加权求和，权重让网络自己去学，对邻居做Attention。</p>
+<ul>
+<li>输入：节点feature $\mathbf{h}=\{\vec{h}_1,\vec{h}_2,\dots,\vec{h}_N\},\vec{h}_i\in\mathbb{R}^F$</li>
+<li>计算energy：$e_{ij}=\alpha(\mathbf{W}\vec{h}_i,\mathbf{W}\vec{h}_j)$</li>
+<li>通过邻居计算Attention分数：$\alpha_{ij}=\frac{\exp{(\text{LeakyReLU}(\vec{\mathbf{a}}^T[\mathbf{W}\vec{h}_i\Vert\mathbf{W}\vec{h}_j]))}}{\sum_{k\in \mathcal{N}_i}\exp{(\text{LeakyReLU}(\mathbf{\vec{a}}^T[\mathbf{W}\vec{h}_i\Vert\mathbf{W}\vec{h}_k])})}$</li>
+</ul>
+<p><img src="https://hexo-img-meurice.oss-cn-beijing.aliyuncs.com/GNN/GAT.png" style="zoom:33%;" /></p>
+<h3 id="GIN-Graph-Isomorphism-Network"><a href="#GIN-Graph-Isomorphism-Network" class="headerlink" title="GIN (Graph Isomorphism Network)"></a>GIN (Graph Isomorphism Network)</h3><ul>
+<li><a target="_blank" rel="noopener" href="https://openreview.net/forum?id=ryGs6iA5Km">How Powerful are Graph Neural Networks? | OpenReview</a></li>
+</ul>
+<p>对于某个节点$v$，在第$k$层的update方式应该是用他的邻居做加权求和后加上一个常量乘他自己，用加权求和代替mean pooling或max pooling。</p>
+<script type="math/tex; mode=display">
+h_v^{(k)}=\text{MLP}^{(k)}\left(\left(1+\epsilon^{(k)}\right)\cdot h_v^{(k-1)}+\sum_{u\in\mathcal{N}(v)}h_{u}^{(k-1)}\right)</script><p><img src="https://hexo-img-meurice.oss-cn-beijing.aliyuncs.com/GNN/GIN.png" style="zoom:50%;" /></p>
+<h2 id="Graph-Signal-Processing-amp-Spectral-Based-GNN"><a href="#Graph-Signal-Processing-amp-Spectral-Based-GNN" class="headerlink" title="Graph Signal Processing &amp; Spectral-Based GNN"></a>Graph Signal Processing &amp; Spectral-Based GNN</h2><h3 id="Signal-and-System"><a href="#Signal-and-System" class="headerlink" title="Signal and System"></a>Signal and System</h3><p>时域上的卷积等于频域上的相乘。</p>
+<p><img src="https://hexo-img-meurice.oss-cn-beijing.aliyuncs.com/GNN/freq.png" style="zoom:33%;" /></p>
+<p>信号可以看成N维空间中的一个向量，在向量空间中是由一组基底经过线性组合<strong>合成</strong>：</p>
+<script type="math/tex; mode=display">
+\vec{A}=\sum_{k=1}^Na_k\hat{v}_k</script><p><strong>分析</strong>：</p>
+<script type="math/tex; mode=display">
+a_j=\vec{A}\cdot \hat{v}_j</script><script type="math/tex; mode=display">
+\hat{v}_i\cdot\hat{v}_j=\delta_{ij}</script><p>对于周期性的信号，可以展开为Fourier Series：</p>
+<script type="math/tex; mode=display">
+x(t)=\sum_{k=-\infty}^{\infty}a_ke^{jk\omega_0t}=\sum_{k=-\infty}^{\infty}a_k\phi_k(t)</script><p><img src="https://hexo-img-meurice.oss-cn-beijing.aliyuncs.com/GNN/time-freq.png" style="zoom:33%;" /></p>
+<p>傅立叶变换：</p>
+<p><img src="https://hexo-img-meurice.oss-cn-beijing.aliyuncs.com/GNN/fourier-trans.png" style="zoom:33%;" /></p>
+<h3 id="Spectral-Graph-Theory"><a href="#Spectral-Graph-Theory" class="headerlink" title="Spectral Graph Theory"></a>Spectral Graph Theory</h3><ul>
+<li>图$G=(V,E)$，节点数量$N=\vert V\vert$；</li>
+<li>邻接矩阵（权重矩阵）$A\in \mathbb{R}^{N\times N}$：$A_{i,j}=0\ \text{if}\ e_{i,j}\notin E\ \text{else}\ A_{i,j}=w(i,j)$</li>
+<li>度矩阵$D\in \mathbb{R}^{N\times N}$：</li>
+</ul>
+<script type="math/tex; mode=display">
+D_{i,j}=\left\{
+\begin{aligned} 
+&d(i)\ \ (\sum_kA_{i,k})\quad &\text{if}\ i=j \\
+&0\quad &\text{if}\ i\ne j
+\end{aligned}\right.</script><ul>
+<li>$f:V\rightarrow \mathbb{R}^N$</li>
+</ul>
+<p>对于下所示的图，有节点$v_{0\dots 3}$，每个节点上面的信号$f(i)$，例如对于城市路网图，节点对应不同的城市，信号对应着城市的气温、人口等。</p>
+<p><img src="https://hexo-img-meurice.oss-cn-beijing.aliyuncs.com/GNN/theory1.png" style="zoom:30%;" /></p>
+<ul>
+<li>图拉普拉斯矩阵$L=D-A,L\succcurlyeq0$（半正定，对称）</li>
+<li>可以对$L$做谱分解：$L=U\Lambda U^T$</li>
+<li>对角矩阵$\Lambda=\text{diag}(\lambda_0,\dots,\lambda_{N-1})\in \mathbb{R}^{N\times N}$，$\lambda_l$：frequency</li>
+<li>正交矩阵$U=[u_0,\dots,u_{N-1}]\in \mathbb{R}^{N\times N}$，$u_l$：$\lambda_l$对应的basis</li>
+</ul>
+<p><img src="https://hexo-img-meurice.oss-cn-beijing.aliyuncs.com/GNN/graph-laplacian.png" style="zoom:40%;" /></p>
+<h4 id="Vertex-domain-signal"><a href="#Vertex-domain-signal" class="headerlink" title="Vertex domain signal"></a>Vertex domain signal</h4><p>对于上面由$v_{0\dots 3}$组成的图，这里设：$f=<br>\begin{bmatrix}<br>4 \\<br>2 \\<br>4 \\<br>-3 \\<br>\end{bmatrix}$，其度矩阵$D$和邻接矩阵$A$分别为：</p>
+<script type="math/tex; mode=display">
+D=
+\begin{bmatrix}
+2 & 0 & 0 & 0 \\
+0 & 3 & 0 & 0 \\
+0 & 0 & 2 & 0 \\
+0 & 0 & 0 & 1 
+\end{bmatrix}
+\quad
+A=
+\begin{bmatrix}
+0 & 1 & 1 & 0 \\
+1 & 0 & 1 & 1 \\
+1 & 1 & 0 & 0 \\
+0 & 1 & 0 & 0 
+\end{bmatrix}</script><p>得到拉普拉斯矩阵$L$：</p>
+<script type="math/tex; mode=display">
+L=
+\begin{bmatrix}
+2 & -1 & -1 & 0 \\
+-1 & 3 & -1 & -1 \\
+-1 & -1 & 2 & 0 \\
+0 & -1 & 0 & 1
+\end{bmatrix}</script><p>谱分解得到$\Lambda$和$U$：</p>
+<script type="math/tex; mode=display">
+\Lambda=
+\begin{bmatrix}
+0 & 0 & 0 & 0 \\
+0 & 1 & 0 & 0 \\
+0 & 0 & 3 & 0 \\
+0 & 0 & 0 & 4
+\end{bmatrix}
+\quad
+U=
+\begin{bmatrix}
+0.5 & -0.41 & 0.71 & -0.29 \\
+0.5 & 0 & 0 & 0.87 \\
+0.5 & -0.41 & -0.71 & -0.29 \\
+0.5 & 0.82 & 0 & -0.29
+\end{bmatrix}</script><p>对应在图$G$上：</p>
+<p><img src="https://hexo-img-meurice.oss-cn-beijing.aliyuncs.com/GNN/theory2.png" style="zoom:34%;" /></p>
+<h4 id="Discrete-time-Fourier-basis"><a href="#Discrete-time-Fourier-basis" class="headerlink" title="Discrete time Fourier basis"></a>Discrete time Fourier basis</h4><p><img src="https://hexo-img-meurice.oss-cn-beijing.aliyuncs.com/GNN/discrete-time-fourier-basis.png" style="zoom:50%;" /></p>
+<h4 id="Interpreting-vertex-frequency"><a href="#Interpreting-vertex-frequency" class="headerlink" title="Interpreting vertex frequency"></a>Interpreting vertex frequency</h4><p>把$L$看成是对图的一个运算，对于一个图信号$f$，$Lf=(D-A)f=Df-Af$，对于4个节点的图，会得到形如$Lf=\begin{bmatrix}a \\ b \\c \\ d\end{bmatrix}$的结果，$Lf$代表着某一个节点和他周围节点的能量差异。</p>
+<p>要得到具体的能量差异，需要取平方：</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+(Lf)(vi)&=\sum_{v_j\in V}w(i,j)(f(v_i)-f(v_j)) \\
+&\text{where}\ w_{i,j}\ \text{is the}\ (i,j)^{th}\ \text{entry of}\ A \\
+f^TLf&=\sum_{v_i\in V}f(v_i)\sum_{v_j\in V}w_{i,j}(f(v_i)-f(v_j)) \\
+&=\cdots \\
+&=\frac{1}{2}\sum_{v_i\in V}\sum_{v_j\in V}w_{i,j}\left(f(v_i)-f(v_j)\right)^2
+\end{aligned}</script><p>可以用$f^TLf$来量化某一个图信号的频率。</p>
+<p>有$u_i^TLu_i=u_i^T\lambda_iu_i=\lambda u_i^Tu_i=\lambda_i$，此时再回到前面$\lambda$和$u$对应在图$G$上的情况，比较小的$\lambda$对应着低通部分。</p>
+<p><img src="https://hexo-img-meurice.oss-cn-beijing.aliyuncs.com/GNN/theory2.png" style="zoom:34%;" /></p>
+<p>一个特例是一条线上的20个节点$v_{0\dots19}$：</p>
+<p><img src="https://hexo-img-meurice.oss-cn-beijing.aliyuncs.com/GNN/special-example.png" alt=""></p>
+<p>在$\lambda=0$时是一个DC-component，随着$\lambda$越来越大，从一个低频sin变成高频sin。</p>
+<p><img src="https://hexo-img-meurice.oss-cn-beijing.aliyuncs.com/GNN/special-example-2.png" style="zoom:40%;" /></p>
+<h4 id="Graph-Fourier-Transform-of-signal-x"><a href="#Graph-Fourier-Transform-of-signal-x" class="headerlink" title="Graph Fourier Transform of signal $x$"></a>Graph Fourier Transform of signal $x$</h4><script type="math/tex; mode=display">
+\hat{x}=U^Tx</script><p><img src="https://hexo-img-meurice.oss-cn-beijing.aliyuncs.com/GNN/transform.png" style="zoom:33%;" /></p>
+<p>分别乘内积，将各个节点的$f(i)$转为$u_i\cdot f=\lambda_i$。</p>
+<p><img src="https://hexo-img-meurice.oss-cn-beijing.aliyuncs.com/GNN/transform2.png" style="zoom:35%;" /></p>
+<h4 id="Inverse-Graph-Fourier-Transform-of-signal-hat-x"><a href="#Inverse-Graph-Fourier-Transform-of-signal-hat-x" class="headerlink" title="Inverse Graph Fourier Transform of signal $\hat{x}$"></a>Inverse Graph Fourier Transform of signal $\hat{x}$</h4><p>要把频域的信号还原到时域的信号上：</p>
+<script type="math/tex; mode=display">
+x=U\hat{x}</script><p><img src="https://hexo-img-meurice.oss-cn-beijing.aliyuncs.com/GNN/inverse.png" style="zoom:33%;" /></p>
+<h4 id="Filtering"><a href="#Filtering" class="headerlink" title="Filtering"></a>Filtering</h4><p>前面将时域转到频域，是为了找到在图上做滤波的方式。</p>
+<p>例如对于频域上的信号$X(j\omega)$，有一个$H(j\omega)$的滤波，直接相乘会得到滤波结果$X^\prime(j\omega)$。</p>
+<p><img src="https://hexo-img-meurice.oss-cn-beijing.aliyuncs.com/GNN/filtering.png" style="zoom:33%;" /></p>
+<p>在时域上的卷积是频域上的乘法。</p>
+<script type="math/tex; mode=display">
+\hat{y}=g_\theta(\Lambda)\hat{x}</script><p><img src="https://hexo-img-meurice.oss-cn-beijing.aliyuncs.com/GNN/filtering2.png" style="zoom:33%;" /></p>
+<p>$g_\theta(\Lambda)$是关于$\lambda$的函数：</p>
+<script type="math/tex; mode=display">
+g_\theta(\lambda_i)=\theta_i</script><p><img src="https://hexo-img-meurice.oss-cn-beijing.aliyuncs.com/GNN/filtering3.png" style="zoom:33%;" /></p>
+<p>现在已经得到了频域上的信号$\hat{y}=g_\theta(\Lambda)U^Tx$，做傅立叶反变换$U\hat{y}$后就得到了最后需要的时域信号$y$。</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+y=U\hat{y}&=Ug_\theta(\Lambda)U^T \\
+&=g_\theta(U\Lambda U^T)x \\
+&=g_\theta(L)x
+\end{aligned}</script><p><img src="https://hexo-img-meurice.oss-cn-beijing.aliyuncs.com/GNN/filtering4.png" style="zoom:38%;" /></p>
+<p>训练模型需要学习的参数是$g_\theta(\Lambda)$。</p>
+<p>$g_\theta(\cdot)$可以是任何函数，例如（$I$是单位矩阵）：</p>
+<script type="math/tex; mode=display">
+g_\theta(L)=\log(I+L)=L-\frac{L^2}{2}+\frac{L^3}{3}+\cdots,\lambda_{\max}\lt 1</script><p>此时存在的问题是：</p>
+<ul>
+<li>计算的复杂度为$O(N)$</li>
+<li>$g_\theta(L)$可能会让模型可能会学到一些本不希望学到的内容（not <em>localize</em>）</li>
+</ul>
+<h4 id="Localize"><a href="#Localize" class="headerlink" title="Localize"></a>Localize</h4><p><img src="https://hexo-img-meurice.oss-cn-beijing.aliyuncs.com/GNN/theory1.png" style="zoom:35%;" /></p>
+<p>对于上图，例如$g_\theta(L)=L$时，$y=Lx$：</p>
+<p><img src="https://hexo-img-meurice.oss-cn-beijing.aliyuncs.com/GNN/q-L1.png" style="zoom:35%;" /></p>
+<p>$L$在有些地方（例如1行4列）的值为0，这是因为$v_0$到$v_3$之间没有任何距离为1的路径，此时$v_3$不会影响到$v_0$。</p>
+<p>但当$g_\theta(L)=L^2$时，$y=L^2X$：</p>
+<p><img src="https://hexo-img-meurice.oss-cn-beijing.aliyuncs.com/GNN/q-L2.png" style="zoom:35%;" /></p>
+<p>$L^2$不再有为值为0的地方，对于任意节点，到其他节点的距离都小于2，此时$v_3$会影响到$v_0$。</p>
+<blockquote>
+<p><strong>Lemma</strong> Let $G$ be a weighted graph, and $\mathscr{L}$ the graph Laplacian of $G$. Fix an integer $s\gt 0$, and pick vertices $m$ and $n$. Then $(\mathscr{L}^s)_{m,n}=0$ whenever $d_{G}(m,n)\gt s$. </p>
+</blockquote>
+<p>这种情况不是Localize的，例如CNN中，当我们选择$3\times 3$的kernel时，就只能看到邻近区域的内容，希望这个区域变大的话可以选择更大的kernel。</p>
+<p><img src="https://hexo-img-meurice.oss-cn-beijing.aliyuncs.com/GNN/CNN-localize.png" style="zoom:40%;" /></p>
+<h3 id="ChebNet"><a href="#ChebNet" class="headerlink" title="ChebNet"></a>ChebNet</h3><ul>
+<li><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1606.09375">[1606.09375] Convolutional Neural Networks on Graphs with Fast Localized Spectral Filtering (arxiv.org)</a></li>
+</ul>
+<p>更多可参考：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://distill.pub/2021/gnn-intro/">A Gentle Introduction to Graph Neural Networks (distill.pub)</a></li>
+</ul>
+
+        <!-- （底部）分类文章 -->
+        <!-- 
+          <div class="post-categoris-bottom">
+            <div class="post-categoris-name">blog</div>
+            <ul>
+            
+            
+              
+                <li class="base">
+                  <a  href="/2020/07/15/hello-world/" class="post-categoris-bottom-link">
+                  Hello World
+                </a>
+                </li>
+              
+              
+            
+            
+            
+              
+                <li class="base">
+                  <a  href="/2021/04/03/%E5%B1%B1%E4%B8%9C%E7%9C%81%E7%AC%AC%E4%BA%8C%E5%B1%8A%E6%95%B0%E6%8D%AE%E5%BA%94%E7%94%A8%E5%88%9B%E6%96%B0%E5%88%9B%E4%B8%9A%E5%A4%A7%E8%B5%9B%E2%80%94%E2%80%94%E7%96%AB%E6%83%85%E5%AF%86%E5%88%87%E6%8E%A5%E8%A7%A6%E4%BA%BA%E5%91%98%E8%BF%BD%E8%B8%AA/" class="post-categoris-bottom-link">
+                  山东省第二届数据应用创新创业大赛 疫情密切接触人员追踪
+                </a>
+                </li>
+              
+              
+            
+            
+            
+              
+                <li class="base">
+                  <a  href="/2021/05/18/2021%E6%8B%9B%E5%95%86%E9%93%B6%E8%A1%8CFinTech%E7%B2%BE%E8%8B%B1%E8%AE%AD%E7%BB%83%E8%90%A5-%E6%95%B0%E6%8D%AE%E8%B5%9B%E9%81%93/" class="post-categoris-bottom-link">
+                  2021招商银行FinTech精英训练营 数据赛道
+                </a>
+                </li>
+              
+              
+            
+            
+            
+              
+                <li class="base">
+                  <a  href="/2021/06/29/2021%E4%B8%AD%E5%9B%BD%E9%AB%98%E6%A0%A1%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%A4%A7%E8%B5%9B%E2%80%94%E2%80%94%E5%BE%AE%E4%BF%A1%E5%A4%A7%E6%95%B0%E6%8D%AE%E6%8C%91%E6%88%98%E8%B5%9B/" class="post-categoris-bottom-link">
+                  2021中国高校计算机大赛 微信大数据挑战赛
+                </a>
+                </li>
+              
+              
+            
+            
+            
+              
+                <li class="base">
+                  <a  href="/2021/12/31/2021%E5%B9%B4%E5%BA%A6%E6%80%BB%E7%BB%93/" class="post-categoris-bottom-link">
+                  2021年度总结
+                </a>
+                </li>
+              
+              
+            
+            
+            
+              
+                <li class="base">
+                  <a  href="/2022/02/05/%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/" class="post-categoris-bottom-link">
+                  数字图像处理
+                </a>
+                </li>
+              
+              
+            
+            
+            
+              
+                <li class="base">
+                  <a  href="/2022/04/23/%E8%87%AA%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9C%BA%E5%88%B6/" class="post-categoris-bottom-link">
+                  自注意力机制
+                </a>
+                </li>
+              
+              
+            
+            
+            
+              
+                <li class="base">
+                  <a  href="/2022/04/25/Transformer/" class="post-categoris-bottom-link">
+                  Attention Is All You Need
+                </a>
+                </li>
+              
+              
+            
+            
+            
+              
+                <li class="base">
+                  <a  href="/2022/04/29/2022%E6%8B%9B%E5%95%86%E9%93%B6%E8%A1%8CFinTech%E7%B2%BE%E8%8B%B1%E8%AE%AD%E7%BB%83%E8%90%A5%20%E6%95%B0%E6%8D%AE%E8%B5%9B%E9%81%93%E9%A6%96%E6%97%A5%E5%9F%BA%E7%BA%BF/" class="post-categoris-bottom-link">
+                  2022招商银行FinTech精英训练营 数据赛道首日基线
+                </a>
+                </li>
+              
+              
+            
+            
+            
+              
+                <li class="base">
+                  <a  href="/2022/04/30/%E5%90%84%E5%BC%8F%E5%90%84%E6%A0%B7%E7%9A%84%E8%87%AA%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9C%BA%E5%88%B6/" class="post-categoris-bottom-link">
+                  各式各样的自注意力机制
+                </a>
+                </li>
+              
+              
+            
+            
+            
+              
+                <li class="base">
+                  <a  href="/2022/05/12/%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B9%A0%E2%80%94%E2%80%94%E6%84%9F%E7%9F%A5%E6%9C%BA/" class="post-categoris-bottom-link">
+                  感知机
+                </a>
+                </li>
+              
+              
+            
+            
+            
+              
+                <li class="base">
+                  <a  href="/2022/05/13/%E7%94%9F%E6%88%90%E5%BC%8F%E5%AF%B9%E6%8A%97%E7%BD%91%E7%BB%9C/" class="post-categoris-bottom-link">
+                  生成式对抗网络
+                </a>
+                </li>
+              
+              
+            
+            
+            
+              
+            
+            
+            
+              
+                <li class="base">
+                  <a  href="/2022/05/17/%E8%87%AA%E7%9B%91%E7%9D%A3%E5%BC%8F%E5%AD%A6%E4%B9%A0/" class="post-categoris-bottom-link">
+                  自监督式学习
+                </a>
+                </li>
+              
+              
+            
+            
+            
+              
+                <li class="base">
+                  <a  href="/2022/05/20/%E8%AF%AD%E9%9F%B3%E4%B8%8E%E5%BD%B1%E5%83%8F%E4%B8%8A%E7%9A%84%E8%87%AA%E7%9B%91%E7%9D%A3%E5%BC%8F%E5%AD%A6%E4%B9%A0%E6%A8%A1%E5%9E%8B/" class="post-categoris-bottom-link">
+                  语音与影像上的自监督式学习模型
+                </a>
+                </li>
+              
+              
+            
+            
+            
+              
+                <li class="base">
+                  <a  href="/2022/06/05/%E8%87%AA%E7%BC%96%E7%A0%81%E5%99%A8/" class="post-categoris-bottom-link">
+                  自编码器
+                </a>
+                </li>
+              
+              
+            
+            
+            
+              
+                <li class="base">
+                  <a  href="/2022/06/15/%E5%BC%82%E5%B8%B8%E6%A3%80%E6%B5%8B/" class="post-categoris-bottom-link">
+                  异常检测
+                </a>
+                </li>
+              
+              
+            
+            
+            
+              
+                <li class="base">
+                  <a  href="/2022/07/14/YOLO/" class="post-categoris-bottom-link">
+                  YOLO v1 - v5, v7
+                </a>
+                </li>
+              
+              
+            
+            
+            
+              
+            
+            
+            
+              
+                <li class="base">
+                  <a  href="/2022/07/31/%E5%9B%BE%E5%83%8F%E8%B4%A8%E9%87%8F%E8%AF%84%E4%BB%B7/" class="post-categoris-bottom-link">
+                  图像质量评价
+                </a>
+                </li>
+              
+              
+            
+            
+            
+              
+            
+            
+            
+              
+                <li class="base">
+                  <a  href="/2022/08/26/%E5%9B%A0%E6%9E%9C%E6%8E%A8%E6%96%AD/" class="post-categoris-bottom-link">
+                  因果推断
+                </a>
+                </li>
+              
+              
+            
+            
+            
+              
+                <li class="base">
+                  <a  href="/2022/09/20/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%EF%BC%88MIT%206.828%20Xv6%EF%BC%89/" class="post-categoris-bottom-link">
+                  xv6操作系统
+                </a>
+                </li>
+              
+              
+            
+            
+            
+              
+                <li class="base">
+                  <a  href="/2022/10/27/%E9%95%BF%E7%9F%AD%E6%9C%9F%E8%AE%B0%E5%BF%86%E7%BD%91%E7%BB%9C/" class="post-categoris-bottom-link">
+                  长短期记忆网络
+                </a>
+                </li>
+              
+              
+            
+            
+            
+              
+                <li class="me base">
+                  <a  href="/2022/11/30/%E5%9B%BE%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" class="post-categoris-bottom-link">
+                  图神经网络
+                </a>
+                </li>
+              
+              
+            
+            
+            
+              
+                <li class="base">
+                  <a  href="/2022/12/20/%E7%BD%91%E4%B8%8A%E8%AF%84%E6%95%99%E8%84%9A%E6%9C%AC/" class="post-categoris-bottom-link">
+                  深大网上评教的批量自动勾选脚本
+                </a>
+                </li>
+              
+              
+            
+            
+            
+              
+                <li class="base">
+                  <a  href="/2023/01/06/%E5%88%9A%E4%BD%93%E8%BF%90%E5%8A%A8%E7%8A%B6%E6%80%81%E6%8F%8F%E8%BF%B0/" class="post-categoris-bottom-link">
+                  机器人学之运动学——刚体运动状态描述
+                </a>
+                </li>
+              
+              
+            
+            
+            
+            
+            </ul>
+
+          </div>
+
+         -->
+      </div>
+      <div class="post-content-inner-space">
+        
+          <div class="space-toc-main animate__animated  animate__fadeInUp">
+            <ol class="space-toc"><li class="space-toc-item space-toc-level-2"><a class="space-toc-link" href="#Introduction"><span class="space-toc-text">Introduction</span></a></li><li class="space-toc-item space-toc-level-2"><a class="space-toc-link" href="#GNN-Roadmap"><span class="space-toc-text">GNN Roadmap</span></a></li><li class="space-toc-item space-toc-level-2"><a class="space-toc-link" href="#Tasks-Dataset-and-Benchmark"><span class="space-toc-text">Tasks, Dataset, and Benchmark</span></a></li><li class="space-toc-item space-toc-level-2"><a class="space-toc-link" href="#Spatial-based-GNN"><span class="space-toc-text">Spatial-based GNN</span></a></li><li class="space-toc-item space-toc-level-2"><a class="space-toc-link" href="#Graph-Signal-Processing-amp-Spectral-Based-GNN"><span class="space-toc-text">Graph Signal Processing &amp; Spectral-Based GNN</span></a></li></ol>
+           </div>
+        
+      </div>
+   </div>
+    <!-- 评论 -->
+    <!--page.comments !== false && --> 
+     
+    <div class="bottom-comments-outer">
+      <div class="bottom-comments-inner">
+        <!-- valine -->
+        
+          <section id="comments" class="comments" style="margin-top: 150px;">
+            <style>
+              .comments{background:#fff}
+              @media screen and (max-width:900px){.comments{margin:auto;padding:10px;background:#fff}}
+            </style>
+            <div id="vcomment" class="comment"></div>
+<script src="https://cdn.jsdelivr.net/npm/leancloud-storage@3.11.1/dist/av-min.js"></script>
+<script src='https://unpkg.com/valine@1.5.1/dist/Valine.min.js'></script>
+<script src="https://cdnjs.loli.net/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+    var notify = 'true' == true ? true : false;
+    var verify = 'false' == true ? true : false;
+    new Valine({
+        av: AV,
+        el: '#vcomment',
+        notify: notify,
+        app_id: "uSbQCc7fXmxLPopTU5E2KWrS-gzGzoHsz",
+        app_key: "eFJuGzWWqMmywQiehZRrFEQp",
+        placeholder: "\[支持 Markdown\] 说点什么吧～",
+        avatar:"robohash",
+    });
+</script>
+
+          </section>
+        
+        <!-- Gitalk -->
+        
+        <!-- livere -->
+        
+        </div>
+      </div>
+    
+  </div>
+</article>
+  </div>
+</div>
+
+
+
+<!-- 如果是home模式的话，不在首页就显示footer，如果不是home模式的话 所有都显示footer -->
+
+  <div class="footer-outer animate__animated  animate__fadeInUp">
+    <div class="footer-inner">
+    <div class="footer-text">
+    <p>由 <a target="_blank" rel="noopener" href="http://hexo.io/">Hexo</a> &amp; <a target="_blank" rel="noopener" href="https://github.com/FuShaoLei/hexo-theme-white">White</a> 强力驱动 <br> <a target="_blank" rel="noopener" href="https://beian.miit.gov.cn/">鄂ICP备20012765号</a></p>
+
+    </div>
+    <div class="footer-contact">
+    <ul class="footer-ul">
+        
+        <li class="footer-li">
+            <a href="https://github.com/yzhn16" target="_blank">
+                <i class="ri-github-line"></i>
+            </a>
+        </li>
+        
+        <li class="footer-li">
+            <a href="mailto:yanzhn@outlook.com" target="_blank">
+                <i class="ri-mail-line"></i>
+            </a>
+        </li>
+        
+    </ul>
+    </div>
+    </div>
+</div>
+
+
+
+
+
+
+<script src="/js/white.js"></script>
+
+
+
+    
+      
+<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.1/build/highlight.min.js"></script>
+
+      <script>hljs.initHighlightingOnLoad();</script>
+    
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        jax: ["input/TeX", "output/CommonHTML"],
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<!--<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML" id=""></script>
+</body>
+</html>

@@ -1,0 +1,682 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>  自编码器 |    white.</title>
+  <meta name="description" content="A minimalist theme for hexo.">
+  <!-- 标签页图标 -->
+  
+
+  <!-- 图标库 -->
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@2.2.0/fonts/remixicon.css" rel="stylesheet">
+  <!-- 动画库 -->
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fushaolei/cdn-white@1.0/css/animate.css"/>
+  
+  <!-- css文件 -->
+  
+<link rel="stylesheet" href="/css/white.css">
+
+  <!-- 代码高亮 -->
+  
+    
+      
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.1.1/styles/github.css">
+
+    
+  
+<meta name="generator" content="Hexo 6.2.0"><link rel="alternate" href="/atom.xml" title="体素储洁" type="application/atom+xml">
+</head>
+
+
+<body>
+
+<div class="menu-outer">
+    <div class="menu-inner">
+      <div class="menu-site-name  animate__animated  animate__fadeInUp">
+        <a href="/">
+          white.
+        </a>
+        
+      </div>
+      <div class="menu-group">
+        <ul class="menu-ul">
+        
+          <a href="/" class="nav-link">
+            <li class="menu-li  animate__animated  animate__fadeInUp">
+              Home
+            </li>
+          </a>
+        
+          <a href="/categories/blog" class="nav-link">
+            <li class="menu-li  animate__animated  animate__fadeInUp">
+              Blog
+            </li>
+          </a>
+        
+          <a href="/categories/gallery" class="nav-link">
+            <li class="menu-li  animate__animated  animate__fadeInUp">
+              Gallery
+            </li>
+          </a>
+        
+          <a href="/categories/tool" class="nav-link">
+            <li class="menu-li  animate__animated  animate__fadeInUp">
+              Tool
+            </li>
+          </a>
+        
+          <a href="/about" class="nav-link">
+            <li class="menu-li  animate__animated  animate__fadeInUp">
+              About
+            </li>
+          </a>
+        
+          <a href="/archives" class="nav-link">
+            <li class="menu-li  animate__animated  animate__fadeInUp">
+              Archive
+            </li>
+          </a>
+        
+        
+        
+       
+        
+        <a href="/search">
+          <li class="menu-li  animate__animated  animate__fadeInUp">
+            <i class="ri-search-line"></i>
+          </li>
+        </a>
+        
+          <li class="menu-li animate__animated  animate__fadeInUp" id="mobile-menu">
+            <i class="ri-menu-line"></i>
+          </li>
+        
+        </ul>
+
+      </div>
+
+    </div>
+</div>
+<div id="mobile-main" class="animate__animated  animate__fadeIn">
+  <div class="mobile-menu-inner">
+    <div class="mobile-menu-site-name animate__animated  animate__fadeInUp">
+      <a href="/">
+        white.
+      </a>
+    </div>
+    <div class="mobile-menu-group" id="mobile-close">
+      <i class="ri-close-line"></i>
+    </div>
+
+  </div>
+
+  <div class="mobile-menu-div">
+  
+    <a href="/" class="mobile-nav-link">
+      <div class="mobile-menu-child animate__animated  animate__fadeInUp">
+        <span>Home</span>
+      </div>
+    </a>
+  
+    <a href="/categories/blog" class="mobile-nav-link">
+      <div class="mobile-menu-child animate__animated  animate__fadeInUp">
+        <span>Blog</span>
+      </div>
+    </a>
+  
+    <a href="/categories/gallery" class="mobile-nav-link">
+      <div class="mobile-menu-child animate__animated  animate__fadeInUp">
+        <span>Gallery</span>
+      </div>
+    </a>
+  
+    <a href="/categories/tool" class="mobile-nav-link">
+      <div class="mobile-menu-child animate__animated  animate__fadeInUp">
+        <span>Tool</span>
+      </div>
+    </a>
+  
+    <a href="/about" class="mobile-nav-link">
+      <div class="mobile-menu-child animate__animated  animate__fadeInUp">
+        <span>About</span>
+      </div>
+    </a>
+  
+    <a href="/archives" class="mobile-nav-link">
+      <div class="mobile-menu-child animate__animated  animate__fadeInUp">
+        <span>Archive</span>
+      </div>
+    </a>
+  
+  
+    <a href="/search">  
+      <div class="mobile-menu-child  animate__animated  animate__fadeInUp">
+        <i class="ri-search-line"></i>
+      </div>
+    </a>
+    
+  </div>
+
+
+</div>
+
+<div class="body-outer">
+  <div class="body-inner">
+    
+<article class="post-inner">
+  <div class="post-content-outer">
+    <div class="post-intro">
+      <div class="post-title animate__animated  animate__fadeInUp">自编码器</div>
+      <div class="meta-intro animate__animated  animate__fadeInUp">6月 05 2022</div>
+      
+        <div class="post-cover"><span class="lazyload-img-span"><img data-src="https://hexo-img-meurice.oss-cn-beijing.aliyuncs.com/%E6%9D%8E%E5%AE%8F%E6%AF%85%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E8%AF%BE%E7%A8%8B2021%E6%98%A5/8/3.png" class="post-cover-img"></span></div>
+      
+    </div>
+    <div class="post-content-inner">
+      <div class="post-content-inner-space">
+
+      </div>
+      <div class="post-content-main animate__animated  animate__fadeInUp">
+        <!-- top型目录 -->
+        
+        <p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Wv411h7kN?p=83">李宏毅2021/2022春机器学习课程——自编码器（Auto-encoder）</a></p>
+<span id="more"></span>
+<h1 id="AUTO-ENCODER"><a href="#AUTO-ENCODER" class="headerlink" title="AUTO-ENCODER"></a>AUTO-ENCODER</h1><h2 id="Review：Self-supervised-Learning-Framework"><a href="#Review：Self-supervised-Learning-Framework" class="headerlink" title="Review：Self-supervised Learning Framework"></a>Review：Self-supervised Learning Framework</h2><p>AUTO-ENCODER可以算是Self-supervised Learning的一环。</p>
+<p><img src="https://hexo-img-meurice.oss-cn-beijing.aliyuncs.com/%E6%9D%8E%E5%AE%8F%E6%AF%85%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E8%AF%BE%E7%A8%8B2021%E6%98%A5/8/1.png" style="zoom:50%;" /></p>
+<p>在BERT、GPT之前有更古老的不需要标注资料的任务，就叫做Auto-Encoder，可以看作是Self-supervised Learning的一种预训练方法，跟填空、预测接下来的token是很相似的概念。</p>
+<h2 id="Basic-Idea-of-Auto-encoder"><a href="#Basic-Idea-of-Auto-encoder" class="headerlink" title="Basic Idea of Auto-encoder"></a>Basic Idea of Auto-encoder</h2><h3 id="Auto-encoder"><a href="#Auto-encoder" class="headerlink" title="Auto-encoder"></a>Auto-encoder</h3><p>以影像为例，在Auto-encoder里面有两个网络，分别是Encoder和Decoder，Encoder（可能是很多层的CNN）读入一张图片，将其变成一个向量，向量作为Decoder的输入，Decoder（可能是GAN中的Generator）会产生一张图片。训练的目标是希望Encoder的输入和Decoder的输出越接近越好（Reconstruction，重建）。</p>
+<p>Auto-encoder的概念和Cycle GAN是一模一样的。</p>
+<p>Encoder的输出叫做Embedding，也叫做Representation、Code…</p>
+<p>要把Auto-encoder用在下游任务中，常见的用法是，输入的图片这个向量可能会比较长，经过Auto-encoder的Encoder后得到一个比较短的向量，再用这个Embedding去做接下来想做的事情。</p>
+<p><img src="https://hexo-img-meurice.oss-cn-beijing.aliyuncs.com/%E6%9D%8E%E5%AE%8F%E6%AF%85%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E8%AF%BE%E7%A8%8B2021%E6%98%A5/8/2.png" style="zoom:50%;" /></p>
+<h4 id="More-Dimension-Reduction"><a href="#More-Dimension-Reduction" class="headerlink" title="More Dimension Reduction"></a>More Dimension Reduction</h4><ul>
+<li>PCA</li>
+<li>t-SNE</li>
+</ul>
+<h3 id="Why-Auto-encoder？"><a href="#Why-Auto-encoder？" class="headerlink" title="Why Auto-encoder？"></a>Why Auto-encoder？</h3><p>例如一张$3\times 3$的图片经过Encoder得到2维的Embedding，再经过Decoder得到$3\times 3$的图片，虽然9个数值才能描述这张图，但实际上图片的变化可能非常有限，一个低维的Embedding就可以描述。</p>
+<p><img src="https://hexo-img-meurice.oss-cn-beijing.aliyuncs.com/%E6%9D%8E%E5%AE%8F%E6%AF%85%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E8%AF%BE%E7%A8%8B2021%E6%98%A5/8/3.png" style="zoom:50%;" /></p>
+<blockquote>
+<p>在神雕侠侣中，杨过三招之内把樊一翁的胡子剪掉，因为樊一翁的胡子是由他的头控制的，虽然胡子可以甩两丈长，但头能够做的变化非常有限，表面上胡子的鞭法很厉害，但只要打他的头，就能让他胡子的变化非常有限。</p>
+</blockquote>
+<p><img src="https://hexo-img-meurice.oss-cn-beijing.aliyuncs.com/%E6%9D%8E%E5%AE%8F%E6%AF%85%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E8%AF%BE%E7%A8%8B2021%E6%98%A5/8/4.png" style="zoom:50%;" /></p>
+<h3 id="De-noising-Auto-encoder"><a href="#De-noising-Auto-encoder" class="headerlink" title="De-noising Auto-encoder"></a>De-noising Auto-encoder</h3><p>将原始的图片上加上一些噪声，再通过Auto-encoder，再让生成的图片和原始图片越接近越好，此时Encoder和Decoder又增加了一个任务：消除噪声。</p>
+<p><img src="https://hexo-img-meurice.oss-cn-beijing.aliyuncs.com/%E6%9D%8E%E5%AE%8F%E6%AF%85%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E8%AF%BE%E7%A8%8B2021%E6%98%A5/8/5.png" style="zoom:50%;" /></p>
+<ul>
+<li>Vincent, Pascal, et al. “Extracting and composing robust featureswith denoising autoencoders.” ICML, 2008.</li>
+</ul>
+<p>在BERT中，我们加入的Mask其实就是噪声，BERT就是Encoder，BERT的输出是Embedding，输出经过的线性层是Decoder，结果是要做填空题，即和真实内容越接近越好。</p>
+<p><img src="https://hexo-img-meurice.oss-cn-beijing.aliyuncs.com/%E6%9D%8E%E5%AE%8F%E6%AF%85%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E8%AF%BE%E7%A8%8B2021%E6%98%A5/8/6.png" style="zoom:50%;" /></p>
+<h2 id="Feature-Disentanglement"><a href="#Feature-Disentanglement" class="headerlink" title="Feature Disentanglement"></a>Feature Disentanglement</h2><h3 id="Representation-includes-information-of-different-aspects"><a href="#Representation-includes-information-of-different-aspects" class="headerlink" title="Representation includes information of different aspects"></a>Representation includes information of different aspects</h3><p>一张图片包含了色泽、纹理等多方面的内容，一段语音讯号包含了文字、语者等方面的内容…</p>
+<p><img src="https://hexo-img-meurice.oss-cn-beijing.aliyuncs.com/%E6%9D%8E%E5%AE%8F%E6%AF%85%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E8%AF%BE%E7%A8%8B2021%E6%98%A5/8/7.png" style="zoom:50%;" /></p>
+<h3 id="Feature-Disentangle"><a href="#Feature-Disentangle" class="headerlink" title="Feature Disentangle"></a>Feature Disentangle</h3><p>Feature Disentagle想要做的事情是，有没有办法在训练一个Auto-encoder时，同时有办法知道这个Embedding的哪些维度代表了哪些资讯。举例来说，一个语音讯号经过Encoder，得到的100维的Embedding中，前50维是这句话的内容，后50维是这句话语者的特征。</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1904.05742">[1904.05742] One-shot Voice Conversion by Separating Speaker and Content Representations with Instance Normalization (arxiv.org)</a></li>
+<li><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1804.02812">[1804.02812] Multi-target Voice Conversion without Parallel Data by Adversarially Learning Disentangled Audio Representations (arxiv.org)</a></li>
+<li><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1905.05879">[1905.05879] AUTOVC: Zero-Shot Voice Style Transfer with Only Autoencoder Loss (arxiv.org)</a></li>
+</ul>
+<h3 id="Application-Voice-Conversion"><a href="#Application-Voice-Conversion" class="headerlink" title="Application: Voice Conversion"></a>Application: Voice Conversion</h3><p><img src="https://hexo-img-meurice.oss-cn-beijing.aliyuncs.com/%E6%9D%8E%E5%AE%8F%E6%AF%85%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E8%AF%BE%E7%A8%8B2021%E6%98%A5/8/8.png" style="zoom:50%;" /></p>
+<h2 id="Discrete-Latent-Representation"><a href="#Discrete-Latent-Representation" class="headerlink" title="Discrete Latent Representation"></a>Discrete Latent Representation</h2><p>到目前位置，我们都假设Embedding是Real numbers（$[0.9\ 0.1\ 0.3\ 0.7]$）；此外它也可以是Binary（$[1\ 0\ 0\ 1]$），它代表了某种特性有或是没有，例如第一维的1代表是男性，0代表是女性；甚至也有可能是一个One-hot向量，例如做手写数字识别，代表着不同的数字。</p>
+<p><img src="https://hexo-img-meurice.oss-cn-beijing.aliyuncs.com/%E6%9D%8E%E5%AE%8F%E6%AF%85%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E8%AF%BE%E7%A8%8B2021%E6%98%A5/8/9.png" style="zoom:50%;" /></p>
+<h3 id="Discrete-Representation"><a href="#Discrete-Representation" class="headerlink" title="Discrete Representation"></a>Discrete Representation</h3><ul>
+<li><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1711.00937">[1711.00937] Neural Discrete Representation Learning (arxiv.org)</a></li>
+</ul>
+<p>Discrete Representation中，最知名的是VQVAE，VQVAE中，输入一张图片，Encoder输出一个连续的向量，接下来有一个Codebook（一排向量，学出来的），让Encoder的输出和每一个向量都计算相似度（类似Self-attention），再从Codebook中拿出相似度最高的向量，把这个向量输入到Decoder里面，输出一张图片，和输入越接近越好。</p>
+<p>VQVAE中，Decoder的输入只能是Codebook的其中一个，Embedding没有无穷无尽的可能，用这种方式在语音讯号学习时，可以学到最基本的发音单位（arxiv 1901.08810）。</p>
+<h3 id="Text-as-Representation"><a href="#Text-as-Representation" class="headerlink" title="Text as Representation"></a>Text as Representation</h3><ul>
+<li><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1810.02851">[1810.02851] Learning to Encode Text as Human-Readable Summaries using Generative Adversarial Networks (arxiv.org)</a></li>
+</ul>
+<p>Representation也可以不是向量，而是一段文字，Encoder输出的文字可能是这篇文章的精华内容，此时Auto-encoder可以看作是两个Seq2seq的模型（<strong>seq2seq2seq auto-encoder</strong>），但实际上这样做行不通，Encoder和Decoder间可能会学出它们之间的“暗号”，此时需要一个Discriminator，来判断生成的这个句子是不是人写的句子，Encoder要想办法产生一段句子不只透过Decoder产生原文，而且要想办法骗过Discriminator觉得是人写的句子。</p>
+<p><img src="https://hexo-img-meurice.oss-cn-beijing.aliyuncs.com/%E6%9D%8E%E5%AE%8F%E6%AF%85%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E8%AF%BE%E7%A8%8B2021%E6%98%A5/8/10.png" style="zoom:50%;" /></p>
+<p>如何训练？：<strong>RL硬做</strong>。</p>
+<h3 id="Tree-as-Embedding"><a href="#Tree-as-Embedding" class="headerlink" title="Tree as Embedding"></a>Tree as Embedding</h3><p><img src="https://hexo-img-meurice.oss-cn-beijing.aliyuncs.com/%E6%9D%8E%E5%AE%8F%E6%AF%85%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E8%AF%BE%E7%A8%8B2021%E6%98%A5/8/11.png" style="zoom:50%;" /></p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1806.07832">[1806.07832] StructVAE: Tree-structured Latent Variable Models for Semi-supervised Semantic Parsing (arxiv.org)</a></li>
+<li><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1904.03746">[1904.03746] Unsupervised Recurrent Neural Network Grammars (arxiv.org)</a></li>
+</ul>
+<h2 id="More-Applications"><a href="#More-Applications" class="headerlink" title="More Applications"></a>More Applications</h2><h3 id="Generator"><a href="#Generator" class="headerlink" title="Generator"></a>Generator</h3><p>此前介绍的基本都是拿Encoder的输出做下游任务，实际上Decoder就相当于一个Generator，吃一个向量产生一个图片。</p>
+<p>除了GAN外，还有另外两种生成式模型，variational auto-encoder（VAE）就是其中一个，它就是把Auto-encoder的Decoder拿出来当Generator来用。</p>
+<h3 id="Compression"><a href="#Compression" class="headerlink" title="Compression"></a>Compression</h3><p>可以把Encoder的输出当作是图片压缩后的结果，Decoder的输出当作是解压后的结果，只是经过压缩和解压缩后，图片会有一定的失真。</p>
+<h3 id="Anomaly-Detection"><a href="#Anomaly-Detection" class="headerlink" title="Anomaly Detection"></a>Anomaly Detection</h3><blockquote>
+<ul>
+<li>Given a set of training data $\{x^1,x^2\cdots,x^N\}$</li>
+<li>Detecting input $x$ is <em>similar</em> to training data or not.</li>
+</ul>
+</blockquote>
+<p><img src="https://hexo-img-meurice.oss-cn-beijing.aliyuncs.com/%E6%9D%8E%E5%AE%8F%E6%AF%85%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E8%AF%BE%E7%A8%8B2021%E6%98%A5/8/12.png" style="zoom:50%;" /></p>
+<p>一个对象是否正常，取决于训练资料中的内容。</p>
+<p><img src="https://hexo-img-meurice.oss-cn-beijing.aliyuncs.com/%E6%9D%8E%E5%AE%8F%E6%AF%85%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E8%AF%BE%E7%A8%8B2021%E6%98%A5/8/13.png" style="zoom:50%;" /></p>
+<h4 id="Fraud-Detection"><a href="#Fraud-Detection" class="headerlink" title="Fraud Detection"></a>Fraud Detection</h4><ul>
+<li>Traning data: credit card transactions, $x$: fraud or not<ul>
+<li><a target="_blank" rel="noopener" href="https://www.kaggle.com/datasets/mlg-ulb/creditcardfraud">Credit Card Fraud Detection | Kaggle</a></li>
+</ul>
+</li>
+</ul>
+<h4 id="Network-Intrusion-Detection"><a href="#Network-Intrusion-Detection" class="headerlink" title="Network Intrusion Detection"></a>Network Intrusion Detection</h4><ul>
+<li>Traning data: connection, $x$: attack or not<ul>
+<li><a target="_blank" rel="noopener" href="http://kdd.ics.uci.edu/databases/kddcup99/kddcup99.html">KDD Cup 1999 Data (uci.edu)</a></li>
+</ul>
+</li>
+</ul>
+<h4 id="Cancer-Detection"><a href="#Cancer-Detection" class="headerlink" title="Cancer Detection"></a>Cancer Detection</h4><ul>
+<li>Traning data: normal cells, $x$: cancer or not?<ul>
+<li><a target="_blank" rel="noopener" href="https://www.kaggle.com/datasets/uciml/breast-cancer-wisconsin-data">Breast Cancer Wisconsin (Diagnostic) Data Set | Kaggle</a></li>
+</ul>
+</li>
+</ul>
+<p>异常检测中往往是有一大堆正常的样本，而只有少量或者没有负样本，所以它不是一个一般的分类问题（One Class分类问题）。</p>
+<h4 id="Approach-Auto-encoder"><a href="#Approach-Auto-encoder" class="headerlink" title="Approach: Auto-encoder"></a>Approach: Auto-encoder</h4><p>例：真实人脸检测</p>
+<p>用真人的人脸去训练一个Auto-encoder，对于一张异常的图片，它的reconstruction loss会比较大。</p>
+<p><img src="https://hexo-img-meurice.oss-cn-beijing.aliyuncs.com/%E6%9D%8E%E5%AE%8F%E6%AF%85%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E8%AF%BE%E7%A8%8B2021%E6%98%A5/8/14.png" style="zoom:50%;" /></p>
+
+        <!-- （底部）分类文章 -->
+        <!-- 
+          <div class="post-categoris-bottom">
+            <div class="post-categoris-name">blog</div>
+            <ul>
+            
+            
+              
+                <li class="base">
+                  <a  href="/2020/07/15/hello-world/" class="post-categoris-bottom-link">
+                  Hello World
+                </a>
+                </li>
+              
+              
+            
+            
+            
+              
+                <li class="base">
+                  <a  href="/2021/04/03/%E5%B1%B1%E4%B8%9C%E7%9C%81%E7%AC%AC%E4%BA%8C%E5%B1%8A%E6%95%B0%E6%8D%AE%E5%BA%94%E7%94%A8%E5%88%9B%E6%96%B0%E5%88%9B%E4%B8%9A%E5%A4%A7%E8%B5%9B%E2%80%94%E2%80%94%E7%96%AB%E6%83%85%E5%AF%86%E5%88%87%E6%8E%A5%E8%A7%A6%E4%BA%BA%E5%91%98%E8%BF%BD%E8%B8%AA/" class="post-categoris-bottom-link">
+                  山东省第二届数据应用创新创业大赛 疫情密切接触人员追踪
+                </a>
+                </li>
+              
+              
+            
+            
+            
+              
+                <li class="base">
+                  <a  href="/2021/05/18/2021%E6%8B%9B%E5%95%86%E9%93%B6%E8%A1%8CFinTech%E7%B2%BE%E8%8B%B1%E8%AE%AD%E7%BB%83%E8%90%A5-%E6%95%B0%E6%8D%AE%E8%B5%9B%E9%81%93/" class="post-categoris-bottom-link">
+                  2021招商银行FinTech精英训练营 数据赛道
+                </a>
+                </li>
+              
+              
+            
+            
+            
+              
+                <li class="base">
+                  <a  href="/2021/06/29/2021%E4%B8%AD%E5%9B%BD%E9%AB%98%E6%A0%A1%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%A4%A7%E8%B5%9B%E2%80%94%E2%80%94%E5%BE%AE%E4%BF%A1%E5%A4%A7%E6%95%B0%E6%8D%AE%E6%8C%91%E6%88%98%E8%B5%9B/" class="post-categoris-bottom-link">
+                  2021中国高校计算机大赛 微信大数据挑战赛
+                </a>
+                </li>
+              
+              
+            
+            
+            
+              
+                <li class="base">
+                  <a  href="/2021/12/31/2021%E5%B9%B4%E5%BA%A6%E6%80%BB%E7%BB%93/" class="post-categoris-bottom-link">
+                  2021年度总结
+                </a>
+                </li>
+              
+              
+            
+            
+            
+              
+                <li class="base">
+                  <a  href="/2022/02/05/%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/" class="post-categoris-bottom-link">
+                  数字图像处理
+                </a>
+                </li>
+              
+              
+            
+            
+            
+              
+                <li class="base">
+                  <a  href="/2022/04/23/%E8%87%AA%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9C%BA%E5%88%B6/" class="post-categoris-bottom-link">
+                  自注意力机制
+                </a>
+                </li>
+              
+              
+            
+            
+            
+              
+                <li class="base">
+                  <a  href="/2022/04/25/Transformer/" class="post-categoris-bottom-link">
+                  Attention Is All You Need
+                </a>
+                </li>
+              
+              
+            
+            
+            
+              
+                <li class="base">
+                  <a  href="/2022/04/29/2022%E6%8B%9B%E5%95%86%E9%93%B6%E8%A1%8CFinTech%E7%B2%BE%E8%8B%B1%E8%AE%AD%E7%BB%83%E8%90%A5%20%E6%95%B0%E6%8D%AE%E8%B5%9B%E9%81%93%E9%A6%96%E6%97%A5%E5%9F%BA%E7%BA%BF/" class="post-categoris-bottom-link">
+                  2022招商银行FinTech精英训练营 数据赛道首日基线
+                </a>
+                </li>
+              
+              
+            
+            
+            
+              
+                <li class="base">
+                  <a  href="/2022/04/30/%E5%90%84%E5%BC%8F%E5%90%84%E6%A0%B7%E7%9A%84%E8%87%AA%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9C%BA%E5%88%B6/" class="post-categoris-bottom-link">
+                  各式各样的自注意力机制
+                </a>
+                </li>
+              
+              
+            
+            
+            
+              
+                <li class="base">
+                  <a  href="/2022/05/12/%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B9%A0%E2%80%94%E2%80%94%E6%84%9F%E7%9F%A5%E6%9C%BA/" class="post-categoris-bottom-link">
+                  感知机
+                </a>
+                </li>
+              
+              
+            
+            
+            
+              
+                <li class="base">
+                  <a  href="/2022/05/13/%E7%94%9F%E6%88%90%E5%BC%8F%E5%AF%B9%E6%8A%97%E7%BD%91%E7%BB%9C/" class="post-categoris-bottom-link">
+                  生成式对抗网络
+                </a>
+                </li>
+              
+              
+            
+            
+            
+              
+            
+            
+            
+              
+                <li class="base">
+                  <a  href="/2022/05/17/%E8%87%AA%E7%9B%91%E7%9D%A3%E5%BC%8F%E5%AD%A6%E4%B9%A0/" class="post-categoris-bottom-link">
+                  自监督式学习
+                </a>
+                </li>
+              
+              
+            
+            
+            
+              
+                <li class="base">
+                  <a  href="/2022/05/20/%E8%AF%AD%E9%9F%B3%E4%B8%8E%E5%BD%B1%E5%83%8F%E4%B8%8A%E7%9A%84%E8%87%AA%E7%9B%91%E7%9D%A3%E5%BC%8F%E5%AD%A6%E4%B9%A0%E6%A8%A1%E5%9E%8B/" class="post-categoris-bottom-link">
+                  语音与影像上的自监督式学习模型
+                </a>
+                </li>
+              
+              
+            
+            
+            
+              
+                <li class="me base">
+                  <a  href="/2022/06/05/%E8%87%AA%E7%BC%96%E7%A0%81%E5%99%A8/" class="post-categoris-bottom-link">
+                  自编码器
+                </a>
+                </li>
+              
+              
+            
+            
+            
+              
+                <li class="base">
+                  <a  href="/2022/06/15/%E5%BC%82%E5%B8%B8%E6%A3%80%E6%B5%8B/" class="post-categoris-bottom-link">
+                  异常检测
+                </a>
+                </li>
+              
+              
+            
+            
+            
+              
+                <li class="base">
+                  <a  href="/2022/07/14/YOLO/" class="post-categoris-bottom-link">
+                  YOLO v1 - v5, v7
+                </a>
+                </li>
+              
+              
+            
+            
+            
+              
+            
+            
+            
+              
+                <li class="base">
+                  <a  href="/2022/07/31/%E5%9B%BE%E5%83%8F%E8%B4%A8%E9%87%8F%E8%AF%84%E4%BB%B7/" class="post-categoris-bottom-link">
+                  图像质量评价
+                </a>
+                </li>
+              
+              
+            
+            
+            
+              
+            
+            
+            
+              
+                <li class="base">
+                  <a  href="/2022/08/26/%E5%9B%A0%E6%9E%9C%E6%8E%A8%E6%96%AD/" class="post-categoris-bottom-link">
+                  因果推断
+                </a>
+                </li>
+              
+              
+            
+            
+            
+              
+                <li class="base">
+                  <a  href="/2022/09/20/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%EF%BC%88MIT%206.828%20Xv6%EF%BC%89/" class="post-categoris-bottom-link">
+                  xv6操作系统
+                </a>
+                </li>
+              
+              
+            
+            
+            
+              
+                <li class="base">
+                  <a  href="/2022/10/27/%E9%95%BF%E7%9F%AD%E6%9C%9F%E8%AE%B0%E5%BF%86%E7%BD%91%E7%BB%9C/" class="post-categoris-bottom-link">
+                  长短期记忆网络
+                </a>
+                </li>
+              
+              
+            
+            
+            
+              
+                <li class="base">
+                  <a  href="/2022/11/30/%E5%9B%BE%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" class="post-categoris-bottom-link">
+                  图神经网络
+                </a>
+                </li>
+              
+              
+            
+            
+            
+              
+                <li class="base">
+                  <a  href="/2022/12/20/%E7%BD%91%E4%B8%8A%E8%AF%84%E6%95%99%E8%84%9A%E6%9C%AC/" class="post-categoris-bottom-link">
+                  深大网上评教的批量自动勾选脚本
+                </a>
+                </li>
+              
+              
+            
+            
+            
+              
+                <li class="base">
+                  <a  href="/2023/01/06/%E5%88%9A%E4%BD%93%E8%BF%90%E5%8A%A8%E7%8A%B6%E6%80%81%E6%8F%8F%E8%BF%B0/" class="post-categoris-bottom-link">
+                  机器人学之运动学——刚体运动状态描述
+                </a>
+                </li>
+              
+              
+            
+            
+            
+            
+            </ul>
+
+          </div>
+
+         -->
+      </div>
+      <div class="post-content-inner-space">
+        
+          <div class="space-toc-main animate__animated  animate__fadeInUp">
+            <ol class="space-toc"><li class="space-toc-item space-toc-level-2"><a class="space-toc-link" href="#Review%EF%BC%9ASelf-supervised-Learning-Framework"><span class="space-toc-text">Review：Self-supervised Learning Framework</span></a></li><li class="space-toc-item space-toc-level-2"><a class="space-toc-link" href="#Basic-Idea-of-Auto-encoder"><span class="space-toc-text">Basic Idea of Auto-encoder</span></a></li><li class="space-toc-item space-toc-level-2"><a class="space-toc-link" href="#Feature-Disentanglement"><span class="space-toc-text">Feature Disentanglement</span></a></li><li class="space-toc-item space-toc-level-2"><a class="space-toc-link" href="#Discrete-Latent-Representation"><span class="space-toc-text">Discrete Latent Representation</span></a></li><li class="space-toc-item space-toc-level-2"><a class="space-toc-link" href="#More-Applications"><span class="space-toc-text">More Applications</span></a></li></ol>
+           </div>
+        
+      </div>
+   </div>
+    <!-- 评论 -->
+    <!--page.comments !== false && --> 
+     
+    <div class="bottom-comments-outer">
+      <div class="bottom-comments-inner">
+        <!-- valine -->
+        
+          <section id="comments" class="comments" style="margin-top: 150px;">
+            <style>
+              .comments{background:#fff}
+              @media screen and (max-width:900px){.comments{margin:auto;padding:10px;background:#fff}}
+            </style>
+            <div id="vcomment" class="comment"></div>
+<script src="https://cdn.jsdelivr.net/npm/leancloud-storage@3.11.1/dist/av-min.js"></script>
+<script src='https://unpkg.com/valine@1.5.1/dist/Valine.min.js'></script>
+<script src="https://cdnjs.loli.net/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+    var notify = 'true' == true ? true : false;
+    var verify = 'false' == true ? true : false;
+    new Valine({
+        av: AV,
+        el: '#vcomment',
+        notify: notify,
+        app_id: "uSbQCc7fXmxLPopTU5E2KWrS-gzGzoHsz",
+        app_key: "eFJuGzWWqMmywQiehZRrFEQp",
+        placeholder: "\[支持 Markdown\] 说点什么吧～",
+        avatar:"robohash",
+    });
+</script>
+
+          </section>
+        
+        <!-- Gitalk -->
+        
+        <!-- livere -->
+        
+        </div>
+      </div>
+    
+  </div>
+</article>
+  </div>
+</div>
+
+
+
+<!-- 如果是home模式的话，不在首页就显示footer，如果不是home模式的话 所有都显示footer -->
+
+  <div class="footer-outer animate__animated  animate__fadeInUp">
+    <div class="footer-inner">
+    <div class="footer-text">
+    <p>由 <a target="_blank" rel="noopener" href="http://hexo.io/">Hexo</a> &amp; <a target="_blank" rel="noopener" href="https://github.com/FuShaoLei/hexo-theme-white">White</a> 强力驱动 <br> <a target="_blank" rel="noopener" href="https://beian.miit.gov.cn/">鄂ICP备20012765号</a></p>
+
+    </div>
+    <div class="footer-contact">
+    <ul class="footer-ul">
+        
+        <li class="footer-li">
+            <a href="https://github.com/yzhn16" target="_blank">
+                <i class="ri-github-line"></i>
+            </a>
+        </li>
+        
+        <li class="footer-li">
+            <a href="mailto:yanzhn@outlook.com" target="_blank">
+                <i class="ri-mail-line"></i>
+            </a>
+        </li>
+        
+    </ul>
+    </div>
+    </div>
+</div>
+
+
+
+
+
+
+<script src="/js/white.js"></script>
+
+
+
+    
+      
+<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.1/build/highlight.min.js"></script>
+
+      <script>hljs.initHighlightingOnLoad();</script>
+    
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        jax: ["input/TeX", "output/CommonHTML"],
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<!--<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML" id=""></script>
+</body>
+</html>

@@ -1,0 +1,806 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>  因果推断 |    white.</title>
+  <meta name="description" content="A minimalist theme for hexo.">
+  <!-- 标签页图标 -->
+  
+
+  <!-- 图标库 -->
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@2.2.0/fonts/remixicon.css" rel="stylesheet">
+  <!-- 动画库 -->
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fushaolei/cdn-white@1.0/css/animate.css"/>
+  
+  <!-- css文件 -->
+  
+<link rel="stylesheet" href="/css/white.css">
+
+  <!-- 代码高亮 -->
+  
+    
+      
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.1.1/styles/github.css">
+
+    
+  
+<meta name="generator" content="Hexo 6.2.0"><link rel="alternate" href="/atom.xml" title="体素储洁" type="application/atom+xml">
+</head>
+
+
+<body>
+
+<div class="menu-outer">
+    <div class="menu-inner">
+      <div class="menu-site-name  animate__animated  animate__fadeInUp">
+        <a href="/">
+          white.
+        </a>
+        
+      </div>
+      <div class="menu-group">
+        <ul class="menu-ul">
+        
+          <a href="/" class="nav-link">
+            <li class="menu-li  animate__animated  animate__fadeInUp">
+              Home
+            </li>
+          </a>
+        
+          <a href="/categories/blog" class="nav-link">
+            <li class="menu-li  animate__animated  animate__fadeInUp">
+              Blog
+            </li>
+          </a>
+        
+          <a href="/categories/gallery" class="nav-link">
+            <li class="menu-li  animate__animated  animate__fadeInUp">
+              Gallery
+            </li>
+          </a>
+        
+          <a href="/categories/tool" class="nav-link">
+            <li class="menu-li  animate__animated  animate__fadeInUp">
+              Tool
+            </li>
+          </a>
+        
+          <a href="/about" class="nav-link">
+            <li class="menu-li  animate__animated  animate__fadeInUp">
+              About
+            </li>
+          </a>
+        
+          <a href="/archives" class="nav-link">
+            <li class="menu-li  animate__animated  animate__fadeInUp">
+              Archive
+            </li>
+          </a>
+        
+        
+        
+       
+        
+        <a href="/search">
+          <li class="menu-li  animate__animated  animate__fadeInUp">
+            <i class="ri-search-line"></i>
+          </li>
+        </a>
+        
+          <li class="menu-li animate__animated  animate__fadeInUp" id="mobile-menu">
+            <i class="ri-menu-line"></i>
+          </li>
+        
+        </ul>
+
+      </div>
+
+    </div>
+</div>
+<div id="mobile-main" class="animate__animated  animate__fadeIn">
+  <div class="mobile-menu-inner">
+    <div class="mobile-menu-site-name animate__animated  animate__fadeInUp">
+      <a href="/">
+        white.
+      </a>
+    </div>
+    <div class="mobile-menu-group" id="mobile-close">
+      <i class="ri-close-line"></i>
+    </div>
+
+  </div>
+
+  <div class="mobile-menu-div">
+  
+    <a href="/" class="mobile-nav-link">
+      <div class="mobile-menu-child animate__animated  animate__fadeInUp">
+        <span>Home</span>
+      </div>
+    </a>
+  
+    <a href="/categories/blog" class="mobile-nav-link">
+      <div class="mobile-menu-child animate__animated  animate__fadeInUp">
+        <span>Blog</span>
+      </div>
+    </a>
+  
+    <a href="/categories/gallery" class="mobile-nav-link">
+      <div class="mobile-menu-child animate__animated  animate__fadeInUp">
+        <span>Gallery</span>
+      </div>
+    </a>
+  
+    <a href="/categories/tool" class="mobile-nav-link">
+      <div class="mobile-menu-child animate__animated  animate__fadeInUp">
+        <span>Tool</span>
+      </div>
+    </a>
+  
+    <a href="/about" class="mobile-nav-link">
+      <div class="mobile-menu-child animate__animated  animate__fadeInUp">
+        <span>About</span>
+      </div>
+    </a>
+  
+    <a href="/archives" class="mobile-nav-link">
+      <div class="mobile-menu-child animate__animated  animate__fadeInUp">
+        <span>Archive</span>
+      </div>
+    </a>
+  
+  
+    <a href="/search">  
+      <div class="mobile-menu-child  animate__animated  animate__fadeInUp">
+        <i class="ri-search-line"></i>
+      </div>
+    </a>
+    
+  </div>
+
+
+</div>
+
+<div class="body-outer">
+  <div class="body-inner">
+    
+<article class="post-inner">
+  <div class="post-content-outer">
+    <div class="post-intro">
+      <div class="post-title animate__animated  animate__fadeInUp">因果推断</div>
+      <div class="meta-intro animate__animated  animate__fadeInUp">8月 26 2022</div>
+      
+        <div class="post-cover"><span class="lazyload-img-span"><img data-src="https://hexo-img-meurice.oss-cn-beijing.aliyuncs.com/cover/causal.png" class="post-cover-img"></span></div>
+      
+    </div>
+    <div class="post-content-inner">
+      <div class="post-content-inner-space">
+
+      </div>
+      <div class="post-content-main animate__animated  animate__fadeInUp">
+        <!-- top型目录 -->
+        
+        <p><a target="_blank" rel="noopener" href="https://www.bradyneal.com/">Brady Neal - Causality Blog - Brady Neal’s personal website and blog about causal inference and machine learning.</a></p>
+<span id="more"></span>
+<h1 id="Causal-Inference"><a href="#Causal-Inference" class="headerlink" title="Causal Inference"></a>Causal Inference</h1><h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><h2 id="Motivation"><a href="#Motivation" class="headerlink" title="Motivation"></a>Motivation</h2><h3 id="Simpson’s-Paradox"><a href="#Simpson’s-Paradox" class="headerlink" title="Simpson’s Paradox"></a>Simpson’s Paradox</h3><p>假设现在有一种新的病毒：COVID-27，需要在两种治疗方案（treatment）$T$：A（0）和B（1）做决定，其中治疗方案B比治疗方案A稀缺；患者的病情（condition）$C$有mild（0）和severe（1）；最后的结果（outcome）$Y$为alive（0）或dead（1）。</p>
+<p>下表是治疗方案与存活情况：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center"></th>
+<th style="text-align:center">Mild</th>
+<th style="text-align:center">Severe</th>
+<th style="text-align:center">Total</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">A</td>
+<td style="text-align:center">15% (210/1400)</td>
+<td style="text-align:center">30% (30/100)</td>
+<td style="text-align:center">16% (240/1500)</td>
+</tr>
+<tr>
+<td style="text-align:center">B</td>
+<td style="text-align:center">10% (5/50)</td>
+<td style="text-align:center">20% (100/500)</td>
+<td style="text-align:center">19% (105/550)</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>无论是轻症还是重症，选择方案B的死亡率都要低于选择方案A的死亡率，但对于Total列，选择方案A的死亡率要低于选择方案B的死亡率。</p>
+<p>导致出现辛普森悖论的关键因素是各个类别的非均匀性，从表中可看出，轻症患者大多选择方案A，选择方案A而死亡的患者主要来自于轻症（$\frac{1400}{1500}\cdot0.15$），而重症患者大多选择方案B，选择方案B而死亡的患者主要来自于重症（$\frac{500}{550}\cdot0.20$），但重症患者本身死亡率就较高，导致选择方案B的患者整体死亡率较高。</p>
+<p>无论选择方案A还是方案B都可能是正确答案，这取决数据的因果结构，因果关系是解决辛普森悖论的关键。</p>
+<p><strong>Scenario 1（treatment B）</strong>如果$C$是$T$的原因，则B是降低死亡率更有效的治疗方案。一个简单的例子是，医生为轻症病人提供方案A，而将更稀缺的方案B留给重症病人，因为重症病人更有可能死亡（$C\rightarrow Y$），并且更愿意接受方案B（$C\rightarrow T$）。在这种情况下，方案B整体有更高的死亡率仅仅是因为选择方案B的大多数是重症患者。</p>
+<p><img src="https://hexo-img-meurice.oss-cn-beijing.aliyuncs.com/Causal%20Inference/1/1.png" style="zoom:30%;" /></p>
+<p><strong>Scenario 2（treatment A）</strong>如果$T$是$C$的原因，则A是降低死亡率更有效的治疗方案。例如，方案B非常稀缺，导致病人需要等待很久才能接受治疗，而方案A没有这个问题，这可能会导致轻症病人因为长时间的等待而转为重症，即使方案B实施后的结果比A更有效（$T\rightarrow Y$），但长时间的等待会导致更糟的结果（$T\rightarrow C\rightarrow Y$）。这种情况下，选择方案B的人更少是因为方案B昂贵的价格，治疗方案与患者病情无关。</p>
+<p><img src="https://hexo-img-meurice.oss-cn-beijing.aliyuncs.com/Causal%20Inference/1/2.png" style="zoom:40%;" /></p>
+<h3 id="Correlation-Does-Not-Imply-Causation"><a href="#Correlation-Does-Not-Imply-Causation" class="headerlink" title="Correlation Does Not Imply Causation"></a>Correlation Does Not Imply Causation</h3><p>如图，每年因落入游泳池而溺水的人数与 Nicolas Cage 每年出演的电影数量具有高度相关性。如果只看这张图可以得到以下几种解释：</p>
+<ul>
+<li>Nicolas Cage在他的电影中鼓励糟糕的游泳者跳进游泳池；</li>
+<li>当Nicolas Cage看到那一年发生了多少溺水事件时，他是更有动力去出演更多的电影；</li>
+<li>也许尼古拉斯凯奇有兴趣增加他在因果推理从业者中的知名度，所以他回到过去说服他过去的自己做正确数量的电影让我们看到这种相关性，但又不完全匹配，因为这会引起怀疑，从而阻止他以这种方式操纵与数据的相关性。</li>
+</ul>
+<p>显然，这些解释都是不正确的，更多类似数据和图表可参见<a target="_blank" rel="noopener" href="http://tylervigen.com/spurious-correlations">Spurious Correlations (tylervigen.com)</a>。</p>
+<p>考虑一个例子，睡觉时穿鞋和醒来后头痛高度相关，大多数情况下，如果某人穿鞋睡觉，醒来后会头痛，如果不穿鞋睡觉，醒来后不会头痛。</p>
+<p>如果不考虑因果，很可能会得出“穿着鞋睡觉会导致醒来后头痛”的结论，但穿着鞋睡觉和头痛都是由共同的因素——夜晚喝酒导致的。</p>
+<p><img src="https://hexo-img-meurice.oss-cn-beijing.aliyuncs.com/Causal%20Inference/1/3.png" style="zoom:45%;" /></p>
+<p>这种变量被称为“confounder”（混淆因子）或“lurking variable”（潜伏变量），我们将由confounder引起的关联称为confounding association。</p>
+<h3 id="What-Does-Imply-Causation"><a href="#What-Does-Imply-Causation" class="headerlink" title="What Does Imply Causation?"></a>What Does Imply Causation?</h3><h4 id="Potential-outcomes-intuition"><a href="#Potential-outcomes-intuition" class="headerlink" title="Potential outcomes: intuition"></a>Potential outcomes: intuition</h4><p>我们需要推断处理方式在某些结果上的影响，假设你现在头痛，你知道当你服药后头痛会消失，同时也知道如果不服药头痛会依然存在，如果知道两件事情，你可能会说头痛和服药有causal effect（因果效应），但如果没有服药，头痛也消失了，可能会说头痛和服药没有因果效应。</p>
+<p><img src="https://hexo-img-meurice.oss-cn-beijing.aliyuncs.com/Causal%20Inference/1/4.png" style="zoom:50%;" /></p>
+<h4 id="Potential-outcomes-notation"><a href="#Potential-outcomes-notation" class="headerlink" title="Potential outcomes: notation"></a>Potential outcomes: notation</h4><p>现在我们使用$do(T=1)$表示服药，用$do(T=0)$表示不服药，服药后将观察到的结果是$Y_i |_{do(T=1)}\triangleq Y_i(1)$，若不服药，将观察到的结果是$Y_i|_{do(T=0)}\triangleq Y_i(0)$，将因果效应（causal effect）定义为两种潜在结果的差异：$Y_i(1)-Y_i(0)$。</p>
+<h4 id="Fundamental-problem"><a href="#Fundamental-problem" class="headerlink" title="Fundamental problem"></a>Fundamental problem</h4><p>但此处的问题在于，如果不服药，我们只能观察到不服药（事实，Factural）的结果$Y_i(0)$而无法观察到服药后（反事实，Counterfactual）的结果$Y_i(1)$，如果服药，我们只能观察到服药（事实，Factural）后的结果$Y_i(1)$而无法观察到不服药（反事实，Counterfactual）的结果$Y_i(0)$。</p>
+<p>因果推断中的基本问题是，如何通过缺失数据来得到因果效应。</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">$i$</th>
+<th style="text-align:center">$T$</th>
+<th style="text-align:center">$Y$</th>
+<th style="text-align:center">$Y(1)$</th>
+<th style="text-align:center">$Y(0)$</th>
+<th style="text-align:center">$Y(1)-Y(0)$</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">1</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">?</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">?</td>
+</tr>
+<tr>
+<td style="text-align:center">2</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">?</td>
+<td style="text-align:center">?</td>
+</tr>
+<tr>
+<td style="text-align:center">3</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">?</td>
+<td style="text-align:center">?</td>
+</tr>
+<tr>
+<td style="text-align:center">4</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">?</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">?</td>
+</tr>
+<tr>
+<td style="text-align:center">5</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">?</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">?</td>
+</tr>
+<tr>
+<td style="text-align:center">6</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">?</td>
+<td style="text-align:center">?</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h4 id="Average-treatment-effect-ATE"><a href="#Average-treatment-effect-ATE" class="headerlink" title="Average treatment effect (ATE)"></a>Average treatment effect (ATE)</h4><p>对于个体$i$，individual treatment effect（ITE）定义为：</p>
+<script type="math/tex; mode=display">
+\tau_i\triangleq Y_i(1)-Y_i(0)</script><p>但我们不能同时观察到$Y_i(1)$和$Y_i(0)$，就不能得到ITE，考虑average treatment effect（ATE）：</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\tau\triangleq \mathbb{E}[Y_i(1)-Y_i(0)]&=\mathbb{E}[Y(1)-Y(0)]\\
+&=\mathbb{E}[Y(1)]-\mathbb{E}[Y(0)]
+\end{aligned}</script><p>直觉来看，上式可以直接转化为$\mathbb{E}[Y|T=1]-\mathbb{E}[Y|T=0]$（associational diﬀerence），但这二者并不能划等号，即：</p>
+<script type="math/tex; mode=display">
+\mathbb{E}[Y(1)]-\mathbb{E}[Y(0)]\neq\mathbb{E}[Y|T=1]-\mathbb{E}[Y|T=0]</script><p><img src="https://hexo-img-meurice.oss-cn-beijing.aliyuncs.com/Causal%20Inference/1/11.png" style="zoom:67%;" /></p>
+<h4 id="Randomized-control-trials-RCTs"><a href="#Randomized-control-trials-RCTs" class="headerlink" title="Randomized control trials (RCTs)"></a>Randomized control trials (RCTs)</h4><p>因为关联并不意味着因果，由于$C\rightarrow T$，除了$T\rightarrow Y$的causal association，还存在着$T\rightarrow X\rightarrow Y$的confounding association。</p>
+<p><img src="https://hexo-img-meurice.oss-cn-beijing.aliyuncs.com/Causal%20Inference/1/6.png" style="zoom:75%;" /></p>
+<p>随机控制实验（Randomized control trials）通过类似抛硬币的方式按条件$C$将对象随机分为实验组（treatment group）和对照组（control group），其有两个条件：</p>
+<ul>
+<li>$T$ cannot have and causal parents;</li>
+<li>Groups are comparable. (shoes sleepers were not comparable to the non-shoes sleepers)</li>
+</ul>
+<p>如果没有confounding（例如RCTs），上式就可以划等号：</p>
+<script type="math/tex; mode=display">
+\mathbb{E}[Y(1)]-\mathbb{E}[Y(0)]=\mathbb{E}[Y|T=1]-\mathbb{E}[Y|T=0]</script><p><img src="https://hexo-img-meurice.oss-cn-beijing.aliyuncs.com/Causal%20Inference/1/12.png" style="zoom:67%;" /></p>
+<h3 id="Causation-in-Observational-Studies"><a href="#Causation-in-Observational-Studies" class="headerlink" title="Causation in Observational Studies"></a>Causation in Observational Studies</h3><h4 id="Observational-Studies"><a href="#Observational-Studies" class="headerlink" title="Observational Studies"></a>Observational Studies</h4><p>很多情况下，出于道德（例如随机让人吸烟来分析对肺癌的影响）、可行性（例如分析不同社会性质对经济的影响）及可能性（例如使用时光机器，在人们出生时修改其DNA来分析对乳腺癌的影响）等原因，随机实验难以实施，实际生活中的大量数据都不是随机试验得到的，这些数据的生产来源大多也不是为了计算因果效应，如何从这些数据中推断因果具有更大的意义。</p>
+<h4 id="Solution-adjust-control-for-confounders"><a href="#Solution-adjust-control-for-confounders" class="headerlink" title="Solution: adjust/control for confounders"></a>Solution: adjust/control for confounders</h4><p>解决方式之一是调整或控制confounders，下面用$W$来表示$C$，如果$W$是一个充分调整集（sufficient adjustment set），则有：</p>
+<script type="math/tex; mode=display">
+\mathbb{E}[Y(t)|W=w]\triangleq \mathbb{E}[Y|do(T=t),W=w]=\mathbb{E}[Y|t,w]</script><p><img src="https://hexo-img-meurice.oss-cn-beijing.aliyuncs.com/Causal%20Inference/1/7.png" style="zoom:33%;" /></p>
+<p>至此，我们就得到了没有因果量的$\mathbb{E}[Y|t,w]$，因为当以$w$为条件时，confoudning association被阻塞了。但这个量仍然以$w$为条件，如果需要$Y$的potential outcome的期望，只需marginalize out $W$：</p>
+<script type="math/tex; mode=display">
+\mathbb{E}[Y(t)]\triangleq\mathbb{E}[Y|do(T=t)]=\mathbb{E}_W\mathbb{E}[Y|t,W]</script><h4 id="Solution-backdoor-adjustment"><a href="#Solution-backdoor-adjustment" class="headerlink" title="Solution: backdoor adjustment"></a>Solution: backdoor adjustment</h4><p>对于存在多个confounding association路径的情况，如下图，可以控制$C$和$W_2$，也可以控制$C$和$W_1$，同样地也可以控制$C$、$W_1$和$W_3$。</p>
+<p><img src="https://hexo-img-meurice.oss-cn-beijing.aliyuncs.com/Causal%20Inference/1/8.png" style="zoom:40%;" /></p>
+<p>但对于以下这种结构，我们不需要控制$Z_2$，具体会在后面提到。</p>
+<p><img src="https://hexo-img-meurice.oss-cn-beijing.aliyuncs.com/Causal%20Inference/1/9.png" style="zoom:40%;" /></p>
+<h4 id="Application-on-the-COVID-27-example"><a href="#Application-on-the-COVID-27-example" class="headerlink" title="Application on the COVID-27 example"></a>Application on the COVID-27 example</h4><p>在COVID-27的例子中，对于以下这个因果结构，阻塞$C$：</p>
+<p><img src="https://hexo-img-meurice.oss-cn-beijing.aliyuncs.com/Causal%20Inference/1/10.png" style="zoom:50%;" /></p>
+<p>由前文易知下式成立，$C$是一个离散变量，仅有0、1两个值：</p>
+<script type="math/tex; mode=display">
+\mathbb{E}[Y|do(T=t)]=\mathbb{E}_C\mathbb{E}[Y|t,C]=\sum_c\mathbb{E}[Y|t,c]P(c)</script><p>对治疗方案A和B，分别计算causal：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center"></th>
+<th style="text-align:center">Mild ($\mathbb{E}[Y\vert t,C=0]$)</th>
+<th style="text-align:center">Severe ($\mathbb{E}[Y\vert t,C=1]$)</th>
+<th style="text-align:center">Total ($\mathbb{E}[Y\vert t]$)</th>
+<th style="text-align:center">Causal ($\mathbb{E}[Y\vert do(t)]$)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">A</td>
+<td style="text-align:center">15% (210/1400)</td>
+<td style="text-align:center">30% (30/100)</td>
+<td style="text-align:center"><strong>16%</strong> (240/1500)</td>
+<td style="text-align:center">19.4%</td>
+</tr>
+<tr>
+<td style="text-align:center">B</td>
+<td style="text-align:center"><strong>10%</strong> (5/50)</td>
+<td style="text-align:center"><strong>20%</strong> (100/500)</td>
+<td style="text-align:center">19% (105/550)</td>
+<td style="text-align:center"><strong>12.9%</strong></td>
+</tr>
+</tbody>
+</table>
+</div>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\frac{1450}{2050}(0.15)+\frac{600}{2050}(0.30)&\approx 0.194 \\
+\frac{1450}{2050}(0.10)+\frac{600}{2050}(0.20)&\approx0.129
+\end{aligned}</script><h2 id="Potential-Outcomes"><a href="#Potential-Outcomes" class="headerlink" title="Potential Outcomes"></a>Potential Outcomes</h2><h3 id="What-are-Potential-Outcomes"><a href="#What-are-Potential-Outcomes" class="headerlink" title="What are Potential Outcomes?"></a>What are Potential Outcomes?</h3><h3 id="The-Fundamental-Problem-of-Causal-Inference"><a href="#The-Fundamental-Problem-of-Causal-Inference" class="headerlink" title="The Fundamental Problem of Causal Inference"></a>The Fundamental Problem of Causal Inference</h3><h3 id="Association-is-Not-Causation-Inference"><a href="#Association-is-Not-Causation-Inference" class="headerlink" title="Association is Not Causation Inference"></a>Association is Not Causation Inference</h3><p>以上部分内容参见<a href="#What Does Imply Causation?">What Does Imply Causation?</a></p>
+<h3 id="Ignorability-Exchangeability"><a href="#Ignorability-Exchangeability" class="headerlink" title="Ignorability / Exchangeability"></a>Ignorability / Exchangeability</h3><p> Q: Why is association not causation?</p>
+<p>什么样的假设可以使ATE和association difference相等？如果ATE和association difference相等，我们就可以通过计算$Y(1)$列均值减去$Y(0)$列均值（忽略问号）来计算ATE，即：</p>
+<script type="math/tex; mode=display">
+\mathbb{E}[Y(1)]-\mathbb{E}[Y(0)]=\mathbb{E}[Y|T=1]-\mathbb{E}[Y|T=0]</script><h4 id="Ignorability-Y-1-Y-0-bot-T"><a href="#Ignorability-Y-1-Y-0-bot-T" class="headerlink" title="Ignorability: $(Y(1),Y(0))\ \bot\ T $"></a>Ignorability: $(Y(1),Y(0))\ \bot\ T $</h4><p>对缺失数据的忽略称为Ignorability（可忽略性），可忽略性指的是忽略人们最终如何选择treatment，而假设是随机分配的，也就去掉了confounder的影响（去除了$X\rightarrow T$这条边）。</p>
+<p><img src="https://hexo-img-meurice.oss-cn-beijing.aliyuncs.com/Causal%20Inference/2/1.png" style="zoom:33%;" /></p>
+<p><img src="https://hexo-img-meurice.oss-cn-beijing.aliyuncs.com/Causal%20Inference/2/2.png" style="zoom:33%;" /></p>
+<h4 id="Exchangeability"><a href="#Exchangeability" class="headerlink" title="Exchangeability"></a>Exchangeability</h4><p>假设ATE和association difference相等的另一个角度是Exchangeability（可交换性），可交换性实验组里的个体如果被调换，新旧实验组的观察结果相同，即：</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\mathbb{E}[Y(1)|T=1]&=\mathbb{E}[Y(1)|T=0]=\mathbb{E}[Y(1)] \\
+\mathbb{E}[Y(0)|T=1]&=\mathbb{E}[Y(0)|T=0] =\mathbb{E}[Y(0)]
+\end{aligned}</script><p><img src="https://hexo-img-meurice.oss-cn-beijing.aliyuncs.com/Causal%20Inference/2/3.png" style="zoom:33%;" /></p>
+<p><img src="https://hexo-img-meurice.oss-cn-beijing.aliyuncs.com/Causal%20Inference/2/4.png" style="zoom:34%;" /></p>
+<h3 id="Identifiability-and-Randomized-Control-Trial"><a href="#Identifiability-and-Randomized-Control-Trial" class="headerlink" title="Identifiability and Randomized Control Trial"></a>Identifiability and Randomized Control Trial</h3><h4 id="Aside-identifiablity"><a href="#Aside-identifiablity" class="headerlink" title="Aside: identifiablity"></a>Aside: identifiablity</h4><p>如果可以通过统计表达式（例如$\mathbb{E}[Y\vert t]$）来计算因果表达式（例如$\mathbb{E}[Y(t)]$），则称该因果表达式是Identifiability可识别的。</p>
+<p>我们可以通过随机试验RCT来实现这一假设。</p>
+<h4 id="Randomized-Control-Trial-RCT"><a href="#Randomized-Control-Trial-RCT" class="headerlink" title="Randomized Control Trial (RCT)"></a>Randomized Control Trial (RCT)</h4><p>考虑前文的例子，穿鞋睡觉的人大多都喝了酒，不穿鞋睡觉的人大多都没有喝酒，实验者会进入一群醉汉的房间，然后通过抛硬币的方式决定他们是否要穿鞋睡觉，同样地，实验者会进入一群清醒的人的房间，抛硬币来决定是否要让他们穿上鞋。</p>
+<p><img src="https://hexo-img-meurice.oss-cn-beijing.aliyuncs.com/Causal%20Inference/2/5.png" style="zoom:75%;" /></p>
+<p><img src="https://hexo-img-meurice.oss-cn-beijing.aliyuncs.com/Causal%20Inference/2/6.png" style="zoom:75%;" /></p>
+<p>通过随机试验，迫使treatment不是由任何其他因素引起的，而是由抛硬币决定的，这使得组与组之间是可比较的，实验者消除了混杂因素。</p>
+<h3 id="Conditional-exchangeability-and-Unconfoundedness"><a href="#Conditional-exchangeability-and-Unconfoundedness" class="headerlink" title="Conditional exchangeability and Unconfoundedness"></a>Conditional exchangeability and Unconfoundedness</h3><p>Exchangeability假设了一个如下图所示的因果图，它没有混淆treatment对于outcome的影响：</p>
+<p><img src="https://hexo-img-meurice.oss-cn-beijing.aliyuncs.com/Causal%20Inference/2/7.png" style="zoom:50%;" /></p>
+<p>但我们更关注以下这种情况，$X$是$T$和$Y$的共同原因，它混淆了$T$对$Y$的影响：</p>
+<p><img src="https://hexo-img-meurice.oss-cn-beijing.aliyuncs.com/Causal%20Inference/2/8.png" style="zoom:50%;" /></p>
+<p>在这种情况下，我们引入Conditional exchangeability（条件可交换性），即潜在结果$Y(1)$和$Y(0)$都独立于条件$X$下的$T$：</p>
+<script type="math/tex; mode=display">
+(Y(1),Y(0))\ \bot\ T\vert X</script><p>这样就阻塞了混淆：</p>
+
+        <!-- （底部）分类文章 -->
+        <!-- 
+          <div class="post-categoris-bottom">
+            <div class="post-categoris-name">blog</div>
+            <ul>
+            
+            
+              
+                <li class="base">
+                  <a  href="/2020/07/15/hello-world/" class="post-categoris-bottom-link">
+                  Hello World
+                </a>
+                </li>
+              
+              
+            
+            
+            
+              
+                <li class="base">
+                  <a  href="/2021/04/03/%E5%B1%B1%E4%B8%9C%E7%9C%81%E7%AC%AC%E4%BA%8C%E5%B1%8A%E6%95%B0%E6%8D%AE%E5%BA%94%E7%94%A8%E5%88%9B%E6%96%B0%E5%88%9B%E4%B8%9A%E5%A4%A7%E8%B5%9B%E2%80%94%E2%80%94%E7%96%AB%E6%83%85%E5%AF%86%E5%88%87%E6%8E%A5%E8%A7%A6%E4%BA%BA%E5%91%98%E8%BF%BD%E8%B8%AA/" class="post-categoris-bottom-link">
+                  山东省第二届数据应用创新创业大赛 疫情密切接触人员追踪
+                </a>
+                </li>
+              
+              
+            
+            
+            
+              
+                <li class="base">
+                  <a  href="/2021/05/18/2021%E6%8B%9B%E5%95%86%E9%93%B6%E8%A1%8CFinTech%E7%B2%BE%E8%8B%B1%E8%AE%AD%E7%BB%83%E8%90%A5-%E6%95%B0%E6%8D%AE%E8%B5%9B%E9%81%93/" class="post-categoris-bottom-link">
+                  2021招商银行FinTech精英训练营 数据赛道
+                </a>
+                </li>
+              
+              
+            
+            
+            
+              
+                <li class="base">
+                  <a  href="/2021/06/29/2021%E4%B8%AD%E5%9B%BD%E9%AB%98%E6%A0%A1%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%A4%A7%E8%B5%9B%E2%80%94%E2%80%94%E5%BE%AE%E4%BF%A1%E5%A4%A7%E6%95%B0%E6%8D%AE%E6%8C%91%E6%88%98%E8%B5%9B/" class="post-categoris-bottom-link">
+                  2021中国高校计算机大赛 微信大数据挑战赛
+                </a>
+                </li>
+              
+              
+            
+            
+            
+              
+                <li class="base">
+                  <a  href="/2021/12/31/2021%E5%B9%B4%E5%BA%A6%E6%80%BB%E7%BB%93/" class="post-categoris-bottom-link">
+                  2021年度总结
+                </a>
+                </li>
+              
+              
+            
+            
+            
+              
+                <li class="base">
+                  <a  href="/2022/02/05/%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/" class="post-categoris-bottom-link">
+                  数字图像处理
+                </a>
+                </li>
+              
+              
+            
+            
+            
+              
+                <li class="base">
+                  <a  href="/2022/04/23/%E8%87%AA%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9C%BA%E5%88%B6/" class="post-categoris-bottom-link">
+                  自注意力机制
+                </a>
+                </li>
+              
+              
+            
+            
+            
+              
+                <li class="base">
+                  <a  href="/2022/04/25/Transformer/" class="post-categoris-bottom-link">
+                  Attention Is All You Need
+                </a>
+                </li>
+              
+              
+            
+            
+            
+              
+                <li class="base">
+                  <a  href="/2022/04/29/2022%E6%8B%9B%E5%95%86%E9%93%B6%E8%A1%8CFinTech%E7%B2%BE%E8%8B%B1%E8%AE%AD%E7%BB%83%E8%90%A5%20%E6%95%B0%E6%8D%AE%E8%B5%9B%E9%81%93%E9%A6%96%E6%97%A5%E5%9F%BA%E7%BA%BF/" class="post-categoris-bottom-link">
+                  2022招商银行FinTech精英训练营 数据赛道首日基线
+                </a>
+                </li>
+              
+              
+            
+            
+            
+              
+                <li class="base">
+                  <a  href="/2022/04/30/%E5%90%84%E5%BC%8F%E5%90%84%E6%A0%B7%E7%9A%84%E8%87%AA%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9C%BA%E5%88%B6/" class="post-categoris-bottom-link">
+                  各式各样的自注意力机制
+                </a>
+                </li>
+              
+              
+            
+            
+            
+              
+                <li class="base">
+                  <a  href="/2022/05/12/%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B9%A0%E2%80%94%E2%80%94%E6%84%9F%E7%9F%A5%E6%9C%BA/" class="post-categoris-bottom-link">
+                  感知机
+                </a>
+                </li>
+              
+              
+            
+            
+            
+              
+                <li class="base">
+                  <a  href="/2022/05/13/%E7%94%9F%E6%88%90%E5%BC%8F%E5%AF%B9%E6%8A%97%E7%BD%91%E7%BB%9C/" class="post-categoris-bottom-link">
+                  生成式对抗网络
+                </a>
+                </li>
+              
+              
+            
+            
+            
+              
+            
+            
+            
+              
+                <li class="base">
+                  <a  href="/2022/05/17/%E8%87%AA%E7%9B%91%E7%9D%A3%E5%BC%8F%E5%AD%A6%E4%B9%A0/" class="post-categoris-bottom-link">
+                  自监督式学习
+                </a>
+                </li>
+              
+              
+            
+            
+            
+              
+                <li class="base">
+                  <a  href="/2022/05/20/%E8%AF%AD%E9%9F%B3%E4%B8%8E%E5%BD%B1%E5%83%8F%E4%B8%8A%E7%9A%84%E8%87%AA%E7%9B%91%E7%9D%A3%E5%BC%8F%E5%AD%A6%E4%B9%A0%E6%A8%A1%E5%9E%8B/" class="post-categoris-bottom-link">
+                  语音与影像上的自监督式学习模型
+                </a>
+                </li>
+              
+              
+            
+            
+            
+              
+                <li class="base">
+                  <a  href="/2022/06/05/%E8%87%AA%E7%BC%96%E7%A0%81%E5%99%A8/" class="post-categoris-bottom-link">
+                  自编码器
+                </a>
+                </li>
+              
+              
+            
+            
+            
+              
+                <li class="base">
+                  <a  href="/2022/06/15/%E5%BC%82%E5%B8%B8%E6%A3%80%E6%B5%8B/" class="post-categoris-bottom-link">
+                  异常检测
+                </a>
+                </li>
+              
+              
+            
+            
+            
+              
+                <li class="base">
+                  <a  href="/2022/07/14/YOLO/" class="post-categoris-bottom-link">
+                  YOLO v1 - v5, v7
+                </a>
+                </li>
+              
+              
+            
+            
+            
+              
+            
+            
+            
+              
+                <li class="base">
+                  <a  href="/2022/07/31/%E5%9B%BE%E5%83%8F%E8%B4%A8%E9%87%8F%E8%AF%84%E4%BB%B7/" class="post-categoris-bottom-link">
+                  图像质量评价
+                </a>
+                </li>
+              
+              
+            
+            
+            
+              
+            
+            
+            
+              
+                <li class="me base">
+                  <a  href="/2022/08/26/%E5%9B%A0%E6%9E%9C%E6%8E%A8%E6%96%AD/" class="post-categoris-bottom-link">
+                  因果推断
+                </a>
+                </li>
+              
+              
+            
+            
+            
+              
+                <li class="base">
+                  <a  href="/2022/09/20/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%EF%BC%88MIT%206.828%20Xv6%EF%BC%89/" class="post-categoris-bottom-link">
+                  xv6操作系统
+                </a>
+                </li>
+              
+              
+            
+            
+            
+              
+                <li class="base">
+                  <a  href="/2022/10/27/%E9%95%BF%E7%9F%AD%E6%9C%9F%E8%AE%B0%E5%BF%86%E7%BD%91%E7%BB%9C/" class="post-categoris-bottom-link">
+                  长短期记忆网络
+                </a>
+                </li>
+              
+              
+            
+            
+            
+              
+                <li class="base">
+                  <a  href="/2022/11/30/%E5%9B%BE%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" class="post-categoris-bottom-link">
+                  图神经网络
+                </a>
+                </li>
+              
+              
+            
+            
+            
+              
+                <li class="base">
+                  <a  href="/2022/12/20/%E7%BD%91%E4%B8%8A%E8%AF%84%E6%95%99%E8%84%9A%E6%9C%AC/" class="post-categoris-bottom-link">
+                  深大网上评教的批量自动勾选脚本
+                </a>
+                </li>
+              
+              
+            
+            
+            
+              
+                <li class="base">
+                  <a  href="/2023/01/06/%E5%88%9A%E4%BD%93%E8%BF%90%E5%8A%A8%E7%8A%B6%E6%80%81%E6%8F%8F%E8%BF%B0/" class="post-categoris-bottom-link">
+                  机器人学之运动学——刚体运动状态描述
+                </a>
+                </li>
+              
+              
+            
+            
+            
+            
+            </ul>
+
+          </div>
+
+         -->
+      </div>
+      <div class="post-content-inner-space">
+        
+          <div class="space-toc-main animate__animated  animate__fadeInUp">
+            <ol class="space-toc"><li class="space-toc-item space-toc-level-2"><a class="space-toc-link" href="#Introduction"><span class="space-toc-text">Introduction</span></a></li><li class="space-toc-item space-toc-level-2"><a class="space-toc-link" href="#Motivation"><span class="space-toc-text">Motivation</span></a></li><li class="space-toc-item space-toc-level-2"><a class="space-toc-link" href="#Potential-Outcomes"><span class="space-toc-text">Potential Outcomes</span></a></li></ol>
+           </div>
+        
+      </div>
+   </div>
+    <!-- 评论 -->
+    <!--page.comments !== false && --> 
+     
+    <div class="bottom-comments-outer">
+      <div class="bottom-comments-inner">
+        <!-- valine -->
+        
+          <section id="comments" class="comments" style="margin-top: 150px;">
+            <style>
+              .comments{background:#fff}
+              @media screen and (max-width:900px){.comments{margin:auto;padding:10px;background:#fff}}
+            </style>
+            <div id="vcomment" class="comment"></div>
+<script src="https://cdn.jsdelivr.net/npm/leancloud-storage@3.11.1/dist/av-min.js"></script>
+<script src='https://unpkg.com/valine@1.5.1/dist/Valine.min.js'></script>
+<script src="https://cdnjs.loli.net/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+    var notify = 'true' == true ? true : false;
+    var verify = 'false' == true ? true : false;
+    new Valine({
+        av: AV,
+        el: '#vcomment',
+        notify: notify,
+        app_id: "uSbQCc7fXmxLPopTU5E2KWrS-gzGzoHsz",
+        app_key: "eFJuGzWWqMmywQiehZRrFEQp",
+        placeholder: "\[支持 Markdown\] 说点什么吧～",
+        avatar:"robohash",
+    });
+</script>
+
+          </section>
+        
+        <!-- Gitalk -->
+        
+        <!-- livere -->
+        
+        </div>
+      </div>
+    
+  </div>
+</article>
+  </div>
+</div>
+
+
+
+<!-- 如果是home模式的话，不在首页就显示footer，如果不是home模式的话 所有都显示footer -->
+
+  <div class="footer-outer animate__animated  animate__fadeInUp">
+    <div class="footer-inner">
+    <div class="footer-text">
+    <p>由 <a target="_blank" rel="noopener" href="http://hexo.io/">Hexo</a> &amp; <a target="_blank" rel="noopener" href="https://github.com/FuShaoLei/hexo-theme-white">White</a> 强力驱动 <br> <a target="_blank" rel="noopener" href="https://beian.miit.gov.cn/">鄂ICP备20012765号</a></p>
+
+    </div>
+    <div class="footer-contact">
+    <ul class="footer-ul">
+        
+        <li class="footer-li">
+            <a href="https://github.com/yzhn16" target="_blank">
+                <i class="ri-github-line"></i>
+            </a>
+        </li>
+        
+        <li class="footer-li">
+            <a href="mailto:yanzhn@outlook.com" target="_blank">
+                <i class="ri-mail-line"></i>
+            </a>
+        </li>
+        
+    </ul>
+    </div>
+    </div>
+</div>
+
+
+
+
+
+
+<script src="/js/white.js"></script>
+
+
+
+    
+      
+<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.1/build/highlight.min.js"></script>
+
+      <script>hljs.initHighlightingOnLoad();</script>
+    
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        jax: ["input/TeX", "output/CommonHTML"],
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<!--<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML" id=""></script>
+</body>
+</html>

@@ -1,0 +1,761 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>  语音与影像上的自监督式学习模型 |    white.</title>
+  <meta name="description" content="A minimalist theme for hexo.">
+  <!-- 标签页图标 -->
+  
+
+  <!-- 图标库 -->
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@2.2.0/fonts/remixicon.css" rel="stylesheet">
+  <!-- 动画库 -->
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fushaolei/cdn-white@1.0/css/animate.css"/>
+  
+  <!-- css文件 -->
+  
+<link rel="stylesheet" href="/css/white.css">
+
+  <!-- 代码高亮 -->
+  
+    
+      
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.1.1/styles/github.css">
+
+    
+  
+<meta name="generator" content="Hexo 6.2.0"><link rel="alternate" href="/atom.xml" title="体素储洁" type="application/atom+xml">
+</head>
+
+
+<body>
+
+<div class="menu-outer">
+    <div class="menu-inner">
+      <div class="menu-site-name  animate__animated  animate__fadeInUp">
+        <a href="/">
+          white.
+        </a>
+        
+      </div>
+      <div class="menu-group">
+        <ul class="menu-ul">
+        
+          <a href="/" class="nav-link">
+            <li class="menu-li  animate__animated  animate__fadeInUp">
+              Home
+            </li>
+          </a>
+        
+          <a href="/categories/blog" class="nav-link">
+            <li class="menu-li  animate__animated  animate__fadeInUp">
+              Blog
+            </li>
+          </a>
+        
+          <a href="/categories/gallery" class="nav-link">
+            <li class="menu-li  animate__animated  animate__fadeInUp">
+              Gallery
+            </li>
+          </a>
+        
+          <a href="/categories/tool" class="nav-link">
+            <li class="menu-li  animate__animated  animate__fadeInUp">
+              Tool
+            </li>
+          </a>
+        
+          <a href="/about" class="nav-link">
+            <li class="menu-li  animate__animated  animate__fadeInUp">
+              About
+            </li>
+          </a>
+        
+          <a href="/archives" class="nav-link">
+            <li class="menu-li  animate__animated  animate__fadeInUp">
+              Archive
+            </li>
+          </a>
+        
+        
+        
+       
+        
+        <a href="/search">
+          <li class="menu-li  animate__animated  animate__fadeInUp">
+            <i class="ri-search-line"></i>
+          </li>
+        </a>
+        
+          <li class="menu-li animate__animated  animate__fadeInUp" id="mobile-menu">
+            <i class="ri-menu-line"></i>
+          </li>
+        
+        </ul>
+
+      </div>
+
+    </div>
+</div>
+<div id="mobile-main" class="animate__animated  animate__fadeIn">
+  <div class="mobile-menu-inner">
+    <div class="mobile-menu-site-name animate__animated  animate__fadeInUp">
+      <a href="/">
+        white.
+      </a>
+    </div>
+    <div class="mobile-menu-group" id="mobile-close">
+      <i class="ri-close-line"></i>
+    </div>
+
+  </div>
+
+  <div class="mobile-menu-div">
+  
+    <a href="/" class="mobile-nav-link">
+      <div class="mobile-menu-child animate__animated  animate__fadeInUp">
+        <span>Home</span>
+      </div>
+    </a>
+  
+    <a href="/categories/blog" class="mobile-nav-link">
+      <div class="mobile-menu-child animate__animated  animate__fadeInUp">
+        <span>Blog</span>
+      </div>
+    </a>
+  
+    <a href="/categories/gallery" class="mobile-nav-link">
+      <div class="mobile-menu-child animate__animated  animate__fadeInUp">
+        <span>Gallery</span>
+      </div>
+    </a>
+  
+    <a href="/categories/tool" class="mobile-nav-link">
+      <div class="mobile-menu-child animate__animated  animate__fadeInUp">
+        <span>Tool</span>
+      </div>
+    </a>
+  
+    <a href="/about" class="mobile-nav-link">
+      <div class="mobile-menu-child animate__animated  animate__fadeInUp">
+        <span>About</span>
+      </div>
+    </a>
+  
+    <a href="/archives" class="mobile-nav-link">
+      <div class="mobile-menu-child animate__animated  animate__fadeInUp">
+        <span>Archive</span>
+      </div>
+    </a>
+  
+  
+    <a href="/search">  
+      <div class="mobile-menu-child  animate__animated  animate__fadeInUp">
+        <i class="ri-search-line"></i>
+      </div>
+    </a>
+    
+  </div>
+
+
+</div>
+
+<div class="body-outer">
+  <div class="body-inner">
+    
+<article class="post-inner">
+  <div class="post-content-outer">
+    <div class="post-intro">
+      <div class="post-title animate__animated  animate__fadeInUp">语音与影像上的自监督式学习模型</div>
+      <div class="meta-intro animate__animated  animate__fadeInUp">5月 20 2022</div>
+      
+        <div class="post-cover"><span class="lazyload-img-span"><img data-src="https://hexo-img-meurice.oss-cn-beijing.aliyuncs.com/%E6%9D%8E%E5%AE%8F%E6%AF%85%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E8%AF%BE%E7%A8%8B2021%E6%98%A5/7/Self-supervised%20Learning%20for%20Speech%20and%20Image/for%20image.png" class="post-cover-img"></span></div>
+      
+    </div>
+    <div class="post-content-inner">
+      <div class="post-content-inner-space">
+
+      </div>
+      <div class="post-content-main animate__animated  animate__fadeInUp">
+        <!-- top型目录 -->
+        
+        <p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Wv411h7kN?p=76">李宏毅2021/2022春机器学习课程——语音与影像上的神奇自督导式学习模型</a></p>
+<span id="more"></span>
+<h1 id="Self-supervised-Learning-for-Speech-and-Image"><a href="#Self-supervised-Learning-for-Speech-and-Image" class="headerlink" title="Self-supervised Learning for Speech and Image"></a>Self-supervised Learning for Speech and Image</h1><h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><h3 id="Review-Self-supervised-Learning-for-Text"><a href="#Review-Self-supervised-Learning-for-Text" class="headerlink" title="Review: Self-supervised Learning for Text"></a>Review: Self-supervised Learning for <strong>Text</strong></h3><p>使用大量无标注的资料来训练BERT，然后在BERT的输出后接下游模型，并提供少量有标注的资料来完成下游任务的训练，下游模型往往都是比较简单的模型。这些有标注的训练资料也可以同时拿来微调BERT。</p>
+<p><img src="https://hexo-img-meurice.oss-cn-beijing.aliyuncs.com/%E6%9D%8E%E5%AE%8F%E6%AF%85%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E8%AF%BE%E7%A8%8B2021%E6%98%A5/7/Self-supervised%20Learning%20for%20Speech%20and%20Image/review.png" style="zoom:50%;" /></p>
+<h3 id="Self-supervised-Learning-for-Speech"><a href="#Self-supervised-Learning-for-Speech" class="headerlink" title="Self-supervised Learning for Speech"></a>Self-supervised Learning for <strong>Speech</strong></h3><p>使用未标注的语音讯号来训练语音版的BERT，BERT会将声音讯号变为一排向量，将少量的标注资料提供给下游模型。</p>
+<p><img src="https://hexo-img-meurice.oss-cn-beijing.aliyuncs.com/%E6%9D%8E%E5%AE%8F%E6%AF%85%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E8%AF%BE%E7%A8%8B2021%E6%98%A5/7/Self-supervised%20Learning%20for%20Speech%20and%20Image/speech%20bert.png" style="zoom:50%;" /></p>
+<p><strong>Benchmark</strong>：<a target="_blank" rel="noopener" href="https://superbbenchmark.org/"><strong>S</strong>peech processing <strong>U</strong>niversal <strong>PER</strong>formance <strong>B</strong>enchmark（SUPERB）</a></p>
+<p><img src="https://hexo-img-meurice.oss-cn-beijing.aliyuncs.com/%E6%9D%8E%E5%AE%8F%E6%AF%85%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E8%AF%BE%E7%A8%8B2021%E6%98%A5/7/Self-supervised%20Learning%20for%20Speech%20and%20Image/superb.png" style="zoom:50%;" /></p>
+<h3 id="Self-supervised-Learning-for-Image"><a href="#Self-supervised-Learning-for-Image" class="headerlink" title="Self-supervised Learning for Image"></a>Self-supervised Learning for <strong>Image</strong></h3><p><img src="https://hexo-img-meurice.oss-cn-beijing.aliyuncs.com/%E6%9D%8E%E5%AE%8F%E6%AF%85%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E8%AF%BE%E7%A8%8B2021%E6%98%A5/7/Self-supervised%20Learning%20for%20Speech%20and%20Image/for%20image.png" style="zoom:50%;" /></p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2011.13377">[2011.13377] How Well Do Self-Supervised Models Transfer? (arxiv.org)</a></li>
+<li><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1905.01235">[1905.01235] Scaling and Benchmarking Self-Supervised Visual Representation Learning (arxiv.org)</a></li>
+</ul>
+<p>不仅是在语言上，自监督式学习在语音和图像上也有着非常好的表现，下面将介绍在影像和语音上使用自监督学习的五大方法。</p>
+<h2 id="Generative-Approaches"><a href="#Generative-Approaches" class="headerlink" title="Generative Approaches"></a>Generative Approaches</h2><p>将文字上已经非常成功的方法（BERT、GPT）拿来语音和图像上使用。</p>
+<h3 id="Masking（BERT-series）"><a href="#Masking（BERT-series）" class="headerlink" title="Masking（BERT series）"></a>Masking（BERT series）</h3><p>将某些声音讯号盖起来，让模型去还原被盖起来的部分。</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1910.12638">[1910.12638] Mockingjay: Unsupervised Speech Representation Learning with Deep Bidirectional Transformer Encoders (arxiv.org)</a></li>
+</ul>
+<p><img src="https://hexo-img-meurice.oss-cn-beijing.aliyuncs.com/%E6%9D%8E%E5%AE%8F%E6%AF%85%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E8%AF%BE%E7%A8%8B2021%E6%98%A5/7/Self-supervised%20Learning%20for%20Speech%20and%20Image/mockingjay.png" style="zoom:50%;" /></p>
+<ul>
+<li><p>Smoothness of acoustic features（Mockingjay）</p>
+<p>语音和文字有所不同，声音讯号表示成一排向量，但相邻的向量和向量之间非常接近，把某个向量盖起来后，只需拿两边的向量做内插，就可以大致还原出被盖住的内容，故每次Mask时，Mask一长排的数据。</p>
+<p><img src="https://hexo-img-meurice.oss-cn-beijing.aliyuncs.com/%E6%9D%8E%E5%AE%8F%E6%AF%85%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E8%AF%BE%E7%A8%8B2021%E6%98%A5/7/Self-supervised%20Learning%20for%20Speech%20and%20Image/masking%20consecutive%20features.png" style="zoom:50%;" /></p>
+</li>
+<li><p>Masking strategies for speech</p>
+<p>在语音上可以做新的尝试，不再时间的方向上做Masking，而是Mask这些向量的某几个dimension。这种方法可以学到更多语者方面的信息。</p>
+<p><img src="https://hexo-img-meurice.oss-cn-beijing.aliyuncs.com/%E6%9D%8E%E5%AE%8F%E6%AF%85%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E8%AF%BE%E7%A8%8B2021%E6%98%A5/7/Self-supervised%20Learning%20for%20Speech%20and%20Image/masking%20specific%20dimensions.png" style="zoom:50%;" /></p>
+</li>
+</ul>
+<h3 id="Predicting-Future（GPT-series）"><a href="#Predicting-Future（GPT-series）" class="headerlink" title="Predicting Future（GPT series）"></a>Predicting Future（GPT series）</h3><p>在文字上，GPT预测下一个会出现的token（$n=1$），而在语音上，由于相邻向量很接近，所以通常会预测接下来<strong>某一段时间之后</strong>的向量（$n\gt 3$）。</p>
+<p>代表性的模型是APC（Autoregressive Predictive Coding）。</p>
+<p><img src="https://hexo-img-meurice.oss-cn-beijing.aliyuncs.com/%E6%9D%8E%E5%AE%8F%E6%AF%85%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E8%AF%BE%E7%A8%8B2021%E6%98%A5/7/Self-supervised%20Learning%20for%20Speech%20and%20Image/predicting%20future.png" style="zoom:50%;" /></p>
+<h3 id="How-about-image"><a href="#How-about-image" class="headerlink" title="How about image?"></a>How about <strong>image</strong>?</h3><ul>
+<li><a target="_blank" rel="noopener" href="https://openai.com/blog/image-gpt/">Image GPT (openai.com)</a></li>
+</ul>
+<p>将一张图片的各个pixel拉直，训练模型，再将训练后的模型用在下游任务中。</p>
+<ul>
+<li>影像版的GPT：给一段pixel，预测下一个pixel。</li>
+<li>影像版的BERT：将一段pixel的一部分盖起来，让机器预测被盖起来的部分。</li>
+</ul>
+<p>相较由token来表示的文字，语音和影像中包含了更多的信息，让机器产生复杂的影像和声音讯号往往不是一件容易的事情。除了让机器还原影像和声音讯号外，能否还原、预测其他内容，从而达到和Self-supervised learning一样的效果？</p>
+<h2 id="Predictive-Approach"><a href="#Predictive-Approach" class="headerlink" title="Predictive Approach"></a>Predictive Approach</h2><h3 id="Image-Predicting-Rotation"><a href="#Image-Predicting-Rotation" class="headerlink" title="Image - Predicting Rotation"></a>Image - Predicting Rotation</h3><p>让机器去学习一张图片有没有被旋转过。</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1803.07728">[1803.07728] Unsupervised Representation Learning by Predicting Image Rotations (arxiv.org)</a></li>
+</ul>
+<p><img src="https://hexo-img-meurice.oss-cn-beijing.aliyuncs.com/%E6%9D%8E%E5%AE%8F%E6%AF%85%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E8%AF%BE%E7%A8%8B2021%E6%98%A5/7/Self-supervised%20Learning%20for%20Speech%20and%20Image/predicting%20rotation.png" style="zoom:50%;" /></p>
+<h3 id="Image-Context-Prediction"><a href="#Image-Context-Prediction" class="headerlink" title="Image - Context Prediction"></a>Image - Context Prediction</h3><ul>
+<li><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1505.05192">[1505.05192] Unsupervised Visual Representation Learning by Context Prediction (arxiv.org)</a></li>
+</ul>
+<p>给一张比较大的图片，将图片中的两个小块切出来，让模型去回答第一块在第二块的哪个方向。</p>
+<p><img src="https://hexo-img-meurice.oss-cn-beijing.aliyuncs.com/%E6%9D%8E%E5%AE%8F%E6%AF%85%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E8%AF%BE%E7%A8%8B2021%E6%98%A5/7/Self-supervised%20Learning%20for%20Speech%20and%20Image/context%20prediction.png" style="zoom:50%;" /></p>
+<h4 id="Similar-idea-on-Speech"><a href="#Similar-idea-on-Speech" class="headerlink" title="Similar idea on Speech"></a>Similar idea on <strong>Speech</strong></h4><ul>
+<li><a target="_blank" rel="noopener" href="https://ieeexplore.ieee.org/abstract/document/9060816">Pre-Training Audio Representations With Self-Supervision | IEEE Journals &amp; Magazine | IEEE Xplore</a></li>
+</ul>
+<p>从一句话中切两段出来，让机器去判断两段声音讯号相距多长时间。</p>
+<h3 id="Predict-Simplified-Objects"><a href="#Predict-Simplified-Objects" class="headerlink" title="Predict Simplified Objects"></a>Predict Simplified Objects</h3><p>把原来要生成的复杂的内容简化。</p>
+<p>以语音讯号为例，对声音讯号中的向量做clustering（K-means, etc.），将其离散化，每个向量变成一个token。</p>
+<p><img src="https://hexo-img-meurice.oss-cn-beijing.aliyuncs.com/%E6%9D%8E%E5%AE%8F%E6%AF%85%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E8%AF%BE%E7%A8%8B2021%E6%98%A5/7/Self-supervised%20Learning%20for%20Speech%20and%20Image/simplified%20object.png" style="zoom:50%;" /></p>
+<ul>
+<li><p><strong>Speech</strong></p>
+<ul>
+<li>HuBERT：<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2106.07447">[2106.07447] HuBERT: Self-Supervised Speech Representation Learning by Masked Prediction of Hidden Units (arxiv.org)</a></li>
+<li>BEST-RQ：<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2202.01855">[2202.01855] Self-supervised Learning with Random-projection Quantizer for Speech Recognition (arxiv.org)</a></li>
+</ul>
+</li>
+<li><p><strong>Image</strong></p>
+<ul>
+<li>DeepCluster：<a target="_blank" rel="noopener" href="https://arxiv.org/abs/1807.05520">[1807.05520] Deep Clustering for Unsupervised Learning of Visual Features (arxiv.org)</a></li>
+</ul>
+</li>
+</ul>
+<p>模型是否在不产生内容的情况下学习？</p>
+<h2 id="Contrastive-Learning"><a href="#Contrastive-Learning" class="headerlink" title="Contrastive Learning"></a>Contrastive Learning</h2><h3 id="Basic-Idea-of-Contrastive-Learning"><a href="#Basic-Idea-of-Contrastive-Learning" class="headerlink" title="Basic Idea of Contrastive Learning"></a>Basic Idea of Contrastive Learning</h3><p>一对positive（属于同一类）的样本，扔到Encoder中，他们的输出越接近越好，而对于一对negative（属于不同类）的样本，他们的产生的向量越远越好。</p>
+<p><img src="https://hexo-img-meurice.oss-cn-beijing.aliyuncs.com/%E6%9D%8E%E5%AE%8F%E6%AF%85%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E8%AF%BE%E7%A8%8B2021%E6%98%A5/7/Self-supervised%20Learning%20for%20Speech%20and%20Image/basic%20idea%20of%20contrastive%20learning.png" style="zoom:50%;" /></p>
+<p>没有让机器去预测或产生任何内容，而是找出positive的pair，让其向量越近越好，找出negative的pair，其向量越远越好。但目前并没有任何标签，不知道哪些图片是同样类别而哪些图片是不同类别。</p>
+<h3 id="SimCLR"><a href="#SimCLR" class="headerlink" title="SimCLR"></a>SimCLR</h3><ul>
+<li><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2002.05709">[2002.05709] A Simple Framework for Contrastive Learning of Visual Representations (arxiv.org)</a></li>
+</ul>
+<p>将同一张图片做数据增强（随机裁切、颜色变型、高斯噪声等），同一张图片做数据增强得到的图片为正样本，而和另一张图片的增强结果为负样本。</p>
+<p><img src="https://hexo-img-meurice.oss-cn-beijing.aliyuncs.com/%E6%9D%8E%E5%AE%8F%E6%AF%85%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E8%AF%BE%E7%A8%8B2021%E6%98%A5/7/Self-supervised%20Learning%20for%20Speech%20and%20Image/simclr.png" style="zoom:50%;" /></p>
+<p>文章中探讨了各种数据增强的组合，比较一致的发现是，通常随机裁切是不可或缺的方法。</p>
+<ul>
+<li><strong>Speech</strong> SimCLR：<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2010.13991">[2010.13991] Speech SIMCLR: Combining Contrastive and Reconstruction Objective for Self-supervised Speech Representation Learning (arxiv.org)</a></li>
+</ul>
+<h3 id="MoCo"><a href="#MoCo" class="headerlink" title="MoCo"></a>MoCo</h3><ul>
+<li><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1911.05722">[1911.05722] Momentum Contrast for Unsupervised Visual Representation Learning (arxiv.org)</a></li>
+</ul>
+<p><img src="https://hexo-img-meurice.oss-cn-beijing.aliyuncs.com/%E6%9D%8E%E5%AE%8F%E6%AF%85%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E8%AF%BE%E7%A8%8B2021%E6%98%A5/7/Self-supervised%20Learning%20for%20Speech%20and%20Image/moco.png" style="zoom:50%;" /></p>
+<ul>
+<li><strong>MoCo v2</strong>（吸收SimCLR的优点后产生）：<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2003.04297">[2003.04297] Improved Baselines with Momentum Contrastive Learning (arxiv.org)</a></li>
+</ul>
+<h3 id="Contrastive-Learning-for-Speech"><a href="#Contrastive-Learning-for-Speech" class="headerlink" title="Contrastive Learning for Speech"></a>Contrastive Learning for <strong>Speech</strong></h3><ul>
+<li>CPC：<a target="_blank" rel="noopener" href="https://arxiv.org/abs/1807.03748">[1807.03748] Representation Learning with Contrastive Predictive Coding (arxiv.org)</a></li>
+<li>Wav2vec：<a target="_blank" rel="noopener" href="https://arxiv.org/abs/1904.05862">[1904.05862] wav2vec: Unsupervised Pre-training for Speech Recognition (arxiv.org)</a></li>
+</ul>
+<p>两段声音讯号，经过Encoder后各产生一排向量，将Encoder的输出再通过一个Predicter产生新的输出，新的输出和与它相邻的向量是positive的pair，而与另一个句子中的向量是negative的向量。新的输出向量通过不同的线性变换以后，和下一个时间点的输出越接近越好，和其他的句子的向量越远越好。</p>
+<p><img src="https://hexo-img-meurice.oss-cn-beijing.aliyuncs.com/%E6%9D%8E%E5%AE%8F%E6%AF%85%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E8%AF%BE%E7%A8%8B2021%E6%98%A5/7/Self-supervised%20Learning%20for%20Speech%20and%20Image/contrastive%20learning%20for%20speech.png" style="zoom:50%;" /></p>
+<p>可以拿Encoder或Encoder和Predicter用在下游任务中。</p>
+<p>CPC和Wav2vec的主要差别在Predicter上，后来又出现了VQ-wav2vec。</p>
+<ul>
+<li>VQ-wav2vec <em>+ BERT</em>：<a target="_blank" rel="noopener" href="https://arxiv.org/abs/1910.05453">[1910.05453] vq-wav2vec: Self-Supervised Learning of Discrete Speech Representations (arxiv.org)</a></li>
+</ul>
+<p><img src="https://hexo-img-meurice.oss-cn-beijing.aliyuncs.com/%E6%9D%8E%E5%AE%8F%E6%AF%85%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E8%AF%BE%E7%A8%8B2021%E6%98%A5/7/Self-supervised%20Learning%20for%20Speech%20and%20Image/vq-wav2vec.png" style="zoom:50%;" /></p>
+<p>VQ-wav2vec中，Encoder的输出不是向量，而是离散的token。</p>
+<blockquote>
+<p>How to train with quantization：<a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=JZvEzb5PV3U">【機器學習2021】自編碼器 (Auto-encoder) (下) – 領結變聲器與更多應用 - YouTube</a></p>
+</blockquote>
+<p>在原论文中，VQ-wav2vec的提出是为了在后面接上一个类似文字BERT的Encoder，VQ-wav2vec的输出正好可以当成BERT架构Encoder的输入。</p>
+<p><img src="https://hexo-img-meurice.oss-cn-beijing.aliyuncs.com/%E6%9D%8E%E5%AE%8F%E6%AF%85%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E8%AF%BE%E7%A8%8B2021%E6%98%A5/7/Self-supervised%20Learning%20for%20Speech%20and%20Image/vq-wav2vec_2.png" style="zoom:50%;" /></p>
+<p>这样做的另一个好处是模型可以比较容易的抽出和声音的内容有关的资讯。</p>
+<p>Discrete BERT中说明了VQ-wav2vec + BERT的结构具有较好的表现。</p>
+<ul>
+<li>Discrete BERT：<a target="_blank" rel="noopener" href="https://arxiv.org/abs/1911.03912">[1911.03912] Effectiveness of self-supervised pre-training for speech recognition (arxiv.org)</a></li>
+</ul>
+<p>在VQ-wav2vec + BERT架构的结构中，VQ-wav2vec和BERT架构是分开训练的，在Wav2vec 2.0中，将二者合并起来一起训练。</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2006.11477">[2006.11477] wav2vec 2.0: A Framework for Self-Supervised Learning of Speech Representations (arxiv.org)</a></li>
+</ul>
+<p>但合起来训练时，由于第一个Encoder的输出是离散token，不方便训练，所以将离散token改为向量，再将向量输入到第二个Encoder中，第二个Encoder会对输入的向量做masking，再用被盖住位置的输出向量去预测这个位置的离散token，同时希望这个向量产生其他向量的可能性越小越好。（<em>在原论文中，离散token都经过一个变换转为了embedding，希望输出的向量和对应位置的embedding越接近越好，实际上这就等价于把第二个Encoder的输出向量做线性变换后当作分类问题，希望分类为当前token的概率越高越好，分类为其他token的概率越小越好。</em>）</p>
+<p><img src="https://hexo-img-meurice.oss-cn-beijing.aliyuncs.com/%E6%9D%8E%E5%AE%8F%E6%AF%85%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E8%AF%BE%E7%A8%8B2021%E6%98%A5/7/Self-supervised%20Learning%20for%20Speech%20and%20Image/wav2vec2.png" style="zoom:50%;" /></p>
+<p>不直接将离散token扔到第二个Encoder中，而是将连续向量扔进去，直观的解释是离散token包含的信息较少，而连续向量包含的信息相对要多。若第二个Encoder中输入的是离散token，其表现会掉一大截。</p>
+<p>另外，没有将其当作一个分类问题来做的原因可能是，语音中的token数量太大了，大概是十万量级，而常见语言模型的token数量也只有两万左右。</p>
+<h3 id="Alterative-way-to-understand-Wav2vec-2-0"><a href="#Alterative-way-to-understand-Wav2vec-2-0" class="headerlink" title="Alterative way to understand Wav2vec 2.0"></a>Alterative way to understand Wav2vec 2.0</h3><p><strong>文字是否可以做Contrastive learning？</strong></p>
+<p>事实上，BERT也可以看作是一种Contrastive learning的方式。</p>
+<p>BERT可以看作是在完成分类任务，但分类任务也可以看作Contrastive learning，例如“深 [MASK] 学 习”经过BERT得到embedding，通过线性变换和Softmax，希望得到“度”的概率越大越好，其他词的概率越小越好，即BERT输出的embedding和“度”的embedding距离越近越好，和其他词的embedding距离越远越好。</p>
+<p><img src="https://hexo-img-meurice.oss-cn-beijing.aliyuncs.com/%E6%9D%8E%E5%AE%8F%E6%AF%85%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E8%AF%BE%E7%A8%8B2021%E6%98%A5/7/Self-supervised%20Learning%20for%20Speech%20and%20Image/bert%20contrastive%20learning.png" style="zoom:50%;" /></p>
+<p>在语音上，不像文字中negative样本是可以穷举的，语音讯号通常会经过一个网络后，将其离散化再进行处理。</p>
+<p><img src="https://hexo-img-meurice.oss-cn-beijing.aliyuncs.com/%E6%9D%8E%E5%AE%8F%E6%AF%85%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E8%AF%BE%E7%A8%8B2021%E6%98%A5/7/Self-supervised%20Learning%20for%20Speech%20and%20Image/wav2vec2%20speech.png" style="zoom:50%;" /></p>
+<h4 id="Classification-vs-Contrastive"><a href="#Classification-vs-Contrastive" class="headerlink" title="Classification vs. Contrastive"></a>Classification vs. Contrastive</h4><h5 id="Classification"><a href="#Classification" class="headerlink" title="Classification"></a>Classification</h5><p>对于分类问题，模型最后一层的输出向量通过一个线性变换（乘一个矩阵，和矩阵里的行做dot-product），希望和对应的行向量做dot-product后值越大越好，和其他行向量计算后结果越小越好。</p>
+<p><img src="https://hexo-img-meurice.oss-cn-beijing.aliyuncs.com/%E6%9D%8E%E5%AE%8F%E6%AF%85%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E8%AF%BE%E7%A8%8B2021%E6%98%A5/7/Self-supervised%20Learning%20for%20Speech%20and%20Image/classification.png" style="zoom:50%;" /></p>
+<h5 id="Contrastive"><a href="#Contrastive" class="headerlink" title="Contrastive"></a>Contrastive</h5><p>希望模型最后一层的输出向量和对应分类的embedding越接近越好。</p>
+<p><img src="https://hexo-img-meurice.oss-cn-beijing.aliyuncs.com/%E6%9D%8E%E5%AE%8F%E6%AF%85%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E8%AF%BE%E7%A8%8B2021%E6%98%A5/7/Self-supervised%20Learning%20for%20Speech%20and%20Image/contrastive.png" style="zoom:50%;" /></p>
+<h3 id="Selecting-Negative-Examples-is-not-trivial"><a href="#Selecting-Negative-Examples-is-not-trivial" class="headerlink" title="Selecting Negative Examples is not trivial"></a>Selecting Negative Examples is not trivial</h3><p>negative样本的选取应该足够困难，但同时也不应该过难。</p>
+<p><img src="https://hexo-img-meurice.oss-cn-beijing.aliyuncs.com/%E6%9D%8E%E5%AE%8F%E6%AF%85%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E8%AF%BE%E7%A8%8B2021%E6%98%A5/7/Self-supervised%20Learning%20for%20Speech%20and%20Image/selecting%20negative%20examples.png" alt=""></p>
+<p>如何避开负样本的选择？</p>
+<h2 id="Bootstrapping-Approaches"><a href="#Bootstrapping-Approaches" class="headerlink" title="Bootstrapping Approaches"></a>Bootstrapping Approaches</h2><p>如果训练时不使用正样本，仅用正样本来训练，最后模型对于所有图像都会判断他们很接近。</p>
+<p>解决的办法是，在其中一个Encoder后接一个Predictor（可能是只有几层的前馈神经网络），训练的目标是两个向量越接近越好。但只计算Predictor所在的这一边的梯度，更新这一边的参数，再将这一边Encoder更新后的参数复制到另一边。</p>
+<p><img src="https://hexo-img-meurice.oss-cn-beijing.aliyuncs.com/%E6%9D%8E%E5%AE%8F%E6%AF%85%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E8%AF%BE%E7%A8%8B2021%E6%98%A5/7/Self-supervised%20Learning%20for%20Speech%20and%20Image/bootstrapping%20approaches.png" style="zoom:50%;" /></p>
+<p>这看起来像是某种“妖术”，但大量实验表明这种方法的确有效…</p>
+<h3 id="Alterative-way-to-understand-Bootstrapping"><a href="#Alterative-way-to-understand-Bootstrapping" class="headerlink" title="Alterative way to understand Bootstrapping"></a>Alterative way to understand Bootstrapping</h3><h4 id="Typical-Knowledge-Distillation（知识蒸馏）"><a href="#Typical-Knowledge-Distillation（知识蒸馏）" class="headerlink" title="Typical Knowledge Distillation（知识蒸馏）"></a>Typical Knowledge Distillation（知识蒸馏）</h4><p>Teacher的参数固定，更新Student的参数。</p>
+<p><img src="https://hexo-img-meurice.oss-cn-beijing.aliyuncs.com/%E6%9D%8E%E5%AE%8F%E6%AF%85%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E8%AF%BE%E7%A8%8B2021%E6%98%A5/7/Self-supervised%20Learning%20for%20Speech%20and%20Image/knowledge%20distillation.png" style="zoom:50%;" /></p>
+<h3 id="Image"><a href="#Image" class="headerlink" title="Image"></a>Image</h3><h4 id="Bootstrap-your-own-latent（BYOL）"><a href="#Bootstrap-your-own-latent（BYOL）" class="headerlink" title="Bootstrap your own latent（BYOL）"></a>Bootstrap your own latent（BYOL）</h4><ul>
+<li><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2006.07733">[2006.07733] Bootstrap your own latent: A new approach to self-supervised Learning (arxiv.org)</a></li>
+</ul>
+<script type="math/tex; mode=display">
+\theta\leftarrow\lambda\theta+(1-\lambda)\theta'</script><p>Teacher Encoder的参数不会马上变得和Student Encoder一样，用一个渐进的方法影响Teacher Encoder。</p>
+<h4 id="Simple-Siamese（SimSiam）"><a href="#Simple-Siamese（SimSiam）" class="headerlink" title="Simple Siamese（SimSiam）"></a>Simple Siamese（SimSiam）</h4><p>Moving Average不是必要的，直接复制参数同样可行。</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2006.07733">[2006.07733] Bootstrap your own latent: A new approach to self-supervised Learning (arxiv.org)</a></li>
+</ul>
+<h3 id="Speech"><a href="#Speech" class="headerlink" title="Speech"></a>Speech</h3><h4 id="Data2vec"><a href="#Data2vec" class="headerlink" title="Data2vec"></a>Data2vec</h4><p>在文字、影像、语音上都有不错的结果。</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2202.03555">[2202.03555] data2vec: A General Framework for Self-supervised Learning in Speech, Vision and Language (arxiv.org)</a></li>
+</ul>
+<h2 id="Simply-Extra-Regularization"><a href="#Simply-Extra-Regularization" class="headerlink" title="Simply Extra Regularization"></a>Simply Extra Regularization</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2103.03230">[2103.03230] Barlow Twins: Self-Supervised Learning via Redundancy Reduction (arxiv.org)</a></li>
+<li><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2105.04906">[2105.04906] VICReg: <strong>Variance-Invariance-Covariance Regularization</strong> for Self-Supervised Learning (arxiv.org)</a></li>
+</ul>
+<h3 id="Variance-Invariance-Convariance-Regularization"><a href="#Variance-Invariance-Convariance-Regularization" class="headerlink" title="Variance-Invariance-Convariance Regularization"></a><strong>Variance</strong>-<strong>Invariance</strong>-<strong>Convariance</strong> Regularization</h3><h4 id="Invariance"><a href="#Invariance" class="headerlink" title="Invariance"></a>Invariance</h4><p>用正样本来训练，输出向量越接近越好。</p>
+<p><img src="https://hexo-img-meurice.oss-cn-beijing.aliyuncs.com/%E6%9D%8E%E5%AE%8F%E6%AF%85%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E8%AF%BE%E7%A8%8B2021%E6%98%A5/7/Self-supervised%20Learning%20for%20Speech%20and%20Image/invariance.png" style="zoom:50%;" /></p>
+<h4 id="Variance"><a href="#Variance" class="headerlink" title="Variance"></a>Variance</h4><p>给Encoder一个batch的图片，得到一个batch数量的向量，这些向量的每一个维度的方差要大于某一个阈值。</p>
+<p>通过这种方法来避免Encoder看到什么图片都输出同一个向量。</p>
+<p><img src="https://hexo-img-meurice.oss-cn-beijing.aliyuncs.com/%E6%9D%8E%E5%AE%8F%E6%AF%85%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E8%AF%BE%E7%A8%8B2021%E6%98%A5/7/Self-supervised%20Learning%20for%20Speech%20and%20Image/variance.png" style="zoom:50%;" /></p>
+<h4 id="Covariance"><a href="#Covariance" class="headerlink" title="Covariance"></a>Covariance</h4><p>把一个batch里的向量拿出来计算协方差，协方差矩阵中非对角线的元素接近0。</p>
+<p>有了Covariance后，让所有维度都充分利用到，散布更平均。</p>
+<p><img src="https://hexo-img-meurice.oss-cn-beijing.aliyuncs.com/%E6%9D%8E%E5%AE%8F%E6%AF%85%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E8%AF%BE%E7%A8%8B2021%E6%98%A5/7/Self-supervised%20Learning%20for%20Speech%20and%20Image/covariance.png" style="zoom:50%;" /></p>
+
+        <!-- （底部）分类文章 -->
+        <!-- 
+          <div class="post-categoris-bottom">
+            <div class="post-categoris-name">blog</div>
+            <ul>
+            
+            
+              
+                <li class="base">
+                  <a  href="/2020/07/15/hello-world/" class="post-categoris-bottom-link">
+                  Hello World
+                </a>
+                </li>
+              
+              
+            
+            
+            
+              
+                <li class="base">
+                  <a  href="/2021/04/03/%E5%B1%B1%E4%B8%9C%E7%9C%81%E7%AC%AC%E4%BA%8C%E5%B1%8A%E6%95%B0%E6%8D%AE%E5%BA%94%E7%94%A8%E5%88%9B%E6%96%B0%E5%88%9B%E4%B8%9A%E5%A4%A7%E8%B5%9B%E2%80%94%E2%80%94%E7%96%AB%E6%83%85%E5%AF%86%E5%88%87%E6%8E%A5%E8%A7%A6%E4%BA%BA%E5%91%98%E8%BF%BD%E8%B8%AA/" class="post-categoris-bottom-link">
+                  山东省第二届数据应用创新创业大赛 疫情密切接触人员追踪
+                </a>
+                </li>
+              
+              
+            
+            
+            
+              
+                <li class="base">
+                  <a  href="/2021/05/18/2021%E6%8B%9B%E5%95%86%E9%93%B6%E8%A1%8CFinTech%E7%B2%BE%E8%8B%B1%E8%AE%AD%E7%BB%83%E8%90%A5-%E6%95%B0%E6%8D%AE%E8%B5%9B%E9%81%93/" class="post-categoris-bottom-link">
+                  2021招商银行FinTech精英训练营 数据赛道
+                </a>
+                </li>
+              
+              
+            
+            
+            
+              
+                <li class="base">
+                  <a  href="/2021/06/29/2021%E4%B8%AD%E5%9B%BD%E9%AB%98%E6%A0%A1%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%A4%A7%E8%B5%9B%E2%80%94%E2%80%94%E5%BE%AE%E4%BF%A1%E5%A4%A7%E6%95%B0%E6%8D%AE%E6%8C%91%E6%88%98%E8%B5%9B/" class="post-categoris-bottom-link">
+                  2021中国高校计算机大赛 微信大数据挑战赛
+                </a>
+                </li>
+              
+              
+            
+            
+            
+              
+                <li class="base">
+                  <a  href="/2021/12/31/2021%E5%B9%B4%E5%BA%A6%E6%80%BB%E7%BB%93/" class="post-categoris-bottom-link">
+                  2021年度总结
+                </a>
+                </li>
+              
+              
+            
+            
+            
+              
+                <li class="base">
+                  <a  href="/2022/02/05/%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/" class="post-categoris-bottom-link">
+                  数字图像处理
+                </a>
+                </li>
+              
+              
+            
+            
+            
+              
+                <li class="base">
+                  <a  href="/2022/04/23/%E8%87%AA%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9C%BA%E5%88%B6/" class="post-categoris-bottom-link">
+                  自注意力机制
+                </a>
+                </li>
+              
+              
+            
+            
+            
+              
+                <li class="base">
+                  <a  href="/2022/04/25/Transformer/" class="post-categoris-bottom-link">
+                  Attention Is All You Need
+                </a>
+                </li>
+              
+              
+            
+            
+            
+              
+                <li class="base">
+                  <a  href="/2022/04/29/2022%E6%8B%9B%E5%95%86%E9%93%B6%E8%A1%8CFinTech%E7%B2%BE%E8%8B%B1%E8%AE%AD%E7%BB%83%E8%90%A5%20%E6%95%B0%E6%8D%AE%E8%B5%9B%E9%81%93%E9%A6%96%E6%97%A5%E5%9F%BA%E7%BA%BF/" class="post-categoris-bottom-link">
+                  2022招商银行FinTech精英训练营 数据赛道首日基线
+                </a>
+                </li>
+              
+              
+            
+            
+            
+              
+                <li class="base">
+                  <a  href="/2022/04/30/%E5%90%84%E5%BC%8F%E5%90%84%E6%A0%B7%E7%9A%84%E8%87%AA%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9C%BA%E5%88%B6/" class="post-categoris-bottom-link">
+                  各式各样的自注意力机制
+                </a>
+                </li>
+              
+              
+            
+            
+            
+              
+                <li class="base">
+                  <a  href="/2022/05/12/%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B9%A0%E2%80%94%E2%80%94%E6%84%9F%E7%9F%A5%E6%9C%BA/" class="post-categoris-bottom-link">
+                  感知机
+                </a>
+                </li>
+              
+              
+            
+            
+            
+              
+                <li class="base">
+                  <a  href="/2022/05/13/%E7%94%9F%E6%88%90%E5%BC%8F%E5%AF%B9%E6%8A%97%E7%BD%91%E7%BB%9C/" class="post-categoris-bottom-link">
+                  生成式对抗网络
+                </a>
+                </li>
+              
+              
+            
+            
+            
+              
+            
+            
+            
+              
+                <li class="base">
+                  <a  href="/2022/05/17/%E8%87%AA%E7%9B%91%E7%9D%A3%E5%BC%8F%E5%AD%A6%E4%B9%A0/" class="post-categoris-bottom-link">
+                  自监督式学习
+                </a>
+                </li>
+              
+              
+            
+            
+            
+              
+                <li class="me base">
+                  <a  href="/2022/05/20/%E8%AF%AD%E9%9F%B3%E4%B8%8E%E5%BD%B1%E5%83%8F%E4%B8%8A%E7%9A%84%E8%87%AA%E7%9B%91%E7%9D%A3%E5%BC%8F%E5%AD%A6%E4%B9%A0%E6%A8%A1%E5%9E%8B/" class="post-categoris-bottom-link">
+                  语音与影像上的自监督式学习模型
+                </a>
+                </li>
+              
+              
+            
+            
+            
+              
+                <li class="base">
+                  <a  href="/2022/06/05/%E8%87%AA%E7%BC%96%E7%A0%81%E5%99%A8/" class="post-categoris-bottom-link">
+                  自编码器
+                </a>
+                </li>
+              
+              
+            
+            
+            
+              
+                <li class="base">
+                  <a  href="/2022/06/15/%E5%BC%82%E5%B8%B8%E6%A3%80%E6%B5%8B/" class="post-categoris-bottom-link">
+                  异常检测
+                </a>
+                </li>
+              
+              
+            
+            
+            
+              
+                <li class="base">
+                  <a  href="/2022/07/14/YOLO/" class="post-categoris-bottom-link">
+                  YOLO v1 - v5, v7
+                </a>
+                </li>
+              
+              
+            
+            
+            
+              
+            
+            
+            
+              
+                <li class="base">
+                  <a  href="/2022/07/31/%E5%9B%BE%E5%83%8F%E8%B4%A8%E9%87%8F%E8%AF%84%E4%BB%B7/" class="post-categoris-bottom-link">
+                  图像质量评价
+                </a>
+                </li>
+              
+              
+            
+            
+            
+              
+            
+            
+            
+              
+                <li class="base">
+                  <a  href="/2022/08/26/%E5%9B%A0%E6%9E%9C%E6%8E%A8%E6%96%AD/" class="post-categoris-bottom-link">
+                  因果推断
+                </a>
+                </li>
+              
+              
+            
+            
+            
+              
+                <li class="base">
+                  <a  href="/2022/09/20/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%EF%BC%88MIT%206.828%20Xv6%EF%BC%89/" class="post-categoris-bottom-link">
+                  xv6操作系统
+                </a>
+                </li>
+              
+              
+            
+            
+            
+              
+                <li class="base">
+                  <a  href="/2022/10/27/%E9%95%BF%E7%9F%AD%E6%9C%9F%E8%AE%B0%E5%BF%86%E7%BD%91%E7%BB%9C/" class="post-categoris-bottom-link">
+                  长短期记忆网络
+                </a>
+                </li>
+              
+              
+            
+            
+            
+              
+                <li class="base">
+                  <a  href="/2022/11/30/%E5%9B%BE%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" class="post-categoris-bottom-link">
+                  图神经网络
+                </a>
+                </li>
+              
+              
+            
+            
+            
+              
+                <li class="base">
+                  <a  href="/2022/12/20/%E7%BD%91%E4%B8%8A%E8%AF%84%E6%95%99%E8%84%9A%E6%9C%AC/" class="post-categoris-bottom-link">
+                  深大网上评教的批量自动勾选脚本
+                </a>
+                </li>
+              
+              
+            
+            
+            
+              
+                <li class="base">
+                  <a  href="/2023/01/06/%E5%88%9A%E4%BD%93%E8%BF%90%E5%8A%A8%E7%8A%B6%E6%80%81%E6%8F%8F%E8%BF%B0/" class="post-categoris-bottom-link">
+                  机器人学之运动学——刚体运动状态描述
+                </a>
+                </li>
+              
+              
+            
+            
+            
+            
+            </ul>
+
+          </div>
+
+         -->
+      </div>
+      <div class="post-content-inner-space">
+        
+          <div class="space-toc-main animate__animated  animate__fadeInUp">
+            <ol class="space-toc"><li class="space-toc-item space-toc-level-2"><a class="space-toc-link" href="#Introduction"><span class="space-toc-text">Introduction</span></a></li><li class="space-toc-item space-toc-level-2"><a class="space-toc-link" href="#Generative-Approaches"><span class="space-toc-text">Generative Approaches</span></a></li><li class="space-toc-item space-toc-level-2"><a class="space-toc-link" href="#Predictive-Approach"><span class="space-toc-text">Predictive Approach</span></a></li><li class="space-toc-item space-toc-level-2"><a class="space-toc-link" href="#Contrastive-Learning"><span class="space-toc-text">Contrastive Learning</span></a></li><li class="space-toc-item space-toc-level-2"><a class="space-toc-link" href="#Bootstrapping-Approaches"><span class="space-toc-text">Bootstrapping Approaches</span></a></li><li class="space-toc-item space-toc-level-2"><a class="space-toc-link" href="#Simply-Extra-Regularization"><span class="space-toc-text">Simply Extra Regularization</span></a></li></ol>
+           </div>
+        
+      </div>
+   </div>
+    <!-- 评论 -->
+    <!--page.comments !== false && --> 
+     
+    <div class="bottom-comments-outer">
+      <div class="bottom-comments-inner">
+        <!-- valine -->
+        
+          <section id="comments" class="comments" style="margin-top: 150px;">
+            <style>
+              .comments{background:#fff}
+              @media screen and (max-width:900px){.comments{margin:auto;padding:10px;background:#fff}}
+            </style>
+            <div id="vcomment" class="comment"></div>
+<script src="https://cdn.jsdelivr.net/npm/leancloud-storage@3.11.1/dist/av-min.js"></script>
+<script src='https://unpkg.com/valine@1.5.1/dist/Valine.min.js'></script>
+<script src="https://cdnjs.loli.net/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+    var notify = 'true' == true ? true : false;
+    var verify = 'false' == true ? true : false;
+    new Valine({
+        av: AV,
+        el: '#vcomment',
+        notify: notify,
+        app_id: "uSbQCc7fXmxLPopTU5E2KWrS-gzGzoHsz",
+        app_key: "eFJuGzWWqMmywQiehZRrFEQp",
+        placeholder: "\[支持 Markdown\] 说点什么吧～",
+        avatar:"robohash",
+    });
+</script>
+
+          </section>
+        
+        <!-- Gitalk -->
+        
+        <!-- livere -->
+        
+        </div>
+      </div>
+    
+  </div>
+</article>
+  </div>
+</div>
+
+
+
+<!-- 如果是home模式的话，不在首页就显示footer，如果不是home模式的话 所有都显示footer -->
+
+  <div class="footer-outer animate__animated  animate__fadeInUp">
+    <div class="footer-inner">
+    <div class="footer-text">
+    <p>由 <a target="_blank" rel="noopener" href="http://hexo.io/">Hexo</a> &amp; <a target="_blank" rel="noopener" href="https://github.com/FuShaoLei/hexo-theme-white">White</a> 强力驱动 <br> <a target="_blank" rel="noopener" href="https://beian.miit.gov.cn/">鄂ICP备20012765号</a></p>
+
+    </div>
+    <div class="footer-contact">
+    <ul class="footer-ul">
+        
+        <li class="footer-li">
+            <a href="https://github.com/yzhn16" target="_blank">
+                <i class="ri-github-line"></i>
+            </a>
+        </li>
+        
+        <li class="footer-li">
+            <a href="mailto:yanzhn@outlook.com" target="_blank">
+                <i class="ri-mail-line"></i>
+            </a>
+        </li>
+        
+    </ul>
+    </div>
+    </div>
+</div>
+
+
+
+
+
+
+<script src="/js/white.js"></script>
+
+
+
+    
+      
+<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.1/build/highlight.min.js"></script>
+
+      <script>hljs.initHighlightingOnLoad();</script>
+    
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        jax: ["input/TeX", "output/CommonHTML"],
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<!--<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML" id=""></script>
+</body>
+</html>

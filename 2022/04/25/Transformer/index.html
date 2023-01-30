@@ -1,0 +1,721 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>  Attention Is All You Need |    white.</title>
+  <meta name="description" content="A minimalist theme for hexo.">
+  <!-- 标签页图标 -->
+  
+
+  <!-- 图标库 -->
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@2.2.0/fonts/remixicon.css" rel="stylesheet">
+  <!-- 动画库 -->
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fushaolei/cdn-white@1.0/css/animate.css"/>
+  
+  <!-- css文件 -->
+  
+<link rel="stylesheet" href="/css/white.css">
+
+  <!-- 代码高亮 -->
+  
+    
+      
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.1.1/styles/github.css">
+
+    
+  
+<meta name="generator" content="Hexo 6.2.0"><link rel="alternate" href="/atom.xml" title="体素储洁" type="application/atom+xml">
+</head>
+
+
+<body>
+
+<div class="menu-outer">
+    <div class="menu-inner">
+      <div class="menu-site-name  animate__animated  animate__fadeInUp">
+        <a href="/">
+          white.
+        </a>
+        
+      </div>
+      <div class="menu-group">
+        <ul class="menu-ul">
+        
+          <a href="/" class="nav-link">
+            <li class="menu-li  animate__animated  animate__fadeInUp">
+              Home
+            </li>
+          </a>
+        
+          <a href="/categories/blog" class="nav-link">
+            <li class="menu-li  animate__animated  animate__fadeInUp">
+              Blog
+            </li>
+          </a>
+        
+          <a href="/categories/gallery" class="nav-link">
+            <li class="menu-li  animate__animated  animate__fadeInUp">
+              Gallery
+            </li>
+          </a>
+        
+          <a href="/categories/tool" class="nav-link">
+            <li class="menu-li  animate__animated  animate__fadeInUp">
+              Tool
+            </li>
+          </a>
+        
+          <a href="/about" class="nav-link">
+            <li class="menu-li  animate__animated  animate__fadeInUp">
+              About
+            </li>
+          </a>
+        
+          <a href="/archives" class="nav-link">
+            <li class="menu-li  animate__animated  animate__fadeInUp">
+              Archive
+            </li>
+          </a>
+        
+        
+        
+       
+        
+        <a href="/search">
+          <li class="menu-li  animate__animated  animate__fadeInUp">
+            <i class="ri-search-line"></i>
+          </li>
+        </a>
+        
+          <li class="menu-li animate__animated  animate__fadeInUp" id="mobile-menu">
+            <i class="ri-menu-line"></i>
+          </li>
+        
+        </ul>
+
+      </div>
+
+    </div>
+</div>
+<div id="mobile-main" class="animate__animated  animate__fadeIn">
+  <div class="mobile-menu-inner">
+    <div class="mobile-menu-site-name animate__animated  animate__fadeInUp">
+      <a href="/">
+        white.
+      </a>
+    </div>
+    <div class="mobile-menu-group" id="mobile-close">
+      <i class="ri-close-line"></i>
+    </div>
+
+  </div>
+
+  <div class="mobile-menu-div">
+  
+    <a href="/" class="mobile-nav-link">
+      <div class="mobile-menu-child animate__animated  animate__fadeInUp">
+        <span>Home</span>
+      </div>
+    </a>
+  
+    <a href="/categories/blog" class="mobile-nav-link">
+      <div class="mobile-menu-child animate__animated  animate__fadeInUp">
+        <span>Blog</span>
+      </div>
+    </a>
+  
+    <a href="/categories/gallery" class="mobile-nav-link">
+      <div class="mobile-menu-child animate__animated  animate__fadeInUp">
+        <span>Gallery</span>
+      </div>
+    </a>
+  
+    <a href="/categories/tool" class="mobile-nav-link">
+      <div class="mobile-menu-child animate__animated  animate__fadeInUp">
+        <span>Tool</span>
+      </div>
+    </a>
+  
+    <a href="/about" class="mobile-nav-link">
+      <div class="mobile-menu-child animate__animated  animate__fadeInUp">
+        <span>About</span>
+      </div>
+    </a>
+  
+    <a href="/archives" class="mobile-nav-link">
+      <div class="mobile-menu-child animate__animated  animate__fadeInUp">
+        <span>Archive</span>
+      </div>
+    </a>
+  
+  
+    <a href="/search">  
+      <div class="mobile-menu-child  animate__animated  animate__fadeInUp">
+        <i class="ri-search-line"></i>
+      </div>
+    </a>
+    
+  </div>
+
+
+</div>
+
+<div class="body-outer">
+  <div class="body-inner">
+    
+<article class="post-inner">
+  <div class="post-content-outer">
+    <div class="post-intro">
+      <div class="post-title animate__animated  animate__fadeInUp">Attention Is All You Need</div>
+      <div class="meta-intro animate__animated  animate__fadeInUp">4月 25 2022</div>
+      
+        <div class="post-cover"><span class="lazyload-img-span"><img data-src="https://hexo-img-meurice.oss-cn-beijing.aliyuncs.com/cover/transformerQKV.png" class="post-cover-img"></span></div>
+      
+    </div>
+    <div class="post-content-inner">
+      <div class="post-content-inner-space">
+
+      </div>
+      <div class="post-content-main animate__animated  animate__fadeInUp">
+        <!-- top型目录 -->
+        
+        <p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Wv411h7kN?p=49">李宏毅2021/2022春机器学习课程——Transformer</a><br><span id="more"></span></p>
+<h1 id="Transformer"><a href="#Transformer" class="headerlink" title="Transformer"></a>Transformer</h1><p>Transformer是一个Sequence-to-sequence（Seq2seq）的模型，输出的长度由模型自己来决定。</p>
+<h2 id="Sequence-to-sequence"><a href="#Sequence-to-sequence" class="headerlink" title="Sequence-to-sequence"></a>Sequence-to-sequence</h2><h3 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h3><ul>
+<li><p>Maching Translation</p>
+</li>
+<li><p>Speech Translation</p>
+</li>
+<li><p>Text-to-Speech（TTS）</p>
+</li>
+</ul>
+<h4 id="Questions-Answering（QA）"><a href="#Questions-Answering（QA）" class="headerlink" title="Questions Answering（QA）"></a>Questions Answering（QA）</h4><p>大部分自然语言处理问题可以看作是QA（Question：这个句子的翻译是什么？；Context：一个句子；Answer：翻译结果）。</p>
+<script type="math/tex; mode=display">
+\text{question}, \text{context} \stackrel{Seq2seq}{\longrightarrow} \text{answer}</script><h4 id="Multi-label-Classification"><a href="#Multi-label-Classification" class="headerlink" title="Multi-label Classification"></a>Multi-label Classification</h4><script type="math/tex; mode=display">
+\text{data} \stackrel{Seq2seq}{\longrightarrow} \text{class 7, class 9, class 13}</script><ul>
+<li><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1909.03434">[1909.03434] Order-free Learning Alleviating Exposure Bias in Multi-label Classification (arxiv.org)</a></li>
+<li><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1707.05495">[1707.05495] Order-Free RNN with Visual Attention for Multi-Label Classification (arxiv.org)</a></li>
+</ul>
+<h4 id="Object-Detection"><a href="#Object-Detection" class="headerlink" title="Object Detection"></a>Object Detection</h4><ul>
+<li><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2005.12872">[2005.12872] End-to-End Object Detection with Transformers (arxiv.org)</a></li>
+</ul>
+<h3 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h3><script type="math/tex; mode=display">
+\text{Encoder}\longrightarrow \text{Decoder}</script><ul>
+<li><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1409.3215">[1409.3215] Sequence to Sequence Learning with Neural Networks (arxiv.org)</a></li>
+<li><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1706.03762">[1706.03762] Attention Is All You Need (arxiv.org)</a></li>
+</ul>
+<h2 id="Encoder"><a href="#Encoder" class="headerlink" title="Encoder"></a>Encoder</h2><ul>
+<li>输入一排向量：$\{x^1,x^2,x^3,x^4\}$</li>
+<li>输出一排向量：$\{h^1,h^2,h^3,h^4\}$</li>
+</ul>
+<p>Self-attention、RNN、CNN…均可用来作为Encoder。</p>
+<h3 id="Transformer-Encoder"><a href="#Transformer-Encoder" class="headerlink" title="Transformer Encoder"></a>Transformer Encoder</h3><p><img src="https://hexo-img-meurice.oss-cn-beijing.aliyuncs.com/%E6%9D%8E%E5%AE%8F%E6%AF%85%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E8%AF%BE%E7%A8%8B2021%E6%98%A5/5/seq2seq.png" style="zoom:50%;" /></p>
+<p>在Transformer Encoder中，加入了Residual Connection，经过Self-attention输出的向量加上原输入的向量后当作新的输出向量。</p>
+<p>得到Residual的结果以后，进行Normalization，但此处使用的是Layer Normalization而非Batch Normalization。对于输入的向量，Layer Norm会计算它的均值$m$和标准差$\sigma$，与Batch Norm不同点在于，Batch Norm是对不同特征、样本的同一个维度计算均值和标准差，而Layer Norm是对同一个特征、样本的不同维度去计算均值和标准差。</p>
+<p>Layer Norm的结果将作为FC的输入，经过FC Network得到新的向量，在FC层也同样地加入了Residual Connection，得到的结果再做一次Layer Norm，则得到了此Block的输出。</p>
+<p>即一个Block的结构如下：</p>
+<p><img src="https://hexo-img-meurice.oss-cn-beijing.aliyuncs.com/%E6%9D%8E%E5%AE%8F%E6%AF%85%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E8%AF%BE%E7%A8%8B2021%E6%98%A5/5/encoder.png" style="zoom:50%;" /></p>
+<p>此Block会重复N次，组成Transformer的Encoder，BERT与Transformer Encoder采用了相同的结构。</p>
+<p><img src="https://hexo-img-meurice.oss-cn-beijing.aliyuncs.com/%E6%9D%8E%E5%AE%8F%E6%AF%85%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E8%AF%BE%E7%A8%8B2021%E6%98%A5/5/encoder2.png" style="zoom:50%;" /></p>
+<h3 id="More"><a href="#More" class="headerlink" title="More"></a>More</h3><ul>
+<li><p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2002.04745">[2002.04745] On Layer Normalization in the Transformer Architecture (arxiv.org)</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2003.07845">[2003.07845] PowerNorm: Rethinking Batch Normalization in Transformers (arxiv.org)</a></p>
+</li>
+</ul>
+<h2 id="Decoder——Autoregressive（AT）"><a href="#Decoder——Autoregressive（AT）" class="headerlink" title="Decoder——Autoregressive（AT）"></a>Decoder——Autoregressive（AT）</h2><h3 id="Decoder的运作方式"><a href="#Decoder的运作方式" class="headerlink" title="Decoder的运作方式"></a>Decoder的运作方式</h3><p>除了Encoder产生的输出以外，Decoder中还会加入一个BOS（Begin of Sequence）符号（token），用来表示开始，BOS token是一个One-hot表示的向量。</p>
+<p>输出一个向量，向量的长度应该和Vocabulary Size相等来表示所有的汉字（对于中文，Vocabulary Size就是所有汉字的数量），每一个中文对应向量中的一个数值，这个向量是经过Soft-max得到的，取最大的作为输出的文字，Decoder会将这个输出的文字的One-hot向量作为新的输入。</p>
+<p><img src="https://hexo-img-meurice.oss-cn-beijing.aliyuncs.com/%E6%9D%8E%E5%AE%8F%E6%AF%85%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E8%AF%BE%E7%A8%8B2021%E6%98%A5/5/decoder.png" style="zoom:50%;" /></p>
+<p>但是按照这样的运作方式，后面会产生无穷尽的文字，像文字接龙一样一直不能停下来，所以，还应该加一个EOS（End of Sequence） token来表示文字的结束，一般情况下，EOS token和BOS token都用一个相同的向量来表示，故向量的长度应该为Vocabulary Size + 1。</p>
+<p><img src="https://hexo-img-meurice.oss-cn-beijing.aliyuncs.com/%E6%9D%8E%E5%AE%8F%E6%AF%85%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E8%AF%BE%E7%A8%8B2021%E6%98%A5/5/decoder2.png" style="zoom:50%;" /></p>
+<p>在这种运作方式下，某步的错误预测可能影响后面的预测（“一步错，步步错。”），具体参考最后一节<a href="#Scheduled-Sampling">Scheduled Sampling</a>。</p>
+<h3 id="Transformer-Decoder"><a href="#Transformer-Decoder" class="headerlink" title="Transformer Decoder"></a>Transformer Decoder</h3><p>Transformer中的Decoder和Encoder结构类似，除中间的Multi-Head Attention和Add &amp; Norm结构外，在第一次Multi-Head Attention计算中加入了Mask。</p>
+<p><img src="https://hexo-img-meurice.oss-cn-beijing.aliyuncs.com/%E6%9D%8E%E5%AE%8F%E6%AF%85%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E8%AF%BE%E7%A8%8B2021%E6%98%A5/5/encodervsdecoder.png" style="zoom:50%;" /></p>
+<h4 id="Masked-Self-attention"><a href="#Masked-Self-attention" class="headerlink" title="Masked Self-attention"></a>Masked Self-attention</h4><p>在产生$b^1$的时候，只能考虑$a^1$的信息，而不能考虑$a^2$、$a^3$、$a^4$的信息；在产生$b^2$的时候，只能考虑$a^1$、$a^2$的信息，而不能考虑$a^3$、$a^4$的信息。</p>
+<p>具体来说，在产生$b^2$时，只会拿第二个位置的query去跟第一个位置的key和第二个位置的key来计算Attention，而不管第三、四个位置的key。</p>
+<p><img src="https://hexo-img-meurice.oss-cn-beijing.aliyuncs.com/%E6%9D%8E%E5%AE%8F%E6%AF%85%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E8%AF%BE%E7%A8%8B2021%E6%98%A5/5/mask.png" style="zoom:50%;" /></p>
+<p>对于Decoder而言，先有$a^1$才有$a^2$，才有接下来的$a^3$、$a^4$，计算$b^2$的时候无法考虑$a^3$、$a^4$。</p>
+<h2 id="Decoder——Non-autoregressive（NAT）"><a href="#Decoder——Non-autoregressive（NAT）" class="headerlink" title="Decoder——Non-autoregressive（NAT）"></a>Decoder——Non-autoregressive（NAT）</h2><h3 id="AT-v-s-NAT"><a href="#AT-v-s-NAT" class="headerlink" title="AT v.s. NAT"></a>AT v.s. NAT</h3><p>AT分别输入BOS token、$w_1$、$w_2$、$w_3$、EOS token，而NAT一次输入一整排BOS token。</p>
+<p><img src="https://hexo-img-meurice.oss-cn-beijing.aliyuncs.com/%E6%9D%8E%E5%AE%8F%E6%AF%85%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E8%AF%BE%E7%A8%8B2021%E6%98%A5/5/ATvsNAT.png" style="zoom:50%;" /></p>
+<p>优点：</p>
+<ul>
+<li>并行</li>
+<li>输出长度可控</li>
+</ul>
+<p>问题：模型如何知道输出的长度，从而确定输入的BOS token的数量？</p>
+<ul>
+<li>用一个模型来预测输出长度；</li>
+<li>输出一个很长的句子，忽略EOS token以后的内容。</li>
+</ul>
+<p>NAT的表现往往比AT要差（Multi-modality）。</p>
+<h2 id="Encoder-Decoder"><a href="#Encoder-Decoder" class="headerlink" title="Encoder-Decoder"></a>Encoder-Decoder</h2><p>Transformer中由<strong>Cross Attention</strong>模块来连接Encoder和Decoder。该模块接收Encoder的两个输出和Decoder的一个输出作为输入。</p>
+<p><img src="https://hexo-img-meurice.oss-cn-beijing.aliyuncs.com/%E6%9D%8E%E5%AE%8F%E6%AF%85%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E8%AF%BE%E7%A8%8B2021%E6%98%A5/5/cross%20attention.png" style="zoom:50%;" /></p>
+<p>将BOS token输入到Decoder的Masked Self-attention模块后，将输出的向量进行线性变换得到query $q$，再将$q$与Encoder中的key $k^1$、$k^2$、$k^3$计算Attention分数，与value $v^1$、$v^2$、$v^3$相乘加权求和得到$v$。</p>
+<p><img src="https://hexo-img-meurice.oss-cn-beijing.aliyuncs.com/%E6%9D%8E%E5%AE%8F%E6%AF%85%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E8%AF%BE%E7%A8%8B2021%E6%98%A5/5/cross%20attention2.png" style="zoom:50%;" /></p>
+<p>Cross Attention比Self-Attention出现要更早。</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://ieeexplore.ieee.org/document/7472621">Listen, attend and spell: A neural network for large vocabulary conversational speech recognition | IEEE Conference Publication | IEEE Xplore</a></li>
+</ul>
+<p>Transformer中，Decoder中每一层都与Encoder的最后一层做Cross Attention，也有论文的工作中尝试了与其他层的不同的连接方式。</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2005.08081">[2005.08081] Layer-Wise Multi-View Decoding for Improved Natural Language Generation (arxiv.org)</a></li>
+</ul>
+<h2 id="Training"><a href="#Training" class="headerlink" title="Training"></a>Training</h2><p>以下以一段标签为“机器学习”的语音数据为例。</p>
+<p>在Decoder中输入BOS token后，输出的向量应该和“机”对应的向量越接近越好，即通过计算两个向量的交叉熵，交叉熵越小越好，这个过程和分类非常相似。</p>
+<p><img src="https://hexo-img-meurice.oss-cn-beijing.aliyuncs.com/%E6%9D%8E%E5%AE%8F%E6%AF%85%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E8%AF%BE%E7%A8%8B2021%E6%98%A5/5/training.png" style="zoom:50%;" /></p>
+<p>包括最后一个EOS token，模型希望最后一个字所输出的内容与EOS token的One-hot向量是接近的。</p>
+<p>在训练过程中，Decoder的输入是真实标签，训练过程中会给Decoder看正确答案，即给Decoder输入BOS token和“机”以后，希望模型的输出是“器”，给Decoder输入BOS token、“机”和“器”之后，希望模型输出的是“学”。这种方法叫做<strong>Teacher Forcing</strong>，将正确答案作为输入。</p>
+<p>训练时Decoder可以看到完全正确的信息，而测试的时候Decoder可能会看到一些错误的信息，可能会导致“一步错，步步错。”，训练与测试不一致的现象叫做<strong>exposure bias</strong>，方法是在学习时，给Decoder的输入加入一些错误的信息，具体参考最后一节<a href="#Scheduled-Sampling">Scheduled Sampling</a>。</p>
+<h2 id="Tips"><a href="#Tips" class="headerlink" title="Tips"></a>Tips</h2><h3 id="Copy-Mechanism"><a href="#Copy-Mechanism" class="headerlink" title="Copy Mechanism"></a>Copy Mechanism</h3><p>某些信息并不需要机器来学习，可能是从输入信息中复制出来，例如聊天机器人中：</p>
+<ul>
+<li><p>eg1</p>
+<blockquote>
+<p>User：你好，我是<em>库洛洛</em>。</p>
+<p>Machine：<em>库洛洛</em>你好，很高兴认识你。</p>
+</blockquote>
+</li>
+</ul>
+<ul>
+<li><p>eg2</p>
+<blockquote>
+<p>User：小杰<em>不能使用念能力了</em>！</p>
+<p>Machine：你所谓的<em>「不能使用念能力」</em>是什么意思？</p>
+</blockquote>
+</li>
+</ul>
+<p>又例如从文章中提取摘要这一任务，从文章中复制一些信息是很模型很关键的能力。</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1704.04368">[1704.04368] Get To The Point: Summarization with Pointer-Generator Networks (arxiv.org)</a></li>
+<li><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1603.06393">[1603.06393] Incorporating Copying Mechanism in Sequence-to-Sequence Learning (arxiv.org)</a></li>
+</ul>
+<h3 id="Guided-Attention"><a href="#Guided-Attention" class="headerlink" title="Guided Attention"></a>Guided Attention</h3><p>在一些任务中（例如语音辨识、TTS等），对于输入的每一个内容都要看到，不能漏掉某些信息。</p>
+<p>Guided Attention要求机器以特定的方式完成Attention的计算，应该由左向右分别产生输出。例如在TTS中，应该先看最左边的文字产生输出，最后看最右的文字产生输出。</p>
+<ul>
+<li>Monotonic Attention Location-aware attention</li>
+</ul>
+<h3 id="Beam-Search"><a href="#Beam-Search" class="headerlink" title="Beam Search"></a>Beam Search</h3><p><img src="https://hexo-img-meurice.oss-cn-beijing.aliyuncs.com/%E6%9D%8E%E5%AE%8F%E6%AF%85%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E8%AF%BE%E7%A8%8B2021%E6%98%A5/5/beam%20search.png" style="zoom:50%;" /></p>
+<p>要找到最优解，暴力搜索难以计算。通过Beam Search找一个不是完全精准的解。</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1904.09751">[1904.09751] The Curious Case of Neural Text Degeneration (arxiv.org)</a></li>
+</ul>
+<p>假设一个任务的答案非常明确，Beam Search会比较有帮助，但对于一些答案不唯一的任务（例如文本补全），分数最高的路径可能结果并不是很好，往往需要在Decoder中加入随机性（noise）。</p>
+<h2 id="Optimizing-Evaluation-Metrics"><a href="#Optimizing-Evaluation-Metrics" class="headerlink" title="Optimizing Evaluation Metrics"></a>Optimizing Evaluation Metrics</h2><p>训练时使用交叉熵，在评估时使用BLEU。BLEU不可微分，无法作为Loss。不过对于无法优化的Loss，可以将其当作Reinforcement Learning（RL）的reward，Decoder作为Agent，将其看作是RL问题来解决。</p>
+<h2 id="Scheduled-Sampling"><a href="#Scheduled-Sampling" class="headerlink" title="Scheduled Sampling"></a>Scheduled Sampling</h2><p>Schedule可能会影响计算的并行化，对于Transformer的Scheduled Sampling另有方法。</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1506.03099">[1506.03099] Scheduled Sampling for Sequence Prediction with Recurrent Neural Networks (arxiv.org)</a></li>
+<li><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1906.07651">[1906.07651] Scheduled Sampling for Transformers (arxiv.org)</a></li>
+<li><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1906.04331">[1906.04331] Parallel Scheduled Sampling (arxiv.org)</a></li>
+</ul>
+
+        <!-- （底部）分类文章 -->
+        <!-- 
+          <div class="post-categoris-bottom">
+            <div class="post-categoris-name">blog</div>
+            <ul>
+            
+            
+              
+                <li class="base">
+                  <a  href="/2020/07/15/hello-world/" class="post-categoris-bottom-link">
+                  Hello World
+                </a>
+                </li>
+              
+              
+            
+            
+            
+              
+                <li class="base">
+                  <a  href="/2021/04/03/%E5%B1%B1%E4%B8%9C%E7%9C%81%E7%AC%AC%E4%BA%8C%E5%B1%8A%E6%95%B0%E6%8D%AE%E5%BA%94%E7%94%A8%E5%88%9B%E6%96%B0%E5%88%9B%E4%B8%9A%E5%A4%A7%E8%B5%9B%E2%80%94%E2%80%94%E7%96%AB%E6%83%85%E5%AF%86%E5%88%87%E6%8E%A5%E8%A7%A6%E4%BA%BA%E5%91%98%E8%BF%BD%E8%B8%AA/" class="post-categoris-bottom-link">
+                  山东省第二届数据应用创新创业大赛 疫情密切接触人员追踪
+                </a>
+                </li>
+              
+              
+            
+            
+            
+              
+                <li class="base">
+                  <a  href="/2021/05/18/2021%E6%8B%9B%E5%95%86%E9%93%B6%E8%A1%8CFinTech%E7%B2%BE%E8%8B%B1%E8%AE%AD%E7%BB%83%E8%90%A5-%E6%95%B0%E6%8D%AE%E8%B5%9B%E9%81%93/" class="post-categoris-bottom-link">
+                  2021招商银行FinTech精英训练营 数据赛道
+                </a>
+                </li>
+              
+              
+            
+            
+            
+              
+                <li class="base">
+                  <a  href="/2021/06/29/2021%E4%B8%AD%E5%9B%BD%E9%AB%98%E6%A0%A1%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%A4%A7%E8%B5%9B%E2%80%94%E2%80%94%E5%BE%AE%E4%BF%A1%E5%A4%A7%E6%95%B0%E6%8D%AE%E6%8C%91%E6%88%98%E8%B5%9B/" class="post-categoris-bottom-link">
+                  2021中国高校计算机大赛 微信大数据挑战赛
+                </a>
+                </li>
+              
+              
+            
+            
+            
+              
+                <li class="base">
+                  <a  href="/2021/12/31/2021%E5%B9%B4%E5%BA%A6%E6%80%BB%E7%BB%93/" class="post-categoris-bottom-link">
+                  2021年度总结
+                </a>
+                </li>
+              
+              
+            
+            
+            
+              
+                <li class="base">
+                  <a  href="/2022/02/05/%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/" class="post-categoris-bottom-link">
+                  数字图像处理
+                </a>
+                </li>
+              
+              
+            
+            
+            
+              
+                <li class="base">
+                  <a  href="/2022/04/23/%E8%87%AA%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9C%BA%E5%88%B6/" class="post-categoris-bottom-link">
+                  自注意力机制
+                </a>
+                </li>
+              
+              
+            
+            
+            
+              
+                <li class="me base">
+                  <a  href="/2022/04/25/Transformer/" class="post-categoris-bottom-link">
+                  Attention Is All You Need
+                </a>
+                </li>
+              
+              
+            
+            
+            
+              
+                <li class="base">
+                  <a  href="/2022/04/29/2022%E6%8B%9B%E5%95%86%E9%93%B6%E8%A1%8CFinTech%E7%B2%BE%E8%8B%B1%E8%AE%AD%E7%BB%83%E8%90%A5%20%E6%95%B0%E6%8D%AE%E8%B5%9B%E9%81%93%E9%A6%96%E6%97%A5%E5%9F%BA%E7%BA%BF/" class="post-categoris-bottom-link">
+                  2022招商银行FinTech精英训练营 数据赛道首日基线
+                </a>
+                </li>
+              
+              
+            
+            
+            
+              
+                <li class="base">
+                  <a  href="/2022/04/30/%E5%90%84%E5%BC%8F%E5%90%84%E6%A0%B7%E7%9A%84%E8%87%AA%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9C%BA%E5%88%B6/" class="post-categoris-bottom-link">
+                  各式各样的自注意力机制
+                </a>
+                </li>
+              
+              
+            
+            
+            
+              
+                <li class="base">
+                  <a  href="/2022/05/12/%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B9%A0%E2%80%94%E2%80%94%E6%84%9F%E7%9F%A5%E6%9C%BA/" class="post-categoris-bottom-link">
+                  感知机
+                </a>
+                </li>
+              
+              
+            
+            
+            
+              
+                <li class="base">
+                  <a  href="/2022/05/13/%E7%94%9F%E6%88%90%E5%BC%8F%E5%AF%B9%E6%8A%97%E7%BD%91%E7%BB%9C/" class="post-categoris-bottom-link">
+                  生成式对抗网络
+                </a>
+                </li>
+              
+              
+            
+            
+            
+              
+            
+            
+            
+              
+                <li class="base">
+                  <a  href="/2022/05/17/%E8%87%AA%E7%9B%91%E7%9D%A3%E5%BC%8F%E5%AD%A6%E4%B9%A0/" class="post-categoris-bottom-link">
+                  自监督式学习
+                </a>
+                </li>
+              
+              
+            
+            
+            
+              
+                <li class="base">
+                  <a  href="/2022/05/20/%E8%AF%AD%E9%9F%B3%E4%B8%8E%E5%BD%B1%E5%83%8F%E4%B8%8A%E7%9A%84%E8%87%AA%E7%9B%91%E7%9D%A3%E5%BC%8F%E5%AD%A6%E4%B9%A0%E6%A8%A1%E5%9E%8B/" class="post-categoris-bottom-link">
+                  语音与影像上的自监督式学习模型
+                </a>
+                </li>
+              
+              
+            
+            
+            
+              
+                <li class="base">
+                  <a  href="/2022/06/05/%E8%87%AA%E7%BC%96%E7%A0%81%E5%99%A8/" class="post-categoris-bottom-link">
+                  自编码器
+                </a>
+                </li>
+              
+              
+            
+            
+            
+              
+                <li class="base">
+                  <a  href="/2022/06/15/%E5%BC%82%E5%B8%B8%E6%A3%80%E6%B5%8B/" class="post-categoris-bottom-link">
+                  异常检测
+                </a>
+                </li>
+              
+              
+            
+            
+            
+              
+                <li class="base">
+                  <a  href="/2022/07/14/YOLO/" class="post-categoris-bottom-link">
+                  YOLO v1 - v5, v7
+                </a>
+                </li>
+              
+              
+            
+            
+            
+              
+            
+            
+            
+              
+                <li class="base">
+                  <a  href="/2022/07/31/%E5%9B%BE%E5%83%8F%E8%B4%A8%E9%87%8F%E8%AF%84%E4%BB%B7/" class="post-categoris-bottom-link">
+                  图像质量评价
+                </a>
+                </li>
+              
+              
+            
+            
+            
+              
+            
+            
+            
+              
+                <li class="base">
+                  <a  href="/2022/08/26/%E5%9B%A0%E6%9E%9C%E6%8E%A8%E6%96%AD/" class="post-categoris-bottom-link">
+                  因果推断
+                </a>
+                </li>
+              
+              
+            
+            
+            
+              
+                <li class="base">
+                  <a  href="/2022/09/20/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%EF%BC%88MIT%206.828%20Xv6%EF%BC%89/" class="post-categoris-bottom-link">
+                  xv6操作系统
+                </a>
+                </li>
+              
+              
+            
+            
+            
+              
+                <li class="base">
+                  <a  href="/2022/10/27/%E9%95%BF%E7%9F%AD%E6%9C%9F%E8%AE%B0%E5%BF%86%E7%BD%91%E7%BB%9C/" class="post-categoris-bottom-link">
+                  长短期记忆网络
+                </a>
+                </li>
+              
+              
+            
+            
+            
+              
+                <li class="base">
+                  <a  href="/2022/11/30/%E5%9B%BE%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" class="post-categoris-bottom-link">
+                  图神经网络
+                </a>
+                </li>
+              
+              
+            
+            
+            
+              
+                <li class="base">
+                  <a  href="/2022/12/20/%E7%BD%91%E4%B8%8A%E8%AF%84%E6%95%99%E8%84%9A%E6%9C%AC/" class="post-categoris-bottom-link">
+                  深大网上评教的批量自动勾选脚本
+                </a>
+                </li>
+              
+              
+            
+            
+            
+              
+                <li class="base">
+                  <a  href="/2023/01/06/%E5%88%9A%E4%BD%93%E8%BF%90%E5%8A%A8%E7%8A%B6%E6%80%81%E6%8F%8F%E8%BF%B0/" class="post-categoris-bottom-link">
+                  机器人学之运动学——刚体运动状态描述
+                </a>
+                </li>
+              
+              
+            
+            
+            
+            
+            </ul>
+
+          </div>
+
+         -->
+      </div>
+      <div class="post-content-inner-space">
+        
+          <div class="space-toc-main animate__animated  animate__fadeInUp">
+            <ol class="space-toc"><li class="space-toc-item space-toc-level-2"><a class="space-toc-link" href="#Sequence-to-sequence"><span class="space-toc-text">Sequence-to-sequence</span></a></li><li class="space-toc-item space-toc-level-2"><a class="space-toc-link" href="#Encoder"><span class="space-toc-text">Encoder</span></a></li><li class="space-toc-item space-toc-level-2"><a class="space-toc-link" href="#Decoder%E2%80%94%E2%80%94Autoregressive%EF%BC%88AT%EF%BC%89"><span class="space-toc-text">Decoder——Autoregressive（AT）</span></a></li><li class="space-toc-item space-toc-level-2"><a class="space-toc-link" href="#Decoder%E2%80%94%E2%80%94Non-autoregressive%EF%BC%88NAT%EF%BC%89"><span class="space-toc-text">Decoder——Non-autoregressive（NAT）</span></a></li><li class="space-toc-item space-toc-level-2"><a class="space-toc-link" href="#Encoder-Decoder"><span class="space-toc-text">Encoder-Decoder</span></a></li><li class="space-toc-item space-toc-level-2"><a class="space-toc-link" href="#Training"><span class="space-toc-text">Training</span></a></li><li class="space-toc-item space-toc-level-2"><a class="space-toc-link" href="#Tips"><span class="space-toc-text">Tips</span></a></li><li class="space-toc-item space-toc-level-2"><a class="space-toc-link" href="#Optimizing-Evaluation-Metrics"><span class="space-toc-text">Optimizing Evaluation Metrics</span></a></li><li class="space-toc-item space-toc-level-2"><a class="space-toc-link" href="#Scheduled-Sampling"><span class="space-toc-text">Scheduled Sampling</span></a></li></ol>
+           </div>
+        
+      </div>
+   </div>
+    <!-- 评论 -->
+    <!--page.comments !== false && --> 
+     
+    <div class="bottom-comments-outer">
+      <div class="bottom-comments-inner">
+        <!-- valine -->
+        
+          <section id="comments" class="comments" style="margin-top: 150px;">
+            <style>
+              .comments{background:#fff}
+              @media screen and (max-width:900px){.comments{margin:auto;padding:10px;background:#fff}}
+            </style>
+            <div id="vcomment" class="comment"></div>
+<script src="https://cdn.jsdelivr.net/npm/leancloud-storage@3.11.1/dist/av-min.js"></script>
+<script src='https://unpkg.com/valine@1.5.1/dist/Valine.min.js'></script>
+<script src="https://cdnjs.loli.net/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+    var notify = 'true' == true ? true : false;
+    var verify = 'false' == true ? true : false;
+    new Valine({
+        av: AV,
+        el: '#vcomment',
+        notify: notify,
+        app_id: "uSbQCc7fXmxLPopTU5E2KWrS-gzGzoHsz",
+        app_key: "eFJuGzWWqMmywQiehZRrFEQp",
+        placeholder: "\[支持 Markdown\] 说点什么吧～",
+        avatar:"robohash",
+    });
+</script>
+
+          </section>
+        
+        <!-- Gitalk -->
+        
+        <!-- livere -->
+        
+        </div>
+      </div>
+    
+  </div>
+</article>
+  </div>
+</div>
+
+
+
+<!-- 如果是home模式的话，不在首页就显示footer，如果不是home模式的话 所有都显示footer -->
+
+  <div class="footer-outer animate__animated  animate__fadeInUp">
+    <div class="footer-inner">
+    <div class="footer-text">
+    <p>由 <a target="_blank" rel="noopener" href="http://hexo.io/">Hexo</a> &amp; <a target="_blank" rel="noopener" href="https://github.com/FuShaoLei/hexo-theme-white">White</a> 强力驱动 <br> <a target="_blank" rel="noopener" href="https://beian.miit.gov.cn/">鄂ICP备20012765号</a></p>
+
+    </div>
+    <div class="footer-contact">
+    <ul class="footer-ul">
+        
+        <li class="footer-li">
+            <a href="https://github.com/yzhn16" target="_blank">
+                <i class="ri-github-line"></i>
+            </a>
+        </li>
+        
+        <li class="footer-li">
+            <a href="mailto:yanzhn@outlook.com" target="_blank">
+                <i class="ri-mail-line"></i>
+            </a>
+        </li>
+        
+    </ul>
+    </div>
+    </div>
+</div>
+
+
+
+
+
+
+<script src="/js/white.js"></script>
+
+
+
+    
+      
+<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.1/build/highlight.min.js"></script>
+
+      <script>hljs.initHighlightingOnLoad();</script>
+    
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        jax: ["input/TeX", "output/CommonHTML"],
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<!--<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML" id=""></script>
+</body>
+</html>

@@ -1,0 +1,831 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>  自注意力机制 |    white.</title>
+  <meta name="description" content="A minimalist theme for hexo.">
+  <!-- 标签页图标 -->
+  
+
+  <!-- 图标库 -->
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@2.2.0/fonts/remixicon.css" rel="stylesheet">
+  <!-- 动画库 -->
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fushaolei/cdn-white@1.0/css/animate.css"/>
+  
+  <!-- css文件 -->
+  
+<link rel="stylesheet" href="/css/white.css">
+
+  <!-- 代码高亮 -->
+  
+    
+      
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.1.1/styles/github.css">
+
+    
+  
+<meta name="generator" content="Hexo 6.2.0"><link rel="alternate" href="/atom.xml" title="体素储洁" type="application/atom+xml">
+</head>
+
+
+<body>
+
+<div class="menu-outer">
+    <div class="menu-inner">
+      <div class="menu-site-name  animate__animated  animate__fadeInUp">
+        <a href="/">
+          white.
+        </a>
+        
+      </div>
+      <div class="menu-group">
+        <ul class="menu-ul">
+        
+          <a href="/" class="nav-link">
+            <li class="menu-li  animate__animated  animate__fadeInUp">
+              Home
+            </li>
+          </a>
+        
+          <a href="/categories/blog" class="nav-link">
+            <li class="menu-li  animate__animated  animate__fadeInUp">
+              Blog
+            </li>
+          </a>
+        
+          <a href="/categories/gallery" class="nav-link">
+            <li class="menu-li  animate__animated  animate__fadeInUp">
+              Gallery
+            </li>
+          </a>
+        
+          <a href="/categories/tool" class="nav-link">
+            <li class="menu-li  animate__animated  animate__fadeInUp">
+              Tool
+            </li>
+          </a>
+        
+          <a href="/about" class="nav-link">
+            <li class="menu-li  animate__animated  animate__fadeInUp">
+              About
+            </li>
+          </a>
+        
+          <a href="/archives" class="nav-link">
+            <li class="menu-li  animate__animated  animate__fadeInUp">
+              Archive
+            </li>
+          </a>
+        
+        
+        
+       
+        
+        <a href="/search">
+          <li class="menu-li  animate__animated  animate__fadeInUp">
+            <i class="ri-search-line"></i>
+          </li>
+        </a>
+        
+          <li class="menu-li animate__animated  animate__fadeInUp" id="mobile-menu">
+            <i class="ri-menu-line"></i>
+          </li>
+        
+        </ul>
+
+      </div>
+
+    </div>
+</div>
+<div id="mobile-main" class="animate__animated  animate__fadeIn">
+  <div class="mobile-menu-inner">
+    <div class="mobile-menu-site-name animate__animated  animate__fadeInUp">
+      <a href="/">
+        white.
+      </a>
+    </div>
+    <div class="mobile-menu-group" id="mobile-close">
+      <i class="ri-close-line"></i>
+    </div>
+
+  </div>
+
+  <div class="mobile-menu-div">
+  
+    <a href="/" class="mobile-nav-link">
+      <div class="mobile-menu-child animate__animated  animate__fadeInUp">
+        <span>Home</span>
+      </div>
+    </a>
+  
+    <a href="/categories/blog" class="mobile-nav-link">
+      <div class="mobile-menu-child animate__animated  animate__fadeInUp">
+        <span>Blog</span>
+      </div>
+    </a>
+  
+    <a href="/categories/gallery" class="mobile-nav-link">
+      <div class="mobile-menu-child animate__animated  animate__fadeInUp">
+        <span>Gallery</span>
+      </div>
+    </a>
+  
+    <a href="/categories/tool" class="mobile-nav-link">
+      <div class="mobile-menu-child animate__animated  animate__fadeInUp">
+        <span>Tool</span>
+      </div>
+    </a>
+  
+    <a href="/about" class="mobile-nav-link">
+      <div class="mobile-menu-child animate__animated  animate__fadeInUp">
+        <span>About</span>
+      </div>
+    </a>
+  
+    <a href="/archives" class="mobile-nav-link">
+      <div class="mobile-menu-child animate__animated  animate__fadeInUp">
+        <span>Archive</span>
+      </div>
+    </a>
+  
+  
+    <a href="/search">  
+      <div class="mobile-menu-child  animate__animated  animate__fadeInUp">
+        <i class="ri-search-line"></i>
+      </div>
+    </a>
+    
+  </div>
+
+
+</div>
+
+<div class="body-outer">
+  <div class="body-inner">
+    
+<article class="post-inner">
+  <div class="post-content-outer">
+    <div class="post-intro">
+      <div class="post-title animate__animated  animate__fadeInUp">自注意力机制</div>
+      <div class="meta-intro animate__animated  animate__fadeInUp">4月 23 2022</div>
+      
+        <div class="post-cover"><span class="lazyload-img-span"><img data-src="https://hexo-img-meurice.oss-cn-beijing.aliyuncs.com/%E6%9D%8E%E5%AE%8F%E6%AF%85%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E8%AF%BE%E7%A8%8B2021%E6%98%A5/4/self-attention.png" class="post-cover-img"></span></div>
+      
+    </div>
+    <div class="post-content-inner">
+      <div class="post-content-inner-space">
+
+      </div>
+      <div class="post-content-main animate__animated  animate__fadeInUp">
+        <!-- top型目录 -->
+        
+        <p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Wv411h7kN?p=38">李宏毅2021/2022春机器学习课程——自注意力机制（Self-attention）</a><br><span id="more"></span>  </p>
+<h1 id="Self-attention"><a href="#Self-attention" class="headerlink" title="Self-attention"></a>Self-attention</h1><p>考虑两种不同的输入：</p>
+<ul>
+<li>输入是一个向量</li>
+<li><strong>输入是一排向量</strong>（输入的向量个数可能会改变）</li>
+</ul>
+<h2 id="将一排向量作为输入"><a href="#将一排向量作为输入" class="headerlink" title="将一排向量作为输入"></a>将一排向量作为输入</h2><h3 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h3><ul>
+<li>One-hot Encoding</li>
+<li>Word Embedding</li>
+</ul>
+<h3 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h3><ul>
+<li>一段语音窗口</li>
+<li>一张图</li>
+<li>分子结构</li>
+<li>…</li>
+</ul>
+<h3 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h3><h4 id="N个向量对应N个标签"><a href="#N个向量对应N个标签" class="headerlink" title="N个向量对应N个标签"></a>N个向量对应N个标签</h4><ul>
+<li>句子中每个词的词性：I saw a saw -&gt; N V DET N</li>
+<li>社交网络中每个人的购买意向：甲 -&gt; buy;乙 -&gt; not</li>
+</ul>
+<h4 id="N个向量对应一个标签"><a href="#N个向量对应一个标签" class="headerlink" title="N个向量对应一个标签"></a>N个向量对应一个标签</h4><ul>
+<li>情感分析：this is good -&gt; positive</li>
+<li>分子属性分析：一个分子图 -&gt; 亲水性</li>
+</ul>
+<h4 id="N个向量对应多个标签（seq2seq）"><a href="#N个向量对应多个标签（seq2seq）" class="headerlink" title="N个向量对应多个标签（seq2seq）"></a>N个向量对应多个标签（seq2seq）</h4><ul>
+<li>机器翻译</li>
+</ul>
+<h2 id="Fully-connected-Network"><a href="#Fully-connected-Network" class="headerlink" title="Fully-connected Network"></a>Fully-connected Network</h2><p>使用全连接网络，设置窗口大小，每次输入邻近的多个词。但限制于窗口大小，无法考虑整个句子的影响，且窗口覆盖整个句子比较困难。</p>
+<p><img src="https://hexo-img-meurice.oss-cn-beijing.aliyuncs.com/%E6%9D%8E%E5%AE%8F%E6%AF%85%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E8%AF%BE%E7%A8%8B2021%E6%98%A5/4/fc.png" style="zoom:50%;" /></p>
+<h2 id="Self-attention-1"><a href="#Self-attention-1" class="headerlink" title="Self-attention"></a>Self-attention</h2><p><img src="https://hexo-img-meurice.oss-cn-beijing.aliyuncs.com/%E6%9D%8E%E5%AE%8F%E6%AF%85%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E8%AF%BE%E7%A8%8B2021%E6%98%A5/4/self-attention.png" style="zoom:50%;" /></p>
+<p>例：</p>
+<ul>
+<li>输入：一排向量$\{a^1,a^2,a^3,a^4\}$</li>
+<li>输出：一排向量$\{b^1,b^2,b^3,b^4\}$</li>
+</ul>
+<p><em>$b^1$、$b^2$、$b^3$、$b^4$分别都是考虑了$a^1$、$a^2$、$a^3$、$a^4$而产生的。</em></p>
+<h3 id="如何生成-b-1-？"><a href="#如何生成-b-1-？" class="headerlink" title="如何生成$b^1$？"></a>如何生成$b^1$？</h3><h4 id="a-1-与其他向量的相关性-alpha-的计算方法"><a href="#a-1-与其他向量的相关性-alpha-的计算方法" class="headerlink" title="$a^1$与其他向量的相关性$\alpha$的计算方法"></a>$a^1$与其他向量的相关性$\alpha$的计算方法</h4><h5 id="Dot-product"><a href="#Dot-product" class="headerlink" title="Dot-product"></a><strong>Dot-product</strong></h5><p>输入两个向量，分别与矩阵$W^q$和$W^k$相乘，再将得到的向量$q$和$k$做点乘。</p>
+<p><img src="https://hexo-img-meurice.oss-cn-beijing.aliyuncs.com/%E6%9D%8E%E5%AE%8F%E6%AF%85%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E8%AF%BE%E7%A8%8B2021%E6%98%A5/4/dot-product.png" style="zoom:50%;" /></p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+q&=a^1\times W^q \\
+k&=a^2\times W^k \\
+\alpha &= q\cdot k
+\end{aligned}</script><h5 id="Additive"><a href="#Additive" class="headerlink" title="Additive"></a>Additive</h5><p>输入两个向量，分别与矩阵$W^q$和$W^k$相乘，将得到的向量$q$和$k$串起来并通过激活函数，最后通过一个变换得到$alpha$。</p>
+<p><img src="https://hexo-img-meurice.oss-cn-beijing.aliyuncs.com/%E6%9D%8E%E5%AE%8F%E6%AF%85%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E8%AF%BE%E7%A8%8B2021%E6%98%A5/4/additive.png" style="zoom:50%;" /></p>
+<h4 id="b-1-的计算"><a href="#b-1-的计算" class="headerlink" title="$b^1$的计算"></a>$b^1$的计算</h4><p>本节中的例子中，对于$b^1$，计算步骤如下：</p>
+<ul>
+<li>step1.计算$q^1$</li>
+</ul>
+<script type="math/tex; mode=display">
+q^1=W^qa^1</script><ul>
+<li>step2.计算$k^1$、$k^2$、$k^3$、$k^4$</li>
+</ul>
+<script type="math/tex; mode=display">
+k^i=W^ka^i</script><ul>
+<li>step3.计算$\alpha_{1,1}$、$\alpha_{1,2}$、$\alpha_{1,3}$、$\alpha_{1,4}$</li>
+</ul>
+<script type="math/tex; mode=display">
+\alpha_{1,i}=q^1\cdot k^i \\</script><ul>
+<li>step4.通过Soft-max（也可使用ReLU等）计算$\alpha_{1,1}’$、$\alpha_{1,2}’$、$\alpha_{1,3}’$、$\alpha_{1,4}’$</li>
+</ul>
+<script type="math/tex; mode=display">
+\alpha_{1,i}'=\frac{\exp(\alpha_{1,i})}{\sum_j\exp(\alpha_{1,j})}</script><p><img src="https://hexo-img-meurice.oss-cn-beijing.aliyuncs.com/%E6%9D%8E%E5%AE%8F%E6%AF%85%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E8%AF%BE%E7%A8%8B2021%E6%98%A5/4/self-attention-1.png" style="zoom:50%;" /></p>
+<ul>
+<li><p>step5.计算$v^1$、$v^2$、$v^3$、$v^4$</p>
+<script type="math/tex; mode=display">
+v^i=W^va^i</script></li>
+<li><p>step6.计算$b^1$（根据Attenion分数抽取重要信息）</p>
+<script type="math/tex; mode=display">
+b^1=\sum_j\alpha_{1,j}'v^j</script></li>
+</ul>
+<p><img src="https://hexo-img-meurice.oss-cn-beijing.aliyuncs.com/%E6%9D%8E%E5%AE%8F%E6%AF%85%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E8%AF%BE%E7%A8%8B2021%E6%98%A5/4/self-attention-2.png" style="zoom:50%;" /></p>
+<h3 id="输出向量组-b-1-b-2-b-3-b-4-的完整计算过程"><a href="#输出向量组-b-1-b-2-b-3-b-4-的完整计算过程" class="headerlink" title="输出向量组$\{b^1,b^2,b^3,b^4\}$的完整计算过程"></a>输出向量组$\{b^1,b^2,b^3,b^4\}$的完整计算过程</h3><p>整理以上过程，$Q$、$K$、$V$和Attention分数的计算过程如下：</p>
+<h4 id="Q-、-K-、-V-的计算"><a href="#Q-、-K-、-V-的计算" class="headerlink" title="$Q$、$K$、$V$的计算"></a>$Q$、$K$、$V$的计算</h4><p>由：</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+q^i &=W^qa^i \\
+k^i &=W^ka^i \\
+v^i &=W^va^i 
+\end{aligned}</script><p>有：</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\begin{bmatrix}
+q^1 & q^2 & q^3 & q^4
+\end{bmatrix}
+&=W^q
+\begin{bmatrix}
+a^1 & a^2 & a^3 & a^4
+\end{bmatrix}
+\\
+\begin{bmatrix}
+k^1 & k^2 & k^3 & k^4
+\end{bmatrix}
+&=W^k
+\begin{bmatrix}
+a^1 & a^2 & a^3 & a^4
+\end{bmatrix}
+\\
+\begin{bmatrix}
+v^1 & v^2 & v^3 & v^4
+\end{bmatrix}
+&=W^v
+\begin{bmatrix}
+a^1 & a^2 & a^3 & a^4
+\end{bmatrix}
+\end{aligned}</script><p>即：</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+Q&=W^qI \\
+K&=W^kI \\
+V&=W^vI
+\end{aligned}</script><p><img src="https://hexo-img-meurice.oss-cn-beijing.aliyuncs.com/%E6%9D%8E%E5%AE%8F%E6%AF%85%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E8%AF%BE%E7%A8%8B2021%E6%98%A5/4/self-attention-3.png" style="zoom:50%;" /></p>
+<h4 id="Attention分数的计算"><a href="#Attention分数的计算" class="headerlink" title="Attention分数的计算"></a>Attention分数的计算</h4><p>由：</p>
+<script type="math/tex; mode=display">
+\alpha_{1,i}=k^i\cdot q^1 \\</script><p>有：</p>
+<script type="math/tex; mode=display">
+\begin{bmatrix}
+\alpha_{1,1} \\
+\alpha_{1,2} \\
+\alpha_{1,3} \\
+\alpha_{1,4} \\
+\end{bmatrix}
+=
+\begin{bmatrix}
+k^1 \\
+k^2 \\
+k^3 \\
+k^4 
+\end{bmatrix}
+\cdot
+q^1</script><p>进一步有：</p>
+<script type="math/tex; mode=display">
+\begin{bmatrix}
+\alpha_{1,1} & \alpha_{2,1} & \alpha_{3,1} &\alpha_{4,1} \\
+\alpha_{1,2} & \alpha_{2,2} & \alpha_{3,2} &\alpha_{4,2} \\
+\alpha_{1,3} & \alpha_{2,3} & \alpha_{3,3} &\alpha_{4,3} \\
+\alpha_{1,4} & \alpha_{2,4} & \alpha_{3,4} &\alpha_{4,4} \\
+\end{bmatrix}
+=
+\begin{bmatrix}
+k^1 \\
+k^2 \\
+k^3 \\
+k^4 
+\end{bmatrix}
+\cdot
+\begin{bmatrix}
+q^1 & q^2 & q^3 &q^4
+\end{bmatrix}</script><p>即：</p>
+<script type="math/tex; mode=display">
+A=K^TQ</script><p>对$A$进行Soft-max得到$A’$：</p>
+<script type="math/tex; mode=display">
+A'=
+\begin{bmatrix}
+\alpha_{1,1}' & \alpha_{2,1}' & \alpha_{3,1}' &\alpha_{4,1}' \\
+\alpha_{1,2}' & \alpha_{2,2}' & \alpha_{3,2}' &\alpha_{4,2}' \\
+\alpha_{1,3}' & \alpha_{2,3}' & \alpha_{3,3}' &\alpha_{4,3}' \\
+\alpha_{1,4}' & \alpha_{2,4}' & \alpha_{3,4}' &\alpha_{4,4}' \\
+\end{bmatrix}</script><p><img src="https://hexo-img-meurice.oss-cn-beijing.aliyuncs.com/%E6%9D%8E%E5%AE%8F%E6%AF%85%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E8%AF%BE%E7%A8%8B2021%E6%98%A5/4/self-attention-4.png" style="zoom:50%;" /></p>
+<p>最后将$V$与$A’$相乘，得到$b^1$、$b^2$、$b^3$、$b^4$：</p>
+<script type="math/tex; mode=display">
+\begin{bmatrix}
+b^1 & b^2 & b^3 & b^4
+\end{bmatrix}
+=
+\begin{bmatrix}
+v^1 & v^2 & v^3 & v^4
+\end{bmatrix}
+\cdot
+\begin{bmatrix}
+\alpha_{1,1}' & \alpha_{2,1}' & \alpha_{3,1}' &\alpha_{4,1}' \\
+\alpha_{1,2}' & \alpha_{2,2}' & \alpha_{3,2}' &\alpha_{4,2}' \\
+\alpha_{1,3}' & \alpha_{2,3}' & \alpha_{3,3}' &\alpha_{4,3}' \\
+\alpha_{1,4}' & \alpha_{2,4}' & \alpha_{3,4}' &\alpha_{4,4}' \\
+\end{bmatrix}</script><p>即得到Self-attention的输出：</p>
+<script type="math/tex; mode=display">
+O=VA'</script><h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><script type="math/tex; mode=display">
+\begin{aligned}
+&Q=W^qI \\
+&K=W^kI \\
+&V=W^vI \\
+&A=K^TQ \\
+&A \rightarrow A' \\
+&O=VA'
+\end{aligned}</script><p>$W^q$、$W^k$、$W^v$是需要学习的参数。</p>
+<p><img src="https://hexo-img-meurice.oss-cn-beijing.aliyuncs.com/%E6%9D%8E%E5%AE%8F%E6%AF%85%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E8%AF%BE%E7%A8%8B2021%E6%98%A5/4/self-attention-5.png" style="zoom:50%;" /></p>
+<h2 id="Multi-head-Self-attention"><a href="#Multi-head-Self-attention" class="headerlink" title="Multi-head Self-attention"></a>Multi-head Self-attention</h2><p>多个$q$，对应不同种类的相关性。</p>
+<p>例如对于2 head的情况，$a^i$对应的$q^i$、$k^i$、$v^i$具体有$q^{i,1}$、$k^{i,1}$、$v^{i,1}$：</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+&q^{i,1}=W^{q,1}q^i \\
+&q^{i,2}=W^{q,2}q^i
+\end{aligned}</script><p>类似的，$a^j$对应的$q^j$、$k^j$、$v^j$具体有$q^{j,1}$、$k^{j,1}$、$v^{j,1}$：</p>
+<p>在使用Dot-product计算Attention分数时，使用对应的$q$和$k$进行计算，$q^{i,1}$分别和$k^{i,1}$、$k^{j,1}$进行计算，在将Attention分数分别和$v^{i,1}$、$v^{j,1}$计算，得到$b^{i,1}$，类似可得到$b^{i,2}$。</p>
+<script type="math/tex; mode=display">
+b^i=W^O
+\begin{bmatrix}
+b^{i,1} \\
+b^{i,2}
+\end{bmatrix}</script><p><img src="https://hexo-img-meurice.oss-cn-beijing.aliyuncs.com/%E6%9D%8E%E5%AE%8F%E6%AF%85%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E8%AF%BE%E7%A8%8B2021%E6%98%A5/4/multi-head%20self-attention.png" style="zoom:50%;" /></p>
+<h2 id="位置编码"><a href="#位置编码" class="headerlink" title="位置编码"></a>位置编码</h2><p>Self-attention中，对输入的几个向量所进行的操作是相同的，与位置无关，可能丢失了位置信息。</p>
+<p>为每一个位置都设定一个向量$e^i$，将该向量加到$a^i$上。</p>
+<script type="math/tex; mode=display">
+e^i+a^i\rightarrow q^i,k^i,v^i</script><p>向量$e^i$可以通过一个规则设定（人工）或从训练数据中学习出来。</p>
+<p>有各种不同的方法产生位置编码：</p>
+<ul>
+<li>Sinusoidal</li>
+<li>Position embedding</li>
+<li>FLOATER</li>
+<li>RNN</li>
+<li>…</li>
+</ul>
+<h2 id="Self-attention用于语音"><a href="#Self-attention用于语音" class="headerlink" title="Self-attention用于语音"></a>Self-attention用于语音</h2><p>把声音讯号表示为一排向量，一般一个向量只有10ms的长度，会导致向量个数过多，$A’$计算的复杂度是$O(L^2)$，一般使用<strong>Truncated Self-attention</strong>，不看一整句话，只看一小部分。</p>
+<h2 id="Self-attention用于图像"><a href="#Self-attention用于图像" class="headerlink" title="Self-attention用于图像"></a>Self-attention用于图像</h2><p>一张图片可以看成是一排向量。</p>
+<p><img src="https://hexo-img-meurice.oss-cn-beijing.aliyuncs.com/%E6%9D%8E%E5%AE%8F%E6%AF%85%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E8%AF%BE%E7%A8%8B2021%E6%98%A5/4/self-attention%20for%20img.png" style="zoom:50%;" /></p>
+<ul>
+<li>Self-Attention GAN</li>
+<li>Detection Transformer(DETR)</li>
+</ul>
+<p><img src="https://hexo-img-meurice.oss-cn-beijing.aliyuncs.com/%E6%9D%8E%E5%AE%8F%E6%AF%85%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E8%AF%BE%E7%A8%8B2021%E6%98%A5/4/self-attention%20for%20img2.png" style="zoom:50%;" /></p>
+<h2 id="Self-attention-v-s-CNN"><a href="#Self-attention-v-s-CNN" class="headerlink" title="Self-attention v.s. CNN"></a>Self-attention v.s. CNN</h2><p>Self-attention可以看作复杂化的CNN，Self-attention考虑全局。CNN是Self-attention的特例，Self-attention可以通过设定合适的参数，达到和CNN同样的效果。</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1911.03584">[1911.03584] On the Relationship between Self-Attention and Convolutional Layers (arxiv.org)</a></li>
+</ul>
+<h2 id="Self-attention-v-s-RNN"><a href="#Self-attention-v-s-RNN" class="headerlink" title="Self-attention v.s. RNN"></a>Self-attention v.s. RNN</h2><p>RNN（Recurrent Neural Network）：</p>
+<p><img src="https://hexo-img-meurice.oss-cn-beijing.aliyuncs.com/%E6%9D%8E%E5%AE%8F%E6%AF%85%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E8%AF%BE%E7%A8%8B2021%E6%98%A5/4/self-attention%20vs%20RNN.png" style="zoom:50%;" /></p>
+<p>RNN的缺点很明显，很难去考虑到输入位置较远的向量，并且无法并行计算。</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2006.16236">[2006.16236] Transformers are RNNs: Fast Autoregressive Transformers with Linear Attention (arxiv.org)</a></li>
+</ul>
+<h2 id="Self-attention用于图"><a href="#Self-attention用于图" class="headerlink" title="Self-attention用于图"></a>Self-attention用于图</h2><p>图中每个结点可以表示为一个向量，边可以用来考虑结点之间的关联性，计算Attention分数时，只需计算相连的结点。</p>
+<p>Self-attention用在图上面，是某一种类型的GNN（Graph Neural Network）。</p>
+<h2 id="More"><a href="#More" class="headerlink" title="More"></a>More</h2><p>Self-Attention的计算量较大，优化效率是一个研究方向。</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2011.04006">[2011.04006] Long Range Arena: A Benchmark for Efficient Transformers (arxiv.org)</a></li>
+<li><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2009.06732">[2009.06732] Efficient Transformers: A Survey (arxiv.org)</a></li>
+</ul>
+
+        <!-- （底部）分类文章 -->
+        <!-- 
+          <div class="post-categoris-bottom">
+            <div class="post-categoris-name">blog</div>
+            <ul>
+            
+            
+              
+                <li class="base">
+                  <a  href="/2020/07/15/hello-world/" class="post-categoris-bottom-link">
+                  Hello World
+                </a>
+                </li>
+              
+              
+            
+            
+            
+              
+                <li class="base">
+                  <a  href="/2021/04/03/%E5%B1%B1%E4%B8%9C%E7%9C%81%E7%AC%AC%E4%BA%8C%E5%B1%8A%E6%95%B0%E6%8D%AE%E5%BA%94%E7%94%A8%E5%88%9B%E6%96%B0%E5%88%9B%E4%B8%9A%E5%A4%A7%E8%B5%9B%E2%80%94%E2%80%94%E7%96%AB%E6%83%85%E5%AF%86%E5%88%87%E6%8E%A5%E8%A7%A6%E4%BA%BA%E5%91%98%E8%BF%BD%E8%B8%AA/" class="post-categoris-bottom-link">
+                  山东省第二届数据应用创新创业大赛 疫情密切接触人员追踪
+                </a>
+                </li>
+              
+              
+            
+            
+            
+              
+                <li class="base">
+                  <a  href="/2021/05/18/2021%E6%8B%9B%E5%95%86%E9%93%B6%E8%A1%8CFinTech%E7%B2%BE%E8%8B%B1%E8%AE%AD%E7%BB%83%E8%90%A5-%E6%95%B0%E6%8D%AE%E8%B5%9B%E9%81%93/" class="post-categoris-bottom-link">
+                  2021招商银行FinTech精英训练营 数据赛道
+                </a>
+                </li>
+              
+              
+            
+            
+            
+              
+                <li class="base">
+                  <a  href="/2021/06/29/2021%E4%B8%AD%E5%9B%BD%E9%AB%98%E6%A0%A1%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%A4%A7%E8%B5%9B%E2%80%94%E2%80%94%E5%BE%AE%E4%BF%A1%E5%A4%A7%E6%95%B0%E6%8D%AE%E6%8C%91%E6%88%98%E8%B5%9B/" class="post-categoris-bottom-link">
+                  2021中国高校计算机大赛 微信大数据挑战赛
+                </a>
+                </li>
+              
+              
+            
+            
+            
+              
+                <li class="base">
+                  <a  href="/2021/12/31/2021%E5%B9%B4%E5%BA%A6%E6%80%BB%E7%BB%93/" class="post-categoris-bottom-link">
+                  2021年度总结
+                </a>
+                </li>
+              
+              
+            
+            
+            
+              
+                <li class="base">
+                  <a  href="/2022/02/05/%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/" class="post-categoris-bottom-link">
+                  数字图像处理
+                </a>
+                </li>
+              
+              
+            
+            
+            
+              
+                <li class="me base">
+                  <a  href="/2022/04/23/%E8%87%AA%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9C%BA%E5%88%B6/" class="post-categoris-bottom-link">
+                  自注意力机制
+                </a>
+                </li>
+              
+              
+            
+            
+            
+              
+                <li class="base">
+                  <a  href="/2022/04/25/Transformer/" class="post-categoris-bottom-link">
+                  Attention Is All You Need
+                </a>
+                </li>
+              
+              
+            
+            
+            
+              
+                <li class="base">
+                  <a  href="/2022/04/29/2022%E6%8B%9B%E5%95%86%E9%93%B6%E8%A1%8CFinTech%E7%B2%BE%E8%8B%B1%E8%AE%AD%E7%BB%83%E8%90%A5%20%E6%95%B0%E6%8D%AE%E8%B5%9B%E9%81%93%E9%A6%96%E6%97%A5%E5%9F%BA%E7%BA%BF/" class="post-categoris-bottom-link">
+                  2022招商银行FinTech精英训练营 数据赛道首日基线
+                </a>
+                </li>
+              
+              
+            
+            
+            
+              
+                <li class="base">
+                  <a  href="/2022/04/30/%E5%90%84%E5%BC%8F%E5%90%84%E6%A0%B7%E7%9A%84%E8%87%AA%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9C%BA%E5%88%B6/" class="post-categoris-bottom-link">
+                  各式各样的自注意力机制
+                </a>
+                </li>
+              
+              
+            
+            
+            
+              
+                <li class="base">
+                  <a  href="/2022/05/12/%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B9%A0%E2%80%94%E2%80%94%E6%84%9F%E7%9F%A5%E6%9C%BA/" class="post-categoris-bottom-link">
+                  感知机
+                </a>
+                </li>
+              
+              
+            
+            
+            
+              
+                <li class="base">
+                  <a  href="/2022/05/13/%E7%94%9F%E6%88%90%E5%BC%8F%E5%AF%B9%E6%8A%97%E7%BD%91%E7%BB%9C/" class="post-categoris-bottom-link">
+                  生成式对抗网络
+                </a>
+                </li>
+              
+              
+            
+            
+            
+              
+            
+            
+            
+              
+                <li class="base">
+                  <a  href="/2022/05/17/%E8%87%AA%E7%9B%91%E7%9D%A3%E5%BC%8F%E5%AD%A6%E4%B9%A0/" class="post-categoris-bottom-link">
+                  自监督式学习
+                </a>
+                </li>
+              
+              
+            
+            
+            
+              
+                <li class="base">
+                  <a  href="/2022/05/20/%E8%AF%AD%E9%9F%B3%E4%B8%8E%E5%BD%B1%E5%83%8F%E4%B8%8A%E7%9A%84%E8%87%AA%E7%9B%91%E7%9D%A3%E5%BC%8F%E5%AD%A6%E4%B9%A0%E6%A8%A1%E5%9E%8B/" class="post-categoris-bottom-link">
+                  语音与影像上的自监督式学习模型
+                </a>
+                </li>
+              
+              
+            
+            
+            
+              
+                <li class="base">
+                  <a  href="/2022/06/05/%E8%87%AA%E7%BC%96%E7%A0%81%E5%99%A8/" class="post-categoris-bottom-link">
+                  自编码器
+                </a>
+                </li>
+              
+              
+            
+            
+            
+              
+                <li class="base">
+                  <a  href="/2022/06/15/%E5%BC%82%E5%B8%B8%E6%A3%80%E6%B5%8B/" class="post-categoris-bottom-link">
+                  异常检测
+                </a>
+                </li>
+              
+              
+            
+            
+            
+              
+                <li class="base">
+                  <a  href="/2022/07/14/YOLO/" class="post-categoris-bottom-link">
+                  YOLO v1 - v5, v7
+                </a>
+                </li>
+              
+              
+            
+            
+            
+              
+            
+            
+            
+              
+                <li class="base">
+                  <a  href="/2022/07/31/%E5%9B%BE%E5%83%8F%E8%B4%A8%E9%87%8F%E8%AF%84%E4%BB%B7/" class="post-categoris-bottom-link">
+                  图像质量评价
+                </a>
+                </li>
+              
+              
+            
+            
+            
+              
+            
+            
+            
+              
+                <li class="base">
+                  <a  href="/2022/08/26/%E5%9B%A0%E6%9E%9C%E6%8E%A8%E6%96%AD/" class="post-categoris-bottom-link">
+                  因果推断
+                </a>
+                </li>
+              
+              
+            
+            
+            
+              
+                <li class="base">
+                  <a  href="/2022/09/20/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%EF%BC%88MIT%206.828%20Xv6%EF%BC%89/" class="post-categoris-bottom-link">
+                  xv6操作系统
+                </a>
+                </li>
+              
+              
+            
+            
+            
+              
+                <li class="base">
+                  <a  href="/2022/10/27/%E9%95%BF%E7%9F%AD%E6%9C%9F%E8%AE%B0%E5%BF%86%E7%BD%91%E7%BB%9C/" class="post-categoris-bottom-link">
+                  长短期记忆网络
+                </a>
+                </li>
+              
+              
+            
+            
+            
+              
+                <li class="base">
+                  <a  href="/2022/11/30/%E5%9B%BE%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" class="post-categoris-bottom-link">
+                  图神经网络
+                </a>
+                </li>
+              
+              
+            
+            
+            
+              
+                <li class="base">
+                  <a  href="/2022/12/20/%E7%BD%91%E4%B8%8A%E8%AF%84%E6%95%99%E8%84%9A%E6%9C%AC/" class="post-categoris-bottom-link">
+                  深大网上评教的批量自动勾选脚本
+                </a>
+                </li>
+              
+              
+            
+            
+            
+              
+                <li class="base">
+                  <a  href="/2023/01/06/%E5%88%9A%E4%BD%93%E8%BF%90%E5%8A%A8%E7%8A%B6%E6%80%81%E6%8F%8F%E8%BF%B0/" class="post-categoris-bottom-link">
+                  机器人学之运动学——刚体运动状态描述
+                </a>
+                </li>
+              
+              
+            
+            
+            
+            
+            </ul>
+
+          </div>
+
+         -->
+      </div>
+      <div class="post-content-inner-space">
+        
+          <div class="space-toc-main animate__animated  animate__fadeInUp">
+            <ol class="space-toc"><li class="space-toc-item space-toc-level-2"><a class="space-toc-link" href="#%E5%B0%86%E4%B8%80%E6%8E%92%E5%90%91%E9%87%8F%E4%BD%9C%E4%B8%BA%E8%BE%93%E5%85%A5"><span class="space-toc-text">将一排向量作为输入</span></a></li><li class="space-toc-item space-toc-level-2"><a class="space-toc-link" href="#Fully-connected-Network"><span class="space-toc-text">Fully-connected Network</span></a></li><li class="space-toc-item space-toc-level-2"><a class="space-toc-link" href="#Self-attention-1"><span class="space-toc-text">Self-attention</span></a></li><li class="space-toc-item space-toc-level-2"><a class="space-toc-link" href="#Multi-head-Self-attention"><span class="space-toc-text">Multi-head Self-attention</span></a></li><li class="space-toc-item space-toc-level-2"><a class="space-toc-link" href="#%E4%BD%8D%E7%BD%AE%E7%BC%96%E7%A0%81"><span class="space-toc-text">位置编码</span></a></li><li class="space-toc-item space-toc-level-2"><a class="space-toc-link" href="#Self-attention%E7%94%A8%E4%BA%8E%E8%AF%AD%E9%9F%B3"><span class="space-toc-text">Self-attention用于语音</span></a></li><li class="space-toc-item space-toc-level-2"><a class="space-toc-link" href="#Self-attention%E7%94%A8%E4%BA%8E%E5%9B%BE%E5%83%8F"><span class="space-toc-text">Self-attention用于图像</span></a></li><li class="space-toc-item space-toc-level-2"><a class="space-toc-link" href="#Self-attention-v-s-CNN"><span class="space-toc-text">Self-attention v.s. CNN</span></a></li><li class="space-toc-item space-toc-level-2"><a class="space-toc-link" href="#Self-attention-v-s-RNN"><span class="space-toc-text">Self-attention v.s. RNN</span></a></li><li class="space-toc-item space-toc-level-2"><a class="space-toc-link" href="#Self-attention%E7%94%A8%E4%BA%8E%E5%9B%BE"><span class="space-toc-text">Self-attention用于图</span></a></li><li class="space-toc-item space-toc-level-2"><a class="space-toc-link" href="#More"><span class="space-toc-text">More</span></a></li></ol>
+           </div>
+        
+      </div>
+   </div>
+    <!-- 评论 -->
+    <!--page.comments !== false && --> 
+     
+    <div class="bottom-comments-outer">
+      <div class="bottom-comments-inner">
+        <!-- valine -->
+        
+          <section id="comments" class="comments" style="margin-top: 150px;">
+            <style>
+              .comments{background:#fff}
+              @media screen and (max-width:900px){.comments{margin:auto;padding:10px;background:#fff}}
+            </style>
+            <div id="vcomment" class="comment"></div>
+<script src="https://cdn.jsdelivr.net/npm/leancloud-storage@3.11.1/dist/av-min.js"></script>
+<script src='https://unpkg.com/valine@1.5.1/dist/Valine.min.js'></script>
+<script src="https://cdnjs.loli.net/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+    var notify = 'true' == true ? true : false;
+    var verify = 'false' == true ? true : false;
+    new Valine({
+        av: AV,
+        el: '#vcomment',
+        notify: notify,
+        app_id: "uSbQCc7fXmxLPopTU5E2KWrS-gzGzoHsz",
+        app_key: "eFJuGzWWqMmywQiehZRrFEQp",
+        placeholder: "\[支持 Markdown\] 说点什么吧～",
+        avatar:"robohash",
+    });
+</script>
+
+          </section>
+        
+        <!-- Gitalk -->
+        
+        <!-- livere -->
+        
+        </div>
+      </div>
+    
+  </div>
+</article>
+  </div>
+</div>
+
+
+
+<!-- 如果是home模式的话，不在首页就显示footer，如果不是home模式的话 所有都显示footer -->
+
+  <div class="footer-outer animate__animated  animate__fadeInUp">
+    <div class="footer-inner">
+    <div class="footer-text">
+    <p>由 <a target="_blank" rel="noopener" href="http://hexo.io/">Hexo</a> &amp; <a target="_blank" rel="noopener" href="https://github.com/FuShaoLei/hexo-theme-white">White</a> 强力驱动 <br> <a target="_blank" rel="noopener" href="https://beian.miit.gov.cn/">鄂ICP备20012765号</a></p>
+
+    </div>
+    <div class="footer-contact">
+    <ul class="footer-ul">
+        
+        <li class="footer-li">
+            <a href="https://github.com/yzhn16" target="_blank">
+                <i class="ri-github-line"></i>
+            </a>
+        </li>
+        
+        <li class="footer-li">
+            <a href="mailto:yanzhn@outlook.com" target="_blank">
+                <i class="ri-mail-line"></i>
+            </a>
+        </li>
+        
+    </ul>
+    </div>
+    </div>
+</div>
+
+
+
+
+
+
+<script src="/js/white.js"></script>
+
+
+
+    
+      
+<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.1/build/highlight.min.js"></script>
+
+      <script>hljs.initHighlightingOnLoad();</script>
+    
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        jax: ["input/TeX", "output/CommonHTML"],
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<!--<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML" id=""></script>
+</body>
+</html>

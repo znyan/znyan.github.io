@@ -1,0 +1,708 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>  感知机 |    white.</title>
+  <meta name="description" content="A minimalist theme for hexo.">
+  <!-- 标签页图标 -->
+  
+
+  <!-- 图标库 -->
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@2.2.0/fonts/remixicon.css" rel="stylesheet">
+  <!-- 动画库 -->
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fushaolei/cdn-white@1.0/css/animate.css"/>
+  
+  <!-- css文件 -->
+  
+<link rel="stylesheet" href="/css/white.css">
+
+  <!-- 代码高亮 -->
+  
+    
+      
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.1.1/styles/github.css">
+
+    
+  
+<meta name="generator" content="Hexo 6.2.0"><link rel="alternate" href="/atom.xml" title="体素储洁" type="application/atom+xml">
+</head>
+
+
+<body>
+
+<div class="menu-outer">
+    <div class="menu-inner">
+      <div class="menu-site-name  animate__animated  animate__fadeInUp">
+        <a href="/">
+          white.
+        </a>
+        
+      </div>
+      <div class="menu-group">
+        <ul class="menu-ul">
+        
+          <a href="/" class="nav-link">
+            <li class="menu-li  animate__animated  animate__fadeInUp">
+              Home
+            </li>
+          </a>
+        
+          <a href="/categories/blog" class="nav-link">
+            <li class="menu-li  animate__animated  animate__fadeInUp">
+              Blog
+            </li>
+          </a>
+        
+          <a href="/categories/gallery" class="nav-link">
+            <li class="menu-li  animate__animated  animate__fadeInUp">
+              Gallery
+            </li>
+          </a>
+        
+          <a href="/categories/tool" class="nav-link">
+            <li class="menu-li  animate__animated  animate__fadeInUp">
+              Tool
+            </li>
+          </a>
+        
+          <a href="/about" class="nav-link">
+            <li class="menu-li  animate__animated  animate__fadeInUp">
+              About
+            </li>
+          </a>
+        
+          <a href="/archives" class="nav-link">
+            <li class="menu-li  animate__animated  animate__fadeInUp">
+              Archive
+            </li>
+          </a>
+        
+        
+        
+       
+        
+        <a href="/search">
+          <li class="menu-li  animate__animated  animate__fadeInUp">
+            <i class="ri-search-line"></i>
+          </li>
+        </a>
+        
+          <li class="menu-li animate__animated  animate__fadeInUp" id="mobile-menu">
+            <i class="ri-menu-line"></i>
+          </li>
+        
+        </ul>
+
+      </div>
+
+    </div>
+</div>
+<div id="mobile-main" class="animate__animated  animate__fadeIn">
+  <div class="mobile-menu-inner">
+    <div class="mobile-menu-site-name animate__animated  animate__fadeInUp">
+      <a href="/">
+        white.
+      </a>
+    </div>
+    <div class="mobile-menu-group" id="mobile-close">
+      <i class="ri-close-line"></i>
+    </div>
+
+  </div>
+
+  <div class="mobile-menu-div">
+  
+    <a href="/" class="mobile-nav-link">
+      <div class="mobile-menu-child animate__animated  animate__fadeInUp">
+        <span>Home</span>
+      </div>
+    </a>
+  
+    <a href="/categories/blog" class="mobile-nav-link">
+      <div class="mobile-menu-child animate__animated  animate__fadeInUp">
+        <span>Blog</span>
+      </div>
+    </a>
+  
+    <a href="/categories/gallery" class="mobile-nav-link">
+      <div class="mobile-menu-child animate__animated  animate__fadeInUp">
+        <span>Gallery</span>
+      </div>
+    </a>
+  
+    <a href="/categories/tool" class="mobile-nav-link">
+      <div class="mobile-menu-child animate__animated  animate__fadeInUp">
+        <span>Tool</span>
+      </div>
+    </a>
+  
+    <a href="/about" class="mobile-nav-link">
+      <div class="mobile-menu-child animate__animated  animate__fadeInUp">
+        <span>About</span>
+      </div>
+    </a>
+  
+    <a href="/archives" class="mobile-nav-link">
+      <div class="mobile-menu-child animate__animated  animate__fadeInUp">
+        <span>Archive</span>
+      </div>
+    </a>
+  
+  
+    <a href="/search">  
+      <div class="mobile-menu-child  animate__animated  animate__fadeInUp">
+        <i class="ri-search-line"></i>
+      </div>
+    </a>
+    
+  </div>
+
+
+</div>
+
+<div class="body-outer">
+  <div class="body-inner">
+    
+<article class="post-inner">
+  <div class="post-content-outer">
+    <div class="post-intro">
+      <div class="post-title animate__animated  animate__fadeInUp">感知机</div>
+      <div class="meta-intro animate__animated  animate__fadeInUp">5月 12 2022</div>
+      
+    </div>
+    <div class="post-content-inner">
+      <div class="post-content-inner-space">
+
+      </div>
+      <div class="post-content-main animate__animated  animate__fadeInUp">
+        <!-- top型目录 -->
+        
+        <p>李航《统计学习方法》第2章<br><span id="more"></span></p>
+<h1 id="感知机"><a href="#感知机" class="headerlink" title="感知机"></a>感知机</h1><p>感知机是二类分类的线性分类模型。</p>
+<p>感知机学习旨在求出将训练数据进行线性划分的分离超平面，为此，导入基于误分类的损失函数，利用梯度下降法对损失函数进行极小化，求得感知机模型。</p>
+<h2 id="感知机模型"><a href="#感知机模型" class="headerlink" title="感知机模型"></a>感知机模型</h2><blockquote>
+<p><strong>定义</strong>：假设输入空间是$\mathcal{X}\subseteq \mathbf{R}^n$，输出空间是$\mathcal{Y}=\{+1,-1\}$。输入$x\in \mathcal{X}$表示实例的特征向量，对应于输入空间的点；输出$y\in\mathcal{Y}$表示实例的类别。感知机是由输入空间到输出空间的如下函数：</p>
+<script type="math/tex; mode=display">
+f(x)=\text{sign}(w\cdot x+b)</script><p>其中$w$和$b$是参数，$w\in \mathbf{R}^n$叫做权值（weight），$b\in \mathbf{R}$叫做偏置（bias）。$\text{sign}$是符号函数。</p>
+</blockquote>
+<p>线性方程$w\cdot x+b=0$对应于特征空间$\mathbf{R}^n$中的一个超平面$S$，这个超平面将特征空间划分为正、负两类。</p>
+<h2 id="感知机学习策略"><a href="#感知机学习策略" class="headerlink" title="感知机学习策略"></a>感知机学习策略</h2><p>假设训练数据集是<strong>线性可分</strong>的，感知机的学习目标是求得一个能够将训练集正、负实例点<strong>完全正确分开</strong>的分离超平面。</p>
+<p>为了便于优化，损失函数的选择是<strong>误分类点到超平面$S$的总距离</strong>：</p>
+<script type="math/tex; mode=display">
+\frac{1}{\|{w}\|}|w\cdot x_0+b|</script><p>其中，$|w|$是$w$的$L_2$范数。</p>
+<p>对于<strong>误分类点</strong>有$-y_i(w\cdot x_i+b)\gt 0$，则所有误分类点到超平面$S$的总距离为</p>
+<script type="math/tex; mode=display">
+-\frac{1}{\|w\|}\sum_{x_i\in M}y_i(w\cdot x_i+b)</script><p>其中$M$为误分类点的集合，不考虑$\frac{1}{|w|}$即得到感知机学习的损失函数</p>
+<script type="math/tex; mode=display">
+L(w,b)=-\sum_{x_i\in M}y_i(w\cdot x_i+b)</script><h2 id="感知机学习算法"><a href="#感知机学习算法" class="headerlink" title="感知机学习算法"></a>感知机学习算法</h2><h3 id="感知机学习算法的原始形式"><a href="#感知机学习算法的原始形式" class="headerlink" title="感知机学习算法的原始形式"></a>感知机学习算法的原始形式</h3><p>求参数$w,b$，使其为损失函数极小化问题的解</p>
+<script type="math/tex; mode=display">
+\min_{w,b}L(w,b)=-\sum_{x_i\in M}y_i(w\cdot x_i+b)</script><p>感知机学习算法采用<strong>随机梯度下降法</strong>（Stochastic GD），每次<strong>随机选取一个</strong>误分类点使其梯度下降。</p>
+<p>损失函数的梯度由下式给出：</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\nabla_wL(w,b)&=-\sum_{x_i\in M}y_ix_i \\
+\nabla_bL(w,b)&=-\sum_{x_i\in M}y_i
+\end{aligned}</script><p>随机选取一个误分类点$(x_i,y_i)$对$w,b$进行更新（沿着梯度的<strong>反</strong>方向）：</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+w&\leftarrow w+\eta y_ix_i \\
+b&\leftarrow b+\eta y_i
+\end{aligned}</script><blockquote>
+<p><strong>算法（感知机学习算法的原始形式）</strong>:</p>
+<p>输入：训练数据集$T=\{(x_1,y_1),(x_2,y_2),\cdots,(x_N,y_N)\}$，其中$x_i\in \mathcal{X}=\mathbf{R}^n$，$y_i\in \mathcal{Y}=\{-1,+1\}$，$i=1,2,\cdots,N$；学习率$\eta(0\lt \eta\leqslant 1)$；</p>
+<p>输出：$w,b$；感知机模型$f(x)=\text{sign}(w\cdot x+b)$。</p>
+<p>（1）选取初值$w_0,b_0$；</p>
+<p>（2）在训练集中选取数据$(x_i,y_i)$；</p>
+<p>（3）如果$y_i(w\cdot x_i+b)\leqslant 0$，</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+w&\leftarrow w+\eta y_ix_i \\
+b&\leftarrow b+\eta y_i
+\end{aligned}</script><p>（4）转至（2），直至训练集中没有误分类点。</p>
+</blockquote>
+<h3 id="算法的收敛性"><a href="#算法的收敛性" class="headerlink" title="算法的收敛性"></a>算法的收敛性</h3><p>现在证明，对于线性可分数据集，感知机学习算法原始形式收敛，即经过有限次迭代可以得到一个将训练数据集完全正确划分的分离超平面及感知机模型。</p>
+<p>将偏置$b$并入权重向量$w$，记作$\hat{w}=(w^T,b)^T$，同样也将输入向量$x$加以扩充，记作$\hat{x}=(x^T,1)^T$，这样$\hat{x}\in \mathbf{R}^{n+1}$，$\hat{w}\in \mathbf{R}^{n+1}$，且$\hat{w}\cdot\hat{x}=w\cdot x+b$。</p>
+<blockquote>
+<p><strong>定理（Novikoff）</strong>：设训练数据集$T=\{(x_1,y_1),(x_2,y_2),\cdots,(x_N,y_N)\}$是线性可分的，其中$x_i\in \mathcal{X}=\mathbf{R}^n$，$y_i\in \mathcal{Y}=\{-1,+1\}$，$i=1,2,\cdots,N$，则：</p>
+<p>（1）存在满足条件$|\hat{w}_{opt}|=1$的超平面$\hat{w}_{opt}\cdot\hat{x}=w_{opt}\cdot x+b_{opt}=0$将训练数据集完全正确分开；且存在$\gamma\gt 0$，对所有的$i=1,2,\cdots,N$</p>
+<script type="math/tex; mode=display">
+y_i(\hat{w}_{opt}\cdot\hat{x}_i)\geqslant\gamma</script><p>（2）令$R=\max_{1\le i\le N}|\hat{x}_i|$，则感知机学习算法的原始形式在训练数据集上的误分类次数$k$满足不等式</p>
+<script type="math/tex; mode=display">
+k=\left(\frac{R}{\gamma}\right)^2</script></blockquote>
+<p><strong>证明</strong>：</p>
+<p>（1）由于训练数据集线性可分，故存在超平面可将训练数据集完全正确分开，取此超平面为$\hat{w}_{opt}\cdot\hat{x}=0$，使$|\hat{w}_{opt}|=1$。由于对于有限的$i=1,2,\cdots,N$，均有</p>
+<script type="math/tex; mode=display">
+y_i(\hat{w}_{opt}\cdot\hat{x}_i)\gt 0</script><p>所以存在</p>
+<script type="math/tex; mode=display">
+\gamma=\min_i\{y_i(\hat{w}_{opt}\cdot\hat{x}_i)\}</script><p>使</p>
+<script type="math/tex; mode=display">
+y_i(\hat{w}_{opt}\cdot\hat{x}_i)\geqslant\gamma</script><p>（2）感知机算法从$\hat{w}_0$开始，如果实例被误分类，则更新权重。令$\hat{w}_{k-1}$是第$k$个误分类实例之前的扩充向量权重，即</p>
+<script type="math/tex; mode=display">
+\hat{w}_{k-1}=(w_{k-1}^T,b_{k-1})^T</script><p>则第$k$个误分类实例的条件是</p>
+<script type="math/tex; mode=display">
+y_i(\hat{w}_{k-1}\cdot\hat{x}_i)\leqslant 0</script><p>若$(x_i,y_i)$是被$\hat{w}_{k-1}=(w_{k-1}^T,b_{k-1})^T$误分类的数据，则$w$和$b$的更新是</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+w_k&\leftarrow w_{k-1}+\eta y_ix_i \\
+b_k&\leftarrow b_{k-1}+\eta y_i
+\end{aligned}</script><p>即</p>
+<script type="math/tex; mode=display">
+\hat{w}_k=\hat{w}_{k-1}+\eta y_i\hat{x}_i</script><p>下面推导两个不等式（1）和（2）：</p>
+<script type="math/tex; mode=display">
+\hat{w}_k\cdot\hat{w}_{opt}\geqslant k\eta\gamma  \tag{1}</script><p>由式$\hat{w}_k=\hat{w}_{k-1}+\eta y_i\hat{x}_i$及式$y_i(\hat{w}_{opt}\cdot\hat{x}_i)\geqslant\gamma$得</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\hat{w}_k\cdot\hat{w}_{opt} &= \hat{w}_{k-1}\cdot\hat{w}_{opt}+\eta y_i\hat{w}_{opt}\cdot\hat{x}_i \\
+&\geqslant \hat{w}_{k-1}\cdot\hat{w}_{opt}+\eta\gamma
+\end{aligned}</script><p>递推即得不等式（2）</p>
+<script type="math/tex; mode=display">
+\hat{w}_k\cdot\hat{w}_{opt}\geqslant \hat{w}_{k-1}\cdot\hat{w}_{opt}+\eta\gamma \geqslant \hat{w}_{k-2}\cdot\hat{w}_{opt}+2\eta\gamma\geqslant \cdots\geqslant k\eta\gamma</script><script type="math/tex; mode=display">
+\|\hat{w}_k\|^2\leqslant k\eta^2R^2\tag{2}</script><p>由式$\hat{w}_k=\hat{w}_{k-1}+\eta y_i\hat{x}_i$及式$y_i(\hat{w}_{k-1}\cdot\hat{x}_i)\leqslant0 $得</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\|\hat{w}_k\|^2&=\|\hat{w}_{k-1}\|^2+2\eta y_i\hat{w}_{k-1}\cdot\hat{x}_i+\eta^2\|\hat{x}_i\|^2 \\
+&\leqslant \|\hat{w}_{k-1}\|^2+\eta^2\|\hat{x}_i\|^2 \\
+&\leqslant \|\hat{w}_{k-1}\|^2+\eta^2R^2 \\
+&\leqslant \|\hat{w}_{k-2}\|^2+2\eta^2R^2 \leqslant \cdots \\
+&\leqslant k\eta^2R^2
+\end{aligned}</script><p>结合式$\hat{w}_k\cdot\hat{w}_{opt}\geqslant k\eta\gamma$及式$|\hat{w}_k|^2\leqslant k\eta^2R^2$即得</p>
+<script type="math/tex; mode=display">
+k\eta\gamma \leqslant\hat{w}_k\cdot\hat{w}_{opt}\leqslant\|\hat{w}_k\|\|\hat{w}_{opt}\|\leqslant \sqrt{k}\eta R</script><p>则有</p>
+<script type="math/tex; mode=display">
+k^2\gamma^2\leqslant kR^2</script><p>于是</p>
+<script type="math/tex; mode=display">
+k\leqslant \left(\frac{R}{\gamma}\right)^2</script><h3 id="感知机学习算法的对偶形式"><a href="#感知机学习算法的对偶形式" class="headerlink" title="感知机学习算法的对偶形式"></a><strong>感知机学习算法的对偶形式</strong></h3><p>对偶形式的基本想法是，将$w$和$b$表示为实例$x_i$和标记$y_i$的线性组合的形式，通过求解其系数而求得$w$和$b$。</p>
+<p>在感知机学习算法的原始形式中，假设初始值$w_0,b_0$均为0。假设样本点$(x_i,y_i)$在更新过程中被使用了$n_i$次，最后学习到的$w,b$可以分别表示为</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+w&=\sum_{i=1}^Nn_i\eta y_ix_i \\
+b&=\sum_{i=1}^Nn_i\eta y_i
+\end{aligned}</script><p>考虑$n_i$，如果$n_i$的值很大，说明这个样本点经常被误分类，这意味着它离超平面距离很近，超平面稍微移动，这个点就可能被误分类，并且这样的点很可能就是<em>支持向量</em>。</p>
+<p>将$w,b$代入感知机学习算法的原始形式：</p>
+<script type="math/tex; mode=display">
+f(x)=\text{sign}(w\cdot x+b)=\text{sign}\left(\sum_{j=1}^Nn_j\eta y_jx_j\cdot x+\sum_{j=1}^Nn_j\eta y_i\right)</script><p>此时的学习目标从$w,b$变为$n_i$。</p>
+<blockquote>
+<p><strong>算法（感知机学习算法的对偶形式）</strong>：</p>
+<p>输入：训练数据集$T=\{(x_1,y_1),(x_2,y_2),\cdots,(x_N,y_N)\}$，其中$x_i\in \mathcal{X}=\mathbf{R}^n$，$y_i\in \mathcal{Y}=\{-1,+1\}$，$i=1,2,\cdots,N$；学习率$\eta(0\lt \eta\leqslant 1)$；</p>
+<p>输出：$n$；感知机模型$f(x)=\text{sign}\left(\sum_{j=1}^Nn_j\eta y_jx_j\cdot x+\sum_{j=1}^Nn_j\eta y_i\right)$，其中$n=(n_1,n_2,\cdots,n_N)^T$。</p>
+<p>（1）$n\leftarrow 0$；</p>
+<p>（2）在训练集中选取数据$(x_i,y_i)$；</p>
+<p>（3）如果$y_i\left(\sum_{j=1}^Nn_j\eta y_jx_j\cdot x_i+\sum_{j=1}^Nn_j\eta y_i\right)\leqslant0$，更新参数，将误分类次数加一：</p>
+<script type="math/tex; mode=display">
+n_i\leftarrow n_i+1</script><p>（4）转至（2）直至没有误分类数据。</p>
+</blockquote>
+<p>对偶形式中训练实例仅以内积的形式出现，可以预先将训练集中实例间的内积计算出来存在矩阵中，此矩阵为Gram矩阵</p>
+<script type="math/tex; mode=display">
+\symbfit{G}=[x_i\cdot x_j]_{N\times N}</script>
+        <!-- （底部）分类文章 -->
+        <!-- 
+          <div class="post-categoris-bottom">
+            <div class="post-categoris-name">blog</div>
+            <ul>
+            
+            
+              
+                <li class="base">
+                  <a  href="/2020/07/15/hello-world/" class="post-categoris-bottom-link">
+                  Hello World
+                </a>
+                </li>
+              
+              
+            
+            
+            
+              
+                <li class="base">
+                  <a  href="/2021/04/03/%E5%B1%B1%E4%B8%9C%E7%9C%81%E7%AC%AC%E4%BA%8C%E5%B1%8A%E6%95%B0%E6%8D%AE%E5%BA%94%E7%94%A8%E5%88%9B%E6%96%B0%E5%88%9B%E4%B8%9A%E5%A4%A7%E8%B5%9B%E2%80%94%E2%80%94%E7%96%AB%E6%83%85%E5%AF%86%E5%88%87%E6%8E%A5%E8%A7%A6%E4%BA%BA%E5%91%98%E8%BF%BD%E8%B8%AA/" class="post-categoris-bottom-link">
+                  山东省第二届数据应用创新创业大赛 疫情密切接触人员追踪
+                </a>
+                </li>
+              
+              
+            
+            
+            
+              
+                <li class="base">
+                  <a  href="/2021/05/18/2021%E6%8B%9B%E5%95%86%E9%93%B6%E8%A1%8CFinTech%E7%B2%BE%E8%8B%B1%E8%AE%AD%E7%BB%83%E8%90%A5-%E6%95%B0%E6%8D%AE%E8%B5%9B%E9%81%93/" class="post-categoris-bottom-link">
+                  2021招商银行FinTech精英训练营 数据赛道
+                </a>
+                </li>
+              
+              
+            
+            
+            
+              
+                <li class="base">
+                  <a  href="/2021/06/29/2021%E4%B8%AD%E5%9B%BD%E9%AB%98%E6%A0%A1%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%A4%A7%E8%B5%9B%E2%80%94%E2%80%94%E5%BE%AE%E4%BF%A1%E5%A4%A7%E6%95%B0%E6%8D%AE%E6%8C%91%E6%88%98%E8%B5%9B/" class="post-categoris-bottom-link">
+                  2021中国高校计算机大赛 微信大数据挑战赛
+                </a>
+                </li>
+              
+              
+            
+            
+            
+              
+                <li class="base">
+                  <a  href="/2021/12/31/2021%E5%B9%B4%E5%BA%A6%E6%80%BB%E7%BB%93/" class="post-categoris-bottom-link">
+                  2021年度总结
+                </a>
+                </li>
+              
+              
+            
+            
+            
+              
+                <li class="base">
+                  <a  href="/2022/02/05/%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/" class="post-categoris-bottom-link">
+                  数字图像处理
+                </a>
+                </li>
+              
+              
+            
+            
+            
+              
+                <li class="base">
+                  <a  href="/2022/04/23/%E8%87%AA%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9C%BA%E5%88%B6/" class="post-categoris-bottom-link">
+                  自注意力机制
+                </a>
+                </li>
+              
+              
+            
+            
+            
+              
+                <li class="base">
+                  <a  href="/2022/04/25/Transformer/" class="post-categoris-bottom-link">
+                  Attention Is All You Need
+                </a>
+                </li>
+              
+              
+            
+            
+            
+              
+                <li class="base">
+                  <a  href="/2022/04/29/2022%E6%8B%9B%E5%95%86%E9%93%B6%E8%A1%8CFinTech%E7%B2%BE%E8%8B%B1%E8%AE%AD%E7%BB%83%E8%90%A5%20%E6%95%B0%E6%8D%AE%E8%B5%9B%E9%81%93%E9%A6%96%E6%97%A5%E5%9F%BA%E7%BA%BF/" class="post-categoris-bottom-link">
+                  2022招商银行FinTech精英训练营 数据赛道首日基线
+                </a>
+                </li>
+              
+              
+            
+            
+            
+              
+                <li class="base">
+                  <a  href="/2022/04/30/%E5%90%84%E5%BC%8F%E5%90%84%E6%A0%B7%E7%9A%84%E8%87%AA%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9C%BA%E5%88%B6/" class="post-categoris-bottom-link">
+                  各式各样的自注意力机制
+                </a>
+                </li>
+              
+              
+            
+            
+            
+              
+                <li class="me base">
+                  <a  href="/2022/05/12/%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B9%A0%E2%80%94%E2%80%94%E6%84%9F%E7%9F%A5%E6%9C%BA/" class="post-categoris-bottom-link">
+                  感知机
+                </a>
+                </li>
+              
+              
+            
+            
+            
+              
+                <li class="base">
+                  <a  href="/2022/05/13/%E7%94%9F%E6%88%90%E5%BC%8F%E5%AF%B9%E6%8A%97%E7%BD%91%E7%BB%9C/" class="post-categoris-bottom-link">
+                  生成式对抗网络
+                </a>
+                </li>
+              
+              
+            
+            
+            
+              
+            
+            
+            
+              
+                <li class="base">
+                  <a  href="/2022/05/17/%E8%87%AA%E7%9B%91%E7%9D%A3%E5%BC%8F%E5%AD%A6%E4%B9%A0/" class="post-categoris-bottom-link">
+                  自监督式学习
+                </a>
+                </li>
+              
+              
+            
+            
+            
+              
+                <li class="base">
+                  <a  href="/2022/05/20/%E8%AF%AD%E9%9F%B3%E4%B8%8E%E5%BD%B1%E5%83%8F%E4%B8%8A%E7%9A%84%E8%87%AA%E7%9B%91%E7%9D%A3%E5%BC%8F%E5%AD%A6%E4%B9%A0%E6%A8%A1%E5%9E%8B/" class="post-categoris-bottom-link">
+                  语音与影像上的自监督式学习模型
+                </a>
+                </li>
+              
+              
+            
+            
+            
+              
+                <li class="base">
+                  <a  href="/2022/06/05/%E8%87%AA%E7%BC%96%E7%A0%81%E5%99%A8/" class="post-categoris-bottom-link">
+                  自编码器
+                </a>
+                </li>
+              
+              
+            
+            
+            
+              
+                <li class="base">
+                  <a  href="/2022/06/15/%E5%BC%82%E5%B8%B8%E6%A3%80%E6%B5%8B/" class="post-categoris-bottom-link">
+                  异常检测
+                </a>
+                </li>
+              
+              
+            
+            
+            
+              
+                <li class="base">
+                  <a  href="/2022/07/14/YOLO/" class="post-categoris-bottom-link">
+                  YOLO v1 - v5, v7
+                </a>
+                </li>
+              
+              
+            
+            
+            
+              
+            
+            
+            
+              
+                <li class="base">
+                  <a  href="/2022/07/31/%E5%9B%BE%E5%83%8F%E8%B4%A8%E9%87%8F%E8%AF%84%E4%BB%B7/" class="post-categoris-bottom-link">
+                  图像质量评价
+                </a>
+                </li>
+              
+              
+            
+            
+            
+              
+            
+            
+            
+              
+                <li class="base">
+                  <a  href="/2022/08/26/%E5%9B%A0%E6%9E%9C%E6%8E%A8%E6%96%AD/" class="post-categoris-bottom-link">
+                  因果推断
+                </a>
+                </li>
+              
+              
+            
+            
+            
+              
+                <li class="base">
+                  <a  href="/2022/09/20/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%EF%BC%88MIT%206.828%20Xv6%EF%BC%89/" class="post-categoris-bottom-link">
+                  xv6操作系统
+                </a>
+                </li>
+              
+              
+            
+            
+            
+              
+                <li class="base">
+                  <a  href="/2022/10/27/%E9%95%BF%E7%9F%AD%E6%9C%9F%E8%AE%B0%E5%BF%86%E7%BD%91%E7%BB%9C/" class="post-categoris-bottom-link">
+                  长短期记忆网络
+                </a>
+                </li>
+              
+              
+            
+            
+            
+              
+                <li class="base">
+                  <a  href="/2022/11/30/%E5%9B%BE%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" class="post-categoris-bottom-link">
+                  图神经网络
+                </a>
+                </li>
+              
+              
+            
+            
+            
+              
+                <li class="base">
+                  <a  href="/2022/12/20/%E7%BD%91%E4%B8%8A%E8%AF%84%E6%95%99%E8%84%9A%E6%9C%AC/" class="post-categoris-bottom-link">
+                  深大网上评教的批量自动勾选脚本
+                </a>
+                </li>
+              
+              
+            
+            
+            
+              
+                <li class="base">
+                  <a  href="/2023/01/06/%E5%88%9A%E4%BD%93%E8%BF%90%E5%8A%A8%E7%8A%B6%E6%80%81%E6%8F%8F%E8%BF%B0/" class="post-categoris-bottom-link">
+                  机器人学之运动学——刚体运动状态描述
+                </a>
+                </li>
+              
+              
+            
+            
+            
+            
+            </ul>
+
+          </div>
+
+         -->
+      </div>
+      <div class="post-content-inner-space">
+        
+          <div class="space-toc-main animate__animated  animate__fadeInUp">
+            <ol class="space-toc"><li class="space-toc-item space-toc-level-2"><a class="space-toc-link" href="#%E6%84%9F%E7%9F%A5%E6%9C%BA%E6%A8%A1%E5%9E%8B"><span class="space-toc-text">感知机模型</span></a></li><li class="space-toc-item space-toc-level-2"><a class="space-toc-link" href="#%E6%84%9F%E7%9F%A5%E6%9C%BA%E5%AD%A6%E4%B9%A0%E7%AD%96%E7%95%A5"><span class="space-toc-text">感知机学习策略</span></a></li><li class="space-toc-item space-toc-level-2"><a class="space-toc-link" href="#%E6%84%9F%E7%9F%A5%E6%9C%BA%E5%AD%A6%E4%B9%A0%E7%AE%97%E6%B3%95"><span class="space-toc-text">感知机学习算法</span></a></li></ol>
+           </div>
+        
+      </div>
+   </div>
+    <!-- 评论 -->
+    <!--page.comments !== false && --> 
+     
+    <div class="bottom-comments-outer">
+      <div class="bottom-comments-inner">
+        <!-- valine -->
+        
+          <section id="comments" class="comments" style="margin-top: 150px;">
+            <style>
+              .comments{background:#fff}
+              @media screen and (max-width:900px){.comments{margin:auto;padding:10px;background:#fff}}
+            </style>
+            <div id="vcomment" class="comment"></div>
+<script src="https://cdn.jsdelivr.net/npm/leancloud-storage@3.11.1/dist/av-min.js"></script>
+<script src='https://unpkg.com/valine@1.5.1/dist/Valine.min.js'></script>
+<script src="https://cdnjs.loli.net/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+    var notify = 'true' == true ? true : false;
+    var verify = 'false' == true ? true : false;
+    new Valine({
+        av: AV,
+        el: '#vcomment',
+        notify: notify,
+        app_id: "uSbQCc7fXmxLPopTU5E2KWrS-gzGzoHsz",
+        app_key: "eFJuGzWWqMmywQiehZRrFEQp",
+        placeholder: "\[支持 Markdown\] 说点什么吧～",
+        avatar:"robohash",
+    });
+</script>
+
+          </section>
+        
+        <!-- Gitalk -->
+        
+        <!-- livere -->
+        
+        </div>
+      </div>
+    
+  </div>
+</article>
+  </div>
+</div>
+
+
+
+<!-- 如果是home模式的话，不在首页就显示footer，如果不是home模式的话 所有都显示footer -->
+
+  <div class="footer-outer animate__animated  animate__fadeInUp">
+    <div class="footer-inner">
+    <div class="footer-text">
+    <p>由 <a target="_blank" rel="noopener" href="http://hexo.io/">Hexo</a> &amp; <a target="_blank" rel="noopener" href="https://github.com/FuShaoLei/hexo-theme-white">White</a> 强力驱动 <br> <a target="_blank" rel="noopener" href="https://beian.miit.gov.cn/">鄂ICP备20012765号</a></p>
+
+    </div>
+    <div class="footer-contact">
+    <ul class="footer-ul">
+        
+        <li class="footer-li">
+            <a href="https://github.com/yzhn16" target="_blank">
+                <i class="ri-github-line"></i>
+            </a>
+        </li>
+        
+        <li class="footer-li">
+            <a href="mailto:yanzhn@outlook.com" target="_blank">
+                <i class="ri-mail-line"></i>
+            </a>
+        </li>
+        
+    </ul>
+    </div>
+    </div>
+</div>
+
+
+
+
+
+
+<script src="/js/white.js"></script>
+
+
+
+    
+      
+<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.1/build/highlight.min.js"></script>
+
+      <script>hljs.initHighlightingOnLoad();</script>
+    
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        jax: ["input/TeX", "output/CommonHTML"],
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<!--<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML" id=""></script>
+</body>
+</html>
