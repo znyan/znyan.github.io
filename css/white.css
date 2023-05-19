@@ -533,11 +533,11 @@ ol {
   line-height: 1.2;
   margin: 6px 0px;
 }
-.post-content-inner ul li::before {
-  content: "◆";
-  font-size: 0.8em;
+.post-content-inner ul li::marker {
+  content: "▪ " /* ◆ ■ ▪*/;
+  font-size: 1.2em /* .8em */;
   font-family: Merriweather;
-  color: #898FA0;
+  color: #000 /* $color-text-secondary */;
   margin-right: 0.7em;
   text-align: right;
 }

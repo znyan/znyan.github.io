@@ -6,7 +6,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>  2021中国高校计算机大赛 微信大数据挑战赛 |    white.</title>
+  <title>  2021微信大数据挑战赛 |    white.</title>
   <meta name="description" content="A minimalist theme for hexo.">
   <!-- 标签页图标 -->
   
@@ -171,7 +171,7 @@
 <article class="post-inner">
   <div class="post-content-outer">
     <div class="post-intro">
-      <div class="post-title animate__animated  animate__fadeInUp">2021中国高校计算机大赛 微信大数据挑战赛</div>
+      <div class="post-title animate__animated  animate__fadeInUp">2021微信大数据挑战赛</div>
       <div class="meta-intro animate__animated  animate__fadeInUp">6月 29 2021</div>
       
         <div class="post-cover"><span class="lazyload-img-span"><img data-src="https://hexo-img-meurice.oss-cn-beijing.aliyuncs.com/cover/2021wechat_algo.png" class="post-cover-img"></span></div>
@@ -185,7 +185,7 @@
         <!-- top型目录 -->
         
         <p>多任务推荐系统赛题，初赛Rank 68/6768，复赛Rank 70。<br><span id="more"></span></p>
-<h2 id="赛题描述"><a href="#赛题描述" class="headerlink" title="赛题描述"></a>赛题描述</h2><p>　　本次比赛基于脱敏和采样后的数据信息，对于给定的一定数量到访过微信视频号“热门推荐”的用户， 根据这些用户在视频号内的历史n天的行为数据，通过算法在测试集上预测出这些用户对于不同视频内容的互动行为（包括点赞、点击头像、收藏、转发等）的发生概率。 本次比赛以多个行为预测结果的加权uAUC值进行评分。<br>　　比赛提供训练集用于训练模型，测试集用于评估模型效果，提交结果demo文件用于展示提交结果的格式。 所有数据文件格式都是带表头的.csv格式，不同字段列之间用英文逗号分隔。初赛与复赛的数据分布一致，数据规模不同。 初赛提供百万级训练数据，复赛提供千万级训练数据。</p>
+<h1 id="2021中国高校计算机大赛-微信大数据挑战赛"><a href="#2021中国高校计算机大赛-微信大数据挑战赛" class="headerlink" title="2021中国高校计算机大赛 - 微信大数据挑战赛"></a>2021中国高校计算机大赛 - 微信大数据挑战赛</h1><h2 id="赛题描述"><a href="#赛题描述" class="headerlink" title="赛题描述"></a>赛题描述</h2><p>　　本次比赛基于脱敏和采样后的数据信息，对于给定的一定数量到访过微信视频号“热门推荐”的用户， 根据这些用户在视频号内的历史n天的行为数据，通过算法在测试集上预测出这些用户对于不同视频内容的互动行为（包括点赞、点击头像、收藏、转发等）的发生概率。 本次比赛以多个行为预测结果的加权uAUC值进行评分。<br>　　比赛提供训练集用于训练模型，测试集用于评估模型效果，提交结果demo文件用于展示提交结果的格式。 所有数据文件格式都是带表头的.csv格式，不同字段列之间用英文逗号分隔。初赛与复赛的数据分布一致，数据规模不同。 初赛提供百万级训练数据，复赛提供千万级训练数据。</p>
 <h2 id="Baseline"><a href="#Baseline" class="headerlink" title="Baseline"></a>Baseline</h2><p>　　主办方为本次比赛提供了一份基线:<a target="_blank" rel="noopener" href="https://github.com/WeChat-Big-Data-Challenge-2021/WeChat_Big_Data_Challenge">Wechat_Big_Data_Challenge_Baseline</a>，该基线基于Wide &amp; Deep模型实现，除6列原始id特征和feed时长特征外，在id特征的基础上构造了一些统计特征。Weight_uAUC线下0.657003，线上0.607908。<br>　　官方提供的这份基线分为数据集生成、离线模型训练、离线模型评估、在线模型训练、生成线上提交结果几个步骤，流程比较复杂，且线上线下gap较大，达到了5个百分点（经验证是统计特征涉及时间穿越，删去此部分特征可以提高2-3个百，群里也有人在基线基础上调参也能得到线上0.65+的分数），故我并没有过多参考此份基线。<br>　　我所使用的是讨论区深度匹配树大佬所开源的基于MMoE的多任务学习模型，由于MMoE的多任务训练机制，训练速度相比四个任务逐个建模大大提升，可以迅速验证一些特征的有效性。线上分数约为0.635。<br>  <img src="https://hexo-img-meurice.oss-cn-beijing.aliyuncs.com/wechat_algo_stage1/MMoE.jpg" alt="MMoE"><br> 　　TensorFlow版：<a target="_blank" rel="noopener" href="https://github.com/zanshuxun/WeChat_Big_Data_Challenge_DeepCTR_baseline">mmoe_tf</a>，Pytorch版：<a target="_blank" rel="noopener" href="https://github.com/dpoqb/wechat_big_data_baseline_pytorch">mmoe_torch</a>。</p>
 <h2 id="统计特征"><a href="#统计特征" class="headerlink" title="统计特征"></a>统计特征</h2><p>　　基线中仅使用了6列id类特征，第一想法是在这六列id的基础上构建统计特征，由于数据带有时间序列的性质，提取特征时要注意时间穿越问题。我根据user、feed等多侧的历史行为，构建了点击、曝光、CTR等相关特征，这些特征在CTR类的比赛中非常常见，Kaggle、Github上也有非常多优秀的开源代码，故这部分特征的具体提取不再赘述。<br>　　但将此部分统计特征喂给nn时，nn几乎不收敛，loss波动极大，归一化后线上成绩也非常低，于是开始思考什么样的特征适合喂给nn，开始下一阶段的特征构建。</p>
 <h2 id="512维多模态向量"><a href="#512维多模态向量" class="headerlink" title="512维多模态向量"></a>512维多模态向量</h2><p>　　这部分特征的正确使用能够获得较大幅度的提升，我尝试了两种方法，第一种是直接merge到训练集上，不过直接merge极容易OOM（除非内存足够），第二种是给feedid的嵌入赋值权重，不过后者经过实验效果不佳，也可能是我使用的方式不对。我租用的服务器配置为2*P40 + 112G RAM，将512维多模态向量经过PCA降维到48维后并在训练集上送入nn进行训练，线上线下均有大幅度提升，仅加入多模态这部分embedding特征后，线上成绩可以直接突破0.65。</p>
@@ -218,19 +218,8 @@
             
               
                 <li class="base">
-                  <a  href="/2021/04/03/%E5%B1%B1%E4%B8%9C%E7%9C%81%E7%AC%AC%E4%BA%8C%E5%B1%8A%E6%95%B0%E6%8D%AE%E5%BA%94%E7%94%A8%E5%88%9B%E6%96%B0%E5%88%9B%E4%B8%9A%E5%A4%A7%E8%B5%9B%E2%80%94%E2%80%94%E7%96%AB%E6%83%85%E5%AF%86%E5%88%87%E6%8E%A5%E8%A7%A6%E4%BA%BA%E5%91%98%E8%BF%BD%E8%B8%AA/" class="post-categoris-bottom-link">
-                  山东省第二届数据应用创新创业大赛 疫情密切接触人员追踪
-                </a>
-                </li>
-              
-              
-            
-            
-            
-              
-                <li class="base">
                   <a  href="/2021/05/18/2021%E6%8B%9B%E5%95%86%E9%93%B6%E8%A1%8CFinTech%E7%B2%BE%E8%8B%B1%E8%AE%AD%E7%BB%83%E8%90%A5-%E6%95%B0%E6%8D%AE%E8%B5%9B%E9%81%93/" class="post-categoris-bottom-link">
-                  2021招商银行FinTech精英训练营 数据赛道
+                  2021招行FinTech数据赛道
                 </a>
                 </li>
               
@@ -241,7 +230,7 @@
               
                 <li class="me base">
                   <a  href="/2021/06/29/2021%E4%B8%AD%E5%9B%BD%E9%AB%98%E6%A0%A1%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%A4%A7%E8%B5%9B%E2%80%94%E2%80%94%E5%BE%AE%E4%BF%A1%E5%A4%A7%E6%95%B0%E6%8D%AE%E6%8C%91%E6%88%98%E8%B5%9B/" class="post-categoris-bottom-link">
-                  2021中国高校计算机大赛 微信大数据挑战赛
+                  2021微信大数据挑战赛
                 </a>
                 </li>
               
@@ -296,7 +285,7 @@
               
                 <li class="base">
                   <a  href="/2022/04/29/2022%E6%8B%9B%E5%95%86%E9%93%B6%E8%A1%8CFinTech%E7%B2%BE%E8%8B%B1%E8%AE%AD%E7%BB%83%E8%90%A5%20%E6%95%B0%E6%8D%AE%E8%B5%9B%E9%81%93%E9%A6%96%E6%97%A5%E5%9F%BA%E7%BA%BF/" class="post-categoris-bottom-link">
-                  2022招商银行FinTech精英训练营 数据赛道首日基线
+                  2022招行FinTech数据赛道首日基线
                 </a>
                 </li>
               
@@ -308,17 +297,6 @@
                 <li class="base">
                   <a  href="/2022/04/30/%E5%90%84%E5%BC%8F%E5%90%84%E6%A0%B7%E7%9A%84%E8%87%AA%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9C%BA%E5%88%B6/" class="post-categoris-bottom-link">
                   各式各样的自注意力机制
-                </a>
-                </li>
-              
-              
-            
-            
-            
-              
-                <li class="base">
-                  <a  href="/2022/05/12/%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B9%A0%E2%80%94%E2%80%94%E6%84%9F%E7%9F%A5%E6%9C%BA/" class="post-categoris-bottom-link">
-                  感知机
                 </a>
                 </li>
               
@@ -428,8 +406,8 @@
             
               
                 <li class="base">
-                  <a  href="/2022/09/20/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%EF%BC%88MIT%206.828%20Xv6%EF%BC%89/" class="post-categoris-bottom-link">
-                  xv6操作系统
+                  <a  href="/2022/09/20/xv6/" class="post-categoris-bottom-link">
+                  xv6操作系统源码阅读
                 </a>
                 </li>
               
@@ -473,7 +451,7 @@
               
                 <li class="base">
                   <a  href="/2023/01/06/%E5%88%9A%E4%BD%93%E8%BF%90%E5%8A%A8%E7%8A%B6%E6%80%81%E6%8F%8F%E8%BF%B0/" class="post-categoris-bottom-link">
-                  机器人学之运动学——刚体运动状态描述
+                  刚体运动状态描述
                 </a>
                 </li>
               
@@ -482,6 +460,28 @@
             
             
             
+            
+              
+                <li class="base">
+                  <a  href="/2023/01/20/2022%E5%B9%B4%E5%BA%A6%E6%80%BB%E7%BB%93/" class="post-categoris-bottom-link">
+                  2022年度总结
+                </a>
+                </li>
+              
+              
+            
+            
+            
+            
+            
+              
+                <li class="base">
+                  <a  href="/2023/03/22/%E6%B7%B1%E5%A4%A7%E7%AE%97%E6%B3%95%E5%88%86%E6%9E%90%E4%B8%8E%E8%AE%BE%E8%AE%A1/" class="post-categoris-bottom-link">
+                  算法分析与设计 - 深大计软
+                </a>
+                </li>
+              
+              
             
             
             

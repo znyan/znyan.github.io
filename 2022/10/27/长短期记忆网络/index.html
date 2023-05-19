@@ -199,22 +199,22 @@
 <p>标准RNN中，重复模块具有非常简单的结构，例如单个tanh层：<br><img src="https://hexo-img-meurice.oss-cn-beijing.aliyuncs.com/LSTM/LSTM3-SimpleRNN.png" style="zoom:36%;" /></p>
 <p>LSTM同样具有类似的链式结构，重复模块中有4个交互层：</p>
 <p><img src="https://hexo-img-meurice.oss-cn-beijing.aliyuncs.com/LSTM/LSTM3-chain.png" style="zoom:36%;" /></p>
-<p>上图中，每条线携带一个完整的向量，从一个节点的输出到其他节点的输入，粉色圆圈代表逐点（point-wise）操作（例如向量加法），黄色框是神经网络层，行合并表示xxx，行分叉表示内容被复制且副本转到不同的位置。</p>
+<p>上图中，每条线携带一个完整的向量，从一个节点的输出到其他节点的输入，粉色圆圈代表逐点（point-wise）操作（例如向量加法），黄色框是神经网络层，行合并表示对矩阵的串联（concatenation）连接，行分叉表示内容被复制且副本转到不同的位置。</p>
 <h2 id="LSTM的核心思想"><a href="#LSTM的核心思想" class="headerlink" title="LSTM的核心思想"></a>LSTM的核心思想</h2><p>相比RNN只有一个传递状态$h_t$，LSTM有两个传递状态，$C_t$（cell state）和$h_t$（hidden state）。</p>
 <p>cell state（顶部的水平线）是LSTM的关键，cell state只有一些微小的线性作用，改变很慢。</p>
 <p><img src="https://hexo-img-meurice.oss-cn-beijing.aliyuncs.com/LSTM/LSTM3-C-line.png" style="zoom:42%;" /></p>
-<p>LSTM通过调整门控结构来选择性让信息通过</p>
-<p>xxx</p>
+<p>LSTM通过调整门控结构来选择性让信息通过。</p>
+<p>门由Sigmoid层与按位乘法操作（pointwise multiplication operation）组成。</p>
 <h2 id="LSTM的工作方式"><a href="#LSTM的工作方式" class="headerlink" title="LSTM的工作方式"></a>LSTM的工作方式</h2><h3 id="遗忘阶段"><a href="#遗忘阶段" class="headerlink" title="遗忘阶段"></a>遗忘阶段</h3><p>LSTM的第一步是由遗忘门控$\sigma$决定要从cell state中丢弃哪些信息，输入$h_{t-1}$和$x_t$，并对cell state中的每一个元素输出一个0到1之间的数字，1代表完全保留而0代表完全遗忘。</p>
 <p><img src="https://hexo-img-meurice.oss-cn-beijing.aliyuncs.com/LSTM/LSTM3-focus-f.png" style="zoom:42%;" /></p>
 <script type="math/tex; mode=display">
-f_t=\sigma (W_f\cdot [h_{t-1},x_t]+b_f)</script><h3 id="选择记忆阶段"><a href="#选择记忆阶段" class="headerlink" title="选择记忆阶段"></a>选择记忆阶段</h3><p>LSTM的第二步是决定cell state要保留哪些信息，输入门控$\sigma$决定要更新哪些值，$\tanh$创建一个新候选值组成的向量$\widetilde{C}_t$，xxx</p>
+f_t=\sigma (W_f\cdot [h_{t-1},x_t]+b_f)</script><h3 id="选择记忆阶段"><a href="#选择记忆阶段" class="headerlink" title="选择记忆阶段"></a>选择记忆阶段</h3><p>LSTM的第二步是决定cell state要保留哪些信息，输入门控$\sigma$决定要更新哪些值，$\tanh$创建一个新候选值组成的向量$\widetilde{C}_t$，并加入到状态中。</p>
 <p><img src="https://hexo-img-meurice.oss-cn-beijing.aliyuncs.com/LSTM/LSTM3-focus-i.png" style="zoom:42%;" /></p>
 <script type="math/tex; mode=display">
 \begin{align}
 i_t&=\sigma(W_i\cdot [h_{t-1},x_t]+b_i)\\
 \widetilde{C}_t&=\tanh(W_C\cdot[h_{t-1},x_t]+b_C)
-\end{align}</script><p>至此，我们可以将cell state从$C_{t-1}$更新为$C_t$。将旧的cell state与$f_t$相乘，将决定遗忘的信息丢弃，然后添加$i_t*\widetilde{C}_t$，xxx</p>
+\end{align}</script><p>至此，我们可以将cell state从$C_{t-1}$更新为$C_t$。将旧的cell state与$f_t$相乘，将决定遗忘的信息丢弃，然后添加$i_t*\widetilde{C}_t$。</p>
 <p><img src="https://hexo-img-meurice.oss-cn-beijing.aliyuncs.com/LSTM/LSTM3-focus-C.png" style="zoom:42%;" /></p>
 <script type="math/tex; mode=display">
 C_t=f_t*C_{t-1}+i_t*\widetilde{C}_t</script><h3 id="输出阶段"><a href="#输出阶段" class="headerlink" title="输出阶段"></a>输出阶段</h3><p>LSTM的最后一步是决定要输出什么，这个输出基于cell state。首先经过输出门控$\sigma$，决定我们要输出cell state的哪些部分，然后将cell state通过$\tanh$，并与输出门控的输出相乘，就得到了决定输出的部分$h_t$。</p>
@@ -244,19 +244,8 @@ h_t&=o_t *\tanh(C_t)
             
               
                 <li class="base">
-                  <a  href="/2021/04/03/%E5%B1%B1%E4%B8%9C%E7%9C%81%E7%AC%AC%E4%BA%8C%E5%B1%8A%E6%95%B0%E6%8D%AE%E5%BA%94%E7%94%A8%E5%88%9B%E6%96%B0%E5%88%9B%E4%B8%9A%E5%A4%A7%E8%B5%9B%E2%80%94%E2%80%94%E7%96%AB%E6%83%85%E5%AF%86%E5%88%87%E6%8E%A5%E8%A7%A6%E4%BA%BA%E5%91%98%E8%BF%BD%E8%B8%AA/" class="post-categoris-bottom-link">
-                  山东省第二届数据应用创新创业大赛 疫情密切接触人员追踪
-                </a>
-                </li>
-              
-              
-            
-            
-            
-              
-                <li class="base">
                   <a  href="/2021/05/18/2021%E6%8B%9B%E5%95%86%E9%93%B6%E8%A1%8CFinTech%E7%B2%BE%E8%8B%B1%E8%AE%AD%E7%BB%83%E8%90%A5-%E6%95%B0%E6%8D%AE%E8%B5%9B%E9%81%93/" class="post-categoris-bottom-link">
-                  2021招商银行FinTech精英训练营 数据赛道
+                  2021招行FinTech数据赛道
                 </a>
                 </li>
               
@@ -267,7 +256,7 @@ h_t&=o_t *\tanh(C_t)
               
                 <li class="base">
                   <a  href="/2021/06/29/2021%E4%B8%AD%E5%9B%BD%E9%AB%98%E6%A0%A1%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%A4%A7%E8%B5%9B%E2%80%94%E2%80%94%E5%BE%AE%E4%BF%A1%E5%A4%A7%E6%95%B0%E6%8D%AE%E6%8C%91%E6%88%98%E8%B5%9B/" class="post-categoris-bottom-link">
-                  2021中国高校计算机大赛 微信大数据挑战赛
+                  2021微信大数据挑战赛
                 </a>
                 </li>
               
@@ -322,7 +311,7 @@ h_t&=o_t *\tanh(C_t)
               
                 <li class="base">
                   <a  href="/2022/04/29/2022%E6%8B%9B%E5%95%86%E9%93%B6%E8%A1%8CFinTech%E7%B2%BE%E8%8B%B1%E8%AE%AD%E7%BB%83%E8%90%A5%20%E6%95%B0%E6%8D%AE%E8%B5%9B%E9%81%93%E9%A6%96%E6%97%A5%E5%9F%BA%E7%BA%BF/" class="post-categoris-bottom-link">
-                  2022招商银行FinTech精英训练营 数据赛道首日基线
+                  2022招行FinTech数据赛道首日基线
                 </a>
                 </li>
               
@@ -334,17 +323,6 @@ h_t&=o_t *\tanh(C_t)
                 <li class="base">
                   <a  href="/2022/04/30/%E5%90%84%E5%BC%8F%E5%90%84%E6%A0%B7%E7%9A%84%E8%87%AA%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9C%BA%E5%88%B6/" class="post-categoris-bottom-link">
                   各式各样的自注意力机制
-                </a>
-                </li>
-              
-              
-            
-            
-            
-              
-                <li class="base">
-                  <a  href="/2022/05/12/%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B9%A0%E2%80%94%E2%80%94%E6%84%9F%E7%9F%A5%E6%9C%BA/" class="post-categoris-bottom-link">
-                  感知机
                 </a>
                 </li>
               
@@ -454,8 +432,8 @@ h_t&=o_t *\tanh(C_t)
             
               
                 <li class="base">
-                  <a  href="/2022/09/20/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%EF%BC%88MIT%206.828%20Xv6%EF%BC%89/" class="post-categoris-bottom-link">
-                  xv6操作系统
+                  <a  href="/2022/09/20/xv6/" class="post-categoris-bottom-link">
+                  xv6操作系统源码阅读
                 </a>
                 </li>
               
@@ -499,7 +477,7 @@ h_t&=o_t *\tanh(C_t)
               
                 <li class="base">
                   <a  href="/2023/01/06/%E5%88%9A%E4%BD%93%E8%BF%90%E5%8A%A8%E7%8A%B6%E6%80%81%E6%8F%8F%E8%BF%B0/" class="post-categoris-bottom-link">
-                  机器人学之运动学——刚体运动状态描述
+                  刚体运动状态描述
                 </a>
                 </li>
               
@@ -508,6 +486,28 @@ h_t&=o_t *\tanh(C_t)
             
             
             
+            
+              
+                <li class="base">
+                  <a  href="/2023/01/20/2022%E5%B9%B4%E5%BA%A6%E6%80%BB%E7%BB%93/" class="post-categoris-bottom-link">
+                  2022年度总结
+                </a>
+                </li>
+              
+              
+            
+            
+            
+            
+            
+              
+                <li class="base">
+                  <a  href="/2023/03/22/%E6%B7%B1%E5%A4%A7%E7%AE%97%E6%B3%95%E5%88%86%E6%9E%90%E4%B8%8E%E8%AE%BE%E8%AE%A1/" class="post-categoris-bottom-link">
+                  算法分析与设计 - 深大计软
+                </a>
+                </li>
+              
+              
             
             
             
